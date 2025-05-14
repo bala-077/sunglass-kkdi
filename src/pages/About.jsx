@@ -59,7 +59,7 @@ const About = () => {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <div 
-            className="absolute inset-0 bg-black/60"
+            className="absolute inset-0 bg-black/60" // Dark overlay for better text contrast
             aria-hidden="true"
           />
           <img
@@ -173,40 +173,6 @@ const About = () => {
           </div>
         </motion.div>
       </section>
-
-      {/* Who We Are Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-blue-50 to-white relative">
-        <div className="max-w-5xl mx-auto text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl font-bold text-blue-700 mb-4"
-          >
-            Who We Are
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-6"
-          >
-            Founded in 2022, <b>[Your Company Name]</b> is a dynamic and diversified private limited company based in India. With headquarters in Chennai and a modern development center in Karaikudi, we provide high-quality services and products across technology, training, event management, distribution, and utility sectors.
-          </motion.p>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1 }}
-            className="text-base text-gray-600 max-w-2xl mx-auto"
-          >
-            Our goal is to drive innovation, create value, and deliver excellence across every vertical. We believe in a customer-first approach, combined with a passion for technology, quality, and service.
-          </motion.p>
-        </div>
-      </section>
-
       {/* Features Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-900 to-gray-800 relative overflow-hidden">
         {/* Decorative elements */}
@@ -320,7 +286,40 @@ const About = () => {
         </div>
       </section>
 
-      {/* Stats Section with CountUp */}
+      // Add a "Who We Are" section after Hero Section
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-blue-50 to-white relative">
+        <div className="max-w-5xl mx-auto text-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl md:text-4xl font-bold text-blue-700 mb-4"
+          >
+            Who We Are
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-6"
+          >
+            Founded in 2022, <b>[Your Company Name]</b> is a dynamic and diversified private limited company based in India. With headquarters in Chennai and a modern development center in Karaikudi, we provide high-quality services and products across technology, training, event management, distribution, and utility sectors.
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            className="text-base text-gray-600 max-w-2xl mx-auto"
+          >
+            Our goal is to drive innovation, create value, and deliver excellence across every vertical. We believe in a customer-first approach, combined with a passion for technology, quality, and service.
+          </motion.p>
+        </div>
+      </section>
+
+      {/* Stats Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-indigo-900 to-purple-900 text-white relative overflow-hidden">
         {/* Animated particles */}
         <div className="absolute inset-0 overflow-hidden">
@@ -381,13 +380,7 @@ const About = () => {
                   <i className={stat.icon} />
                 </div>
                 <div className="text-5xl font-extrabold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-purple-200 flex items-center justify-center">
-                  <CountUp 
-                    end={stat.number} 
-                    duration={2.5} 
-                    suffix={stat.suffix}
-                    enableScrollSpy
-                    scrollSpyOnce
-                  />
+                  <CountUp end={stat.number} duration={2.5} suffix={stat.suffix} />
                 </div>
                 <div className="text-lg text-white/80 font-medium">
                   {stat.label}
