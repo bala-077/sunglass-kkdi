@@ -1,5 +1,5 @@
 import React from 'react'
-import eventManagement from '/eventManagement.jpg'
+import eventManagement from '/event-Management.jpg'
 
 const EventManagement = () => {
   return (
