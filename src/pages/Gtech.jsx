@@ -1,5 +1,5 @@
 import React from 'react'
-import gtech from './gtech.jpg'
+import gtech from '../../public/gtech.jpg'
 
 const Gtech = () => {
   return (
