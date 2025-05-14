@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { FaInfoCircle, FaBuilding, FaCalendarAlt, FaShoppingCart, FaImages, FaEnvelope, FaBars } from 'react-icons/fa'
-import { useNavigate } from 'react-router-dom'
-import logo from './empty.png'
+import logo from '/empty.png'
 import SideNavbar from './SideNavbar'
+import { useNavigate } from 'react-router-dom'
 
 const navItems = [
   { name: 'About Us', path: '/aboutus', icon: <FaInfoCircle /> },
