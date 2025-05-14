@@ -7,7 +7,6 @@ import EventManagement from './pages/EventManagement'
 const App = () => {
   return (
     <Router>
-      <Navbar />
       <Routes>
         {/* Example routes, replace with your actual components */}
         {/* <Route path="/aboutus" element={<AboutUs />} /> */}
@@ -18,7 +17,7 @@ const App = () => {
         {/* <Route path="/contact" element={<ContactUs />} /> */}
       </Routes>
     </Router>
-  )
-}
+  );
+};
 
-export default App
+export default App;
