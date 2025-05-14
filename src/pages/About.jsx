@@ -1,11 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import img1 from '/gtech.jpg';
+import CountUp from 'react-countup';
+import img1 from '/gtech.jpg'; 
 
 const About = () => {
+  // Animation variants
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
   };
 
   const staggerContainer = {
@@ -18,402 +20,299 @@ const About = () => {
     }
   };
 
+  // Icons data
+  const features = [
+    { icon: 'fas fa-rocket', title: 'Innovation', color: 'from-purple-500 to-pink-500' },
+    { icon: 'fas fa-brain', title: 'Intelligence', color: 'from-blue-500 to-cyan-400' },
+    { icon: 'fas fa-bolt', title: 'Speed', color: 'from-yellow-500 to-orange-500' },
+    { icon: 'fas fa-shield-alt', title: 'Security', color: 'from-green-500 to-teal-400' },
+  ];
+
+  const leaders = [
+    {
+      title: 'Founder & CEO',
+      name: 'Alex Johnson',
+      role: 'Visionary Leader',
+      icon: 'fas fa-crown',
+      color: 'bg-gradient-to-br from-amber-400 to-orange-500'
+    },
+    {
+      title: 'CTO',
+      name: 'Sarah Chen',
+      role: 'Tech Innovator',
+      icon: 'fas fa-microchip',
+      color: 'bg-gradient-to-br from-blue-400 to-indigo-600'
+    },
+    {
+      title: 'CFO',
+      name: 'Michael Rodriguez',
+      role: 'Financial Strategist',
+      icon: 'fas fa-chart-line',
+      color: 'bg-gradient-to-br from-emerald-400 to-green-600'
+    }
+  ];
+
   return (
-    <div style={{ 
-      fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif", 
-      background: '#fafafa', 
-      color: '#222',
-      overflowX: 'hidden'
-    }}>
-      {/* Hero Section */}
-      <section style={{
-        position: 'relative',
-        display: 'flex',
-        alignItems: 'center',
-        padding: '80px 5%',
-        background: 'linear-gradient(135deg, #f0f4ff 0%, #f9faff 100%)',
-        overflow: 'hidden'
-      }}>
-        <div style={{
-          position: 'absolute',
-          top: '-50%',
-          right: '-10%',
-          width: '70%',
-          height: '200%',
-          background: 'radial-gradient(circle, rgba(91,110,225,0.08) 0%, rgba(255,255,255,0) 70%)',
-          zIndex: 0
-        }} />
-        
-        <motion.div 
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          style={{ zIndex: 1 }}
-        >
-          <img 
-            src={img1} 
-            alt="GTech Logo" 
-            style={{ 
-              width: '180px', 
-              marginRight: '60px', 
-              borderRadius: '16px', 
-              boxShadow: '0 8px 32px rgba(0,0,0,0.12)',
-              border: '1px solid rgba(255,255,255,0.2)'
-            }} 
+    <div className="font-sans antialiased text-gray-900 overflow-x-hidden">
+      {/* Hero Section with Background Image */}
+      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <div 
+            className="absolute inset-0 bg-black/60"
+            aria-hidden="true"
           />
-        </motion.div>
-        
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.8 }}
-          style={{ zIndex: 1 }}
-        >
-          <h1 style={{ 
-            fontSize: '3rem', 
-            marginBottom: '20px', 
-            color: '#1a1a1a',
-            fontWeight: 700,
-            lineHeight: 1.2
-          }}>
-            Innovating <span style={{ color: '#5b6ee1' }}>Tomorrow's</span> Solutions Today
-          </h1>
-          <div style={{
-            width: '80px',
-            height: '4px',
-            background: '#5b6ee1',
-            marginBottom: '24px',
-            borderRadius: '2px'
-          }} />
-          <p style={{ 
-            fontSize: '1.2rem', 
-            maxWidth: '700px', 
-            lineHeight: 1.7,
-            color: '#4a4a4a',
-            marginBottom: '32px'
-          }}>
-            Founded in 2022, <b style={{ color: '#5b6ee1' }}>[Your Company Name]</b> is a dynamic and diversified private limited company driving innovation across multiple industries. Headquartered in Chennai with a state-of-the-art development center in Karaikudi, we deliver excellence through technology, training, and strategic solutions.
-          </p>
-          <motion.button
-            whileHover={{ scale: 1.03, boxShadow: '0 8px 24px rgba(91,110,225,0.3)' }}
-            whileTap={{ scale: 0.98 }}
-            style={{
-              background: '#5b6ee1',
-              color: 'white',
-              border: 'none',
-              padding: '12px 28px',
-              borderRadius: '8px',
-              fontSize: '1rem',
-              fontWeight: 600,
-              cursor: 'pointer',
-              boxShadow: '0 4px 16px rgba(91,110,225,0.2)',
-              transition: 'all 0.3s ease'
-            }}
+          <img
+            src={img1}
+            alt="Background"
+            className="w-full h-full object-cover object-center"
+            loading="eager"
+          />
+        </div>
+
+        {/* Animated floating icons */}
+        <div className="absolute inset-0 overflow-hidden z-0">
+          {[...Array(12)].map((_, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: -20, x: Math.random() * 100 - 50 }}
+              animate={{ 
+                opacity: [0, 0.7, 0],
+                y: [0, Math.random() * 200 - 100],
+                x: [0, Math.random() * 200 - 100]
+              }}
+              transition={{ 
+                duration: 15 + Math.random() * 10,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+              className="absolute text-white/20 text-4xl"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`
+              }}
+            >
+              <i className={`fas fa-${['star', 'circle', 'square', 'hexagon'][i % 4]}`} />
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto text-center px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
           >
-            Explore Our Work
-          </motion.button>
-        </motion.div>
-      </section>
+            <div className="inline-flex items-center justify-center mb-8">
+              <motion.div 
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ delay: 0.2, type: 'spring' }}
+                className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center text-white text-2xl shadow-xl"
+              >
+                <i className="fas fa-cubes" />
+              </motion.div>
+            </div>
+            
+            <motion.h1 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+              className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight"
+            >
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-300">
+                Innovating
+              </span>{' '}
+              <span className="text-white">Tomorrow's Solutions</span>
+            </motion.h1>
+            
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6 }}
+              className="text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto mb-10 leading-relaxed"
+            >
+              We combine cutting-edge technology with visionary thinking to create solutions that transform businesses and empower communities.
+            </motion.p>
+            
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8 }}
+              className="flex flex-wrap justify-center gap-4"
+            >
+              <motion.button
+                whileHover={{ y: -5, boxShadow: '0 10px 25px -5px rgba(99, 102, 241, 0.4)' }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-xl shadow-lg transition-all duration-300"
+              >
+                Explore Our Work
+              </motion.button>
+              <motion.button
+                whileHover={{ y: -5 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl border-2 border-white/20 shadow-lg transition-all duration-300 hover:bg-white/20"
+              >
+                Meet Our Team
+              </motion.button>
+            </motion.div>
+          </motion.div>
+        </div>
 
-      {/* Mission Section */}
-      <section style={{
-        padding: '80px 5%',
-        background: 'white',
-        position: 'relative'
-      }}>
-        <div style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          background: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23f0f2ff\' fill-opacity=\'0.4\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")'
-        }} />
-        
+        {/* Floating scroll indicator */}
         <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={staggerContainer}
-          style={{
-            maxWidth: '1200px',
-            margin: '0 auto',
-            position: 'relative',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '40px'
-          }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.2 }}
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10"
         >
-          <motion.div variants={fadeIn}>
-            <div style={{
-              background: 'white',
-              borderRadius: '16px',
-              padding: '40px',
-              boxShadow: '0 8px 32px rgba(0,0,0,0.05)',
-              border: '1px solid rgba(0,0,0,0.03)',
-              height: '100%'
-            }}>
-              <div style={{
-                width: '60px',
-                height: '60px',
-                background: 'linear-gradient(135deg, #5b6ee1 0%, #8a9eff 100%)',
-                borderRadius: '12px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginBottom: '24px',
-                color: 'white',
-                fontSize: '24px'
-              }}>
-                <i className="fas fa-bullseye"></i>
-              </div>
-              <h3 style={{ 
-                fontSize: '1.5rem',
-                marginBottom: '16px',
-                color: '#1a1a1a'
-              }}>
-                Our Mission
-              </h3>
-              <p style={{ 
-                color: '#666',
-                lineHeight: 1.7,
-                fontSize: '1.05rem'
-              }}>
-                To empower businesses through innovative technology solutions that drive efficiency, growth, and competitive advantage. We combine technical expertise with deep industry knowledge to deliver transformative results.
-              </p>
-            </div>
-          </motion.div>
-          
-          <motion.div variants={fadeIn}>
-            <div style={{
-              background: 'white',
-              borderRadius: '16px',
-              padding: '40px',
-              boxShadow: '0 8px 32px rgba(0,0,0,0.05)',
-              border: '1px solid rgba(0,0,0,0.03)',
-              height: '100%'
-            }}>
-              <div style={{
-                width: '60px',
-                height: '60px',
-                background: 'linear-gradient(135deg, #5b6ee1 0%, #8a9eff 100%)',
-                borderRadius: '12px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginBottom: '24px',
-                color: 'white',
-                fontSize: '24px'
-              }}>
-                <i className="fas fa-eye"></i>
-              </div>
-              <h3 style={{ 
-                fontSize: '1.5rem',
-                marginBottom: '16px',
-                color: '#1a1a1a'
-              }}>
-                Our Vision
-              </h3>
-              <p style={{ 
-                color: '#666',
-                lineHeight: 1.7,
-                fontSize: '1.05rem'
-              }}>
-                To be recognized as a global leader in technology solutions, known for our commitment to excellence, innovation, and customer success. We aim to redefine industry standards through cutting-edge research and development.
-              </p>
-            </div>
-          </motion.div>
-          
-          <motion.div variants={fadeIn}>
-            <div style={{
-              background: 'white',
-              borderRadius: '16px',
-              padding: '40px',
-              boxShadow: '0 8px 32px rgba(0,0,0,0.05)',
-              border: '1px solid rgba(0,0,0,0.03)',
-              height: '100%'
-            }}>
-              <div style={{
-                width: '60px',
-                height: '60px',
-                background: 'linear-gradient(135deg, #5b6ee1 0%, #8a9eff 100%)',
-                borderRadius: '12px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginBottom: '24px',
-                color: 'white',
-                fontSize: '24px'
-              }}>
-                <i className="fas fa-handshake"></i>
-              </div>
-              <h3 style={{ 
-                fontSize: '1.5rem',
-                marginBottom: '16px',
-                color: '#1a1a1a'
-              }}>
-                Our Values
-              </h3>
-              <p style={{ 
-                color: '#666',
-                lineHeight: 1.7,
-                fontSize: '1.05rem'
-              }}>
-                Integrity, Innovation, Excellence, and Collaboration guide everything we do. We believe in building lasting relationships, fostering creativity, and delivering measurable value to our clients and partners.
-              </p>
-            </div>
-          </motion.div>
+          <div className="animate-bounce flex flex-col items-center">
+            <span className="text-white mb-2">Scroll Down</span>
+            <i className="fas fa-chevron-down text-white text-xl" />
+          </div>
         </motion.div>
       </section>
 
-      {/* Leadership Section */}
-      <section style={{ 
-        padding: '80px 5%',
-        background: 'linear-gradient(to bottom, #ffffff 0%, #f8f9ff 100%)'
-      }}>
-        <div style={{ 
-          maxWidth: '1200px', 
-          margin: '0 auto',
-          textAlign: 'center'
-        }}>
+      {/* Who We Are Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-blue-50 to-white relative">
+        <div className="max-w-5xl mx-auto text-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl md:text-4xl font-bold text-blue-700 mb-4"
+          >
+            Who We Are
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-6"
+          >
+            Founded in 2022, <b>[Your Company Name]</b> is a dynamic and diversified private limited company based in India. With headquarters in Chennai and a modern development center in Karaikudi, we provide high-quality services and products across technology, training, event management, distribution, and utility sectors.
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            className="text-base text-gray-600 max-w-2xl mx-auto"
+          >
+            Our goal is to drive innovation, create value, and deliver excellence across every vertical. We believe in a customer-first approach, combined with a passion for technology, quality, and service.
+          </motion.p>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-900 to-gray-800 relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-blue-500/10 blur-3xl" />
+        <div className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-purple-500/10 blur-3xl" />
+        
+        <div className="max-w-7xl mx-auto relative">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="text-center mb-16"
           >
-            <h2 style={{ 
-              fontSize: '2.5rem',
-              marginBottom: '16px',
-              color: '#1a1a1a',
-              fontWeight: 700
-            }}>
-              Meet Our <span style={{ color: '#5b6ee1' }}>Leadership</span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+              Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-300">Core Values</span>
             </h2>
-            <div style={{
-              width: '80px',
-              height: '4px',
-              background: '#5b6ee1',
-              margin: '0 auto 24px',
-              borderRadius: '2px'
-            }} />
-            <p style={{ 
-              maxWidth: '700px',
-              margin: '0 auto 60px',
-              fontSize: '1.1rem',
-              color: '#666',
-              lineHeight: 1.7
-            }}>
-              Our leadership team combines decades of industry experience with visionary thinking to drive innovation and growth across all our business verticals.
-            </p>
+            <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full mx-auto" />
           </motion.div>
-          
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '30px',
-            marginTop: '40px'
-          }}>
-            {[1, 2, 3].map((item, index) => (
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
+                transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -10 }}
-                style={{
-                  background: 'white',
-                  borderRadius: '16px',
-                  padding: '30px',
-                  boxShadow: '0 8px 32px rgba(0,0,0,0.08)',
-                  transition: 'all 0.3s ease'
-                }}
+                className={`bg-gradient-to-br ${feature.color} rounded-2xl p-8 shadow-2xl hover:shadow-xl transition-all duration-300`}
               >
-                <div style={{
-                  width: '120px',
-                  height: '120px',
-                  borderRadius: '50%',
-                  background: '#f0f2ff',
-                  margin: '0 auto 24px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  overflow: 'hidden',
-                  border: '4px solid #e6e9ff'
-                }}>
-                  <i className="fas fa-user" style={{ 
-                    color: '#5b6ee1',
-                    fontSize: '48px'
-                  }}></i>
+                <div className="w-20 h-20 rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center text-white text-3xl mb-6 mx-auto">
+                  <i className={feature.icon} />
                 </div>
-                <h3 style={{ 
-                  fontSize: '1.5rem',
-                  marginBottom: '8px',
-                  color: '#1a1a1a',
-                  textAlign: 'center'
-                }}>
-                  {index === 0 ? 'Founder, MD & CEO' : index === 1 ? 'Founder, MD & CTO' : 'Founder, MD & CFO'}
-                </h3>
-                <p style={{ 
-                  color: '#5b6ee1',
-                  fontWeight: 600,
-                  textAlign: 'center',
-                  marginBottom: '20px',
-                  fontSize: '1.1rem'
-                }}>
-                  {index === 0 ? '[Founder Name]' : index === 1 ? '[CTO Name]' : '[CFO Name]'}
+                <h3 className="text-xl font-bold text-white text-center mb-3">{feature.title}</h3>
+                <p className="text-gray-200 text-center">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.
                 </p>
-                <p style={{ 
-                  color: '#666',
-                  lineHeight: 1.7,
-                  textAlign: 'center',
-                  fontSize: '1rem'
-                }}>
-                  {index === 0 ? 'With visionary leadership and extensive industry experience, our CEO drives the strategic direction and growth of the company.' : 
-                   index === 1 ? 'Our CTO leads technological innovation, ensuring our solutions remain at the cutting edge of industry advancements.' : 
-                   'Our CFO oversees financial strategy and operations, ensuring sustainable growth and fiscal responsibility.'}
-                </p>
-                <div style={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  marginTop: '20px',
-                  gap: '12px'
-                }}>
-                  <motion.a 
-                    whileHover={{ scale: 1.1 }}
-                    href="#"
-                    style={{
-                      width: '36px',
-                      height: '36px',
-                      borderRadius: '50%',
-                      background: '#f0f2ff',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: '#5b6ee1',
-                      textDecoration: 'none'
-                    }}
-                  >
-                    <i className="fab fa-linkedin-in"></i>
-                  </motion.a>
-                  <motion.a 
-                    whileHover={{ scale: 1.1 }}
-                    href="#"
-                    style={{
-                      width: '36px',
-                      height: '36px',
-                      borderRadius: '50%',
-                      background: '#f0f2ff',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: '#5b6ee1',
-                      textDecoration: 'none'
-                    }}
-                  >
-                    <i className="fas fa-envelope"></i>
-                  </motion.a>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Leadership Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-gray-100 to-transparent z-0" />
+        
+        <div className="max-w-7xl mx-auto relative">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              Meet Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">Leadership</span>
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Visionary thinkers and industry experts driving innovation forward
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {leaders.map((leader, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ y: -10 }}
+                className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300"
+              >
+                <div className={`h-48 ${leader.color} flex items-center justify-center`}>
+                  <i className={`${leader.icon} text-white text-6xl`} />
+                </div>
+                <div className="p-8 text-center">
+                  <h3 className="text-xl font-bold text-gray-900 mb-1">{leader.name}</h3>
+                  <p className="text-blue-600 font-semibold mb-3">{leader.title}</p>
+                  <p className="text-gray-600 mb-6">{leader.role}</p>
+                  <div className="flex justify-center space-x-4">
+                    <motion.a 
+                      whileHover={{ y: -3 }}
+                      href="#" 
+                      className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition-colors"
+                    >
+                      <i className="fab fa-linkedin-in" />
+                    </motion.a>
+                    <motion.a 
+                      whileHover={{ y: -3 }}
+                      href="#" 
+                      className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition-colors"
+                    >
+                      <i className="fab fa-twitter" />
+                    </motion.a>
+                    <motion.a 
+                      whileHover={{ y: -3 }}
+                      href="#" 
+                      className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition-colors"
+                    >
+                      <i className="fas fa-envelope" />
+                    </motion.a>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -421,289 +320,114 @@ const About = () => {
         </div>
       </section>
 
-      {/* Verticals Section */}
-      <section style={{ 
-        padding: '80px 5%',
-        background: 'white',
-        position: 'relative'
-      }}>
-        <div style={{ 
-          maxWidth: '1200px', 
-          margin: '0 auto'
-        }}>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            style={{ marginBottom: '60px' }}
-          >
-            <h2 style={{ 
-              fontSize: '2.5rem',
-              marginBottom: '16px',
-              color: '#1a1a1a',
-              fontWeight: 700,
-              textAlign: 'center'
-            }}>
-              Our <span style={{ color: '#5b6ee1' }}>Business Verticals</span>
-            </h2>
-            <div style={{
-              width: '80px',
-              height: '4px',
-              background: '#5b6ee1',
-              margin: '0 auto 24px',
-              borderRadius: '2px'
-            }} />
-            <p style={{ 
-              maxWidth: '700px',
-              margin: '0 auto',
-              fontSize: '1.1rem',
-              color: '#666',
-              lineHeight: 1.7,
-              textAlign: 'center'
-            }}>
-              We operate across multiple specialized verticals, each delivering unique value to our clients through focused expertise and innovative solutions.
-            </p>
-          </motion.div>
-          
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(500px, 1fr))',
-            gap: '40px'
-          }}>
+      {/* Stats Section with CountUp */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-indigo-900 to-purple-900 text-white relative overflow-hidden">
+        {/* Animated particles */}
+        <div className="absolute inset-0 overflow-hidden">
+          {[...Array(20)].map((_, i) => (
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              style={{
-                background: 'linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%)',
-                borderRadius: '16px',
-                padding: '40px',
-                boxShadow: '0 8px 32px rgba(0,0,0,0.05)',
-                border: '1px solid rgba(0,0,0,0.03)',
-                position: 'relative',
-                overflow: 'hidden'
+              key={i}
+              initial={{ opacity: 0, x: Math.random() * 100 - 50, y: Math.random() * 100 - 50 }}
+              animate={{ 
+                opacity: [0, 0.8, 0],
+                x: [0, Math.random() * 200 - 100],
+                y: [0, Math.random() * 200 - 100]
               }}
-            >
-              <div style={{
-                position: 'absolute',
-                top: '0',
-                right: '0',
-                width: '100px',
-                height: '100px',
-                background: 'rgba(91,110,225,0.1)',
-                borderRadius: '0 0 0 100%',
-                zIndex: 0
-              }} />
-              <h3 style={{ 
-                fontSize: '1.8rem',
-                marginBottom: '20px',
-                color: '#1a1a1a',
-                position: 'relative',
-                zIndex: 1
-              }}>
-                <span style={{ color: '#5b6ee1' }}>01.</span> Software Development & AI Solutions
-              </h3>
-              <p style={{ 
-                color: '#666',
-                lineHeight: 1.7,
-                marginBottom: '20px',
-                position: 'relative',
-                zIndex: 1
-              }}>
-                Our core strength lies in developing intelligent, user-centric software applications. We leverage cutting-edge technologies to build scalable and secure solutions tailored for businesses of all sizes.
-              </p>
-              <ul style={{ 
-                marginLeft: '20px',
-                marginBottom: '20px',
-                position: 'relative',
-                zIndex: 1
-              }}>
-                <li style={{ marginBottom: '10px', color: '#555' }}><b>Custom Web Applications</b> – Tailor-made platforms designed to match your business workflows.</li>
-                <li style={{ marginBottom: '10px', color: '#555' }}><b>AI-Enabled Platforms</b> – Integrating machine learning to automate and enhance decision-making.</li>
-                <li style={{ marginBottom: '10px', color: '#555' }}><b>ERP, CRM, Inventory Systems</b> – Streamlined systems to manage business operations.</li>
-                <li style={{ color: '#555' }}><b>Business Automation Tools</b> – Solutions to reduce manual tasks and boost productivity.</li>
-              </ul>
-              <motion.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
-                style={{
-                  background: 'transparent',
-                  color: '#5b6ee1',
-                  border: '2px solid #5b6ee1',
-                  padding: '10px 24px',
-                  borderRadius: '8px',
-                  fontSize: '0.95rem',
-                  fontWeight: 600,
-                  cursor: 'pointer',
-                  transition: 'all 0.3s ease',
-                  position: 'relative',
-                  zIndex: 1
-                }}
-              >
-                Learn More
-              </motion.button>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              style={{
-                background: 'linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%)',
-                borderRadius: '16px',
-                padding: '40px',
-                boxShadow: '0 8px 32px rgba(0,0,0,0.05)',
-                border: '1px solid rgba(0,0,0,0.03)',
-                position: 'relative',
-                overflow: 'hidden'
+              transition={{ 
+                duration: 10 + Math.random() * 10,
+                repeat: Infinity,
+                repeatType: "reverse"
               }}
-            >
-              <div style={{
-                position: 'absolute',
-                top: '0',
-                right: '0',
-                width: '100px',
-                height: '100px',
-                background: 'rgba(91,110,225,0.1)',
-                borderRadius: '0 0 0 100%',
-                zIndex: 0
-              }} />
-              <h3 style={{ 
-                fontSize: '1.8rem',
-                marginBottom: '20px',
-                color: '#1a1a1a',
-                position: 'relative',
-                zIndex: 1
-              }}>
-                <span style={{ color: '#5b6ee1' }}>02.</span> Training & Development
-              </h3>
-              <p style={{ 
-                color: '#666',
-                lineHeight: 1.7,
-                marginBottom: '20px',
-                position: 'relative',
-                zIndex: 1
-              }}>
-                We offer comprehensive training programs designed to upskill professionals and students in emerging technologies, bridging the gap between academia and industry requirements.
-              </p>
-              <ul style={{ 
-                marginLeft: '20px',
-                marginBottom: '20px',
-                position: 'relative',
-                zIndex: 1
-              }}>
-                <li style={{ marginBottom: '10px', color: '#555' }}><b>Technical Workshops</b> – Hands-on sessions on cutting-edge technologies.</li>
-                <li style={{ marginBottom: '10px', color: '#555' }}><b>Corporate Training</b> – Customized programs for enterprise teams.</li>
-                <li style={{ marginBottom: '10px', color: '#555' }}><b>Certification Courses</b> – Industry-recognized credentials.</li>
-                <li style={{ color: '#555' }}><b>Internship Programs</b> – Practical experience for students and graduates.</li>
-              </ul>
-              <motion.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
-                style={{
-                  background: 'transparent',
-                  color: '#5b6ee1',
-                  border: '2px solid #5b6ee1',
-                  padding: '10px 24px',
-                  borderRadius: '8px',
-                  fontSize: '0.95rem',
-                  fontWeight: 600,
-                  cursor: 'pointer',
-                  transition: 'all 0.3s ease',
-                  position: 'relative',
-                  zIndex: 1
-                }}
-              >
-                Learn More
-              </motion.button>
-            </motion.div>
-          </div>
+              className="absolute w-2 h-2 rounded-full bg-white/30"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`
+              }}
+            />
+          ))}
         </div>
-      </section>
-
-      {/* Stats Section */}
-      <section style={{ 
-        padding: '80px 5%',
-        background: 'linear-gradient(135deg, #5b6ee1 0%, #8a9eff 100%)',
-        color: 'white'
-      }}>
-        <div style={{ 
-          maxWidth: '1200px', 
-          margin: '0 auto',
-          textAlign: 'center'
-        }}>
+        
+        <div className="max-w-7xl mx-auto relative">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            style={{ marginBottom: '60px' }}
+            className="text-center mb-20"
           >
-            <h2 style={{ 
-              fontSize: '2.5rem',
-              marginBottom: '16px',
-              fontWeight: 700
-            }}>
-              By The Numbers
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+              By The <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-200">Numbers</span>
             </h2>
-            <div style={{
-              width: '80px',
-              height: '4px',
-              background: 'rgba(255,255,255,0.5)',
-              margin: '0 auto 24px',
-              borderRadius: '2px'
-            }} />
-            <p style={{ 
-              maxWidth: '700px',
-              margin: '0 auto',
-              fontSize: '1.1rem',
-              lineHeight: 1.7,
-              opacity: 0.9
-            }}>
-              Our growth and impact in numbers, showcasing our commitment to excellence and innovation.
-            </p>
+            <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full mx-auto" />
           </motion.div>
-          
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '40px',
-            marginTop: '40px'
-          }}>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { number: '50+', label: 'Clients Served' },
-              { number: '100+', label: 'Projects Completed' },
-              { number: '20+', label: 'Team Members' },
-              { number: '5', label: 'Business Verticals' }
+              { number: 50, suffix: '+', label: 'Happy Clients', icon: 'fas fa-smile' },
+              { number: 100, suffix: '+', label: 'Projects', icon: 'fas fa-project-diagram' },
+              { number: 20, suffix: '+', label: 'Team Members', icon: 'fas fa-users' },
+              { number: 5, suffix: '', label: 'Global Offices', icon: 'fas fa-globe' }
             ].map((stat, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                style={{ textAlign: 'center' }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ scale: 1.07 }}
+                className="bg-white/10 backdrop-blur-sm rounded-2xl p-10 text-center border border-white/10 hover:bg-white/20 transition-all duration-300 shadow-xl"
               >
-                <div style={{
-                  fontSize: '3.5rem',
-                  fontWeight: 700,
-                  marginBottom: '10px',
-                  lineHeight: 1
-                }}>
-                  {stat.number}
+                <div className="w-20 h-20 rounded-full bg-white/10 flex items-center justify-center text-3xl text-white mb-6 mx-auto">
+                  <i className={stat.icon} />
                 </div>
-                <div style={{
-                  fontSize: '1.1rem',
-                  opacity: 0.9
-                }}>
+                <div className="text-5xl font-extrabold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-purple-200 flex items-center justify-center">
+                  <CountUp 
+                    end={stat.number} 
+                    duration={2.5} 
+                    suffix={stat.suffix}
+                    enableScrollSpy
+                    scrollSpyOnce
+                  />
+                </div>
+                <div className="text-lg text-white/80 font-medium">
                   {stat.label}
                 </div>
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-600 to-indigo-700 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/diagonal-striped-brick.png')] opacity-10" />
+        
+        <div className="max-w-4xl mx-auto text-center relative">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+              Ready to <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-amber-200">Transform</span> Your Business?
+            </h2>
+            <p className="text-xl text-white/90 mb-10 max-w-3xl mx-auto">
+              Let's build something extraordinary together. Get in touch with our team today.
+            </p>
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="inline-flex flex-col sm:flex-row gap-4"
+            >
+              <button className="px-8 py-4 bg-white text-blue-600 font-bold rounded-xl shadow-lg hover:bg-gray-100 transition-colors">
+                Contact Us
+              </button>
+              <button className="px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-xl hover:bg-white/10 transition-colors">
+                View Case Studies
+              </button>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
     </div>
