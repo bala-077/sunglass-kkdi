@@ -1,9 +1,5 @@
 import React from 'react'
-<<<<<<< HEAD
-import gtech from '../../public/gtech.jpg'
-=======
 import gtech from '/gtech.jpg'
->>>>>>> b08a6c41d9ad810a1ea826d02942383d2fa39339
 
 const Gtech = () => {
   return (
