@@ -5,11 +5,7 @@ import heroImg from '/gtech.jpg';
 import { useNavigate } from 'react-router-dom';
 import { FiArrowRight, FiCheck, FiChevronRight, FiAward, FiUsers, FiCode, FiLayers } from 'react-icons/fi';
 import { FaRobot, FaBrain, FaEye, FaComments } from 'react-icons/fa';
-import client1 from '/client1.png';
-import client2 from '/client1.png';
-import client3 from '/client1.png';
-import client4 from '/client1.png';
-
+import user from '/user.png'
 const stats = [
   { label: 'AI Experts', value: 25, suffix: '+', description: 'Certified professionals with advanced AI expertise' },
   { label: 'Software Products', value: 12, suffix: '+', description: 'Ready-to-deploy AI solutions for various industries' },
@@ -56,30 +52,27 @@ const industries = [
 const testimonials = [
   {
     quote: "Their AI solution transformed our customer service operations, reducing response times by 70% while maintaining 98% accuracy.",
-    author: "Sarah Johnson",
-    role: "CTO, TechCorp",
-    avatar: "https://randomuser.me/api/portraits/women/43.jpg"
+    author: "Johnson",
+    avatar: user
   },
   {
     quote: "Exceptional team that delivered beyond our expectations. The predictive maintenance system has saved us millions in downtime costs.",
-    author: "Michael Chen",
-    role: "Product Director, Finova",
-    avatar: "https://randomuser.me/api/portraits/men/32.jpg"
+    author: "Shaji",
+    avatar: user
   },
   {
     quote: "Working with this team was a game-changer for our retail business. Their recommendation engine boosted our sales by 35%.",
-    author: "David Wilson",
-    role: "CEO, ShopSmart",
-    avatar: "https://randomuser.me/api/portraits/men/65.jpg"
+    author: "Ramesh",
+    avatar: user
   }
 ];
 
-const clients = [
-  { logo: client1, name: "TechCorp" },
-  { logo: client2, name: "Finova" },
-  { logo: client3, name: "MediHealth" },
-  { logo: client4, name: "ShopSmart" },
-];
+// const clients = [
+//   { logo: user, name: "TechCorp" },
+//   { logo: user, name: "Finova" },
+//   { logo: user, name: "MediHealth" },
+//   { logo: user, name: "ShopSmart" },
+// ];
 
 const Home = () => {
   const navigate = useNavigate();
@@ -336,7 +329,7 @@ const Home = () => {
                 </div>
                 <p className="text-gray-700 italic mb-6">"{testimonial.quote}"</p>
                 <div className="flex items-center">
-                  <img src={testimonial.avatar} alt={testimonial.author} className="w-12 h-12 rounded-full mr-4 object-cover" />
+                  <img src={testimonial.avatar} alt={testimonial.author} className={`w-16 h-16 rounded-full mr-4 object-cover border-4 ${index % 2 === 0 ? "border-green-500" : "border-blue-500" }`} />
                   <div>
                     <p className="font-bold text-gray-900">{testimonial.author}</p>
                     <p className="text-gray-500 text-sm">{testimonial.role}</p>

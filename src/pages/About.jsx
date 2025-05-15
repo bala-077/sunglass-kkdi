@@ -4,9 +4,11 @@ import CountUp from 'react-countup';
 import img1 from '/gtech.jpg';
 import { useInView } from 'react-intersection-observer';
 import { useNavigate } from 'react-router-dom';
+import { FiArrowRight } from 'react-icons/fi';
 
 const About = () => {
   const navigate = useNavigate();
+
   // Animation variants
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
@@ -23,7 +25,6 @@ const About = () => {
     }
   };
 
-  // State for count animation
   const [startCount, setStartCount] = useState(false);
   const [ref, inView] = useInView({
     threshold: 0.5,
@@ -40,83 +41,93 @@ const About = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Icons data
+  // Enhanced features with invisible icons
   const features = [
-    { icon: 'fas fa-lightbulb', title: 'Innovation', color: 'bg-indigo-100 text-indigo-600' },
-    { icon: 'fas fa-brain', title: 'Intelligence', color: 'bg-blue-100 text-blue-600' },
-    { icon: 'fas fa-tachometer-alt', title: 'Speed', color: 'bg-amber-100 text-amber-600' },
-    { icon: 'fas fa-shield-alt', title: 'Security', color: 'bg-green-100 text-green-600' },
-  ];
-
-  const leaders = [
     {
-      title: 'Founder & CEO',
-      name: 'Alex Johnson',
-      role: 'Visionary Leader',
-      icon: 'fas fa-crown',
-      color: 'bg-amber-100 text-amber-600'
+      title: 'Innovation Driven',
+      description: 'We constantly push boundaries with cutting-edge solutions tailored for Karaikudi businesses',
+      color: 'bg-indigo-100 text-indigo-600'
     },
     {
-      title: 'CTO',
-      name: 'Sarah Chen',
-      role: 'Tech Innovator',
-      icon: 'fas fa-microchip',
+      title: 'Local Expertise',
+      description: 'Deep understanding of Karaikudi market dynamics and business needs',
       color: 'bg-blue-100 text-blue-600'
     },
     {
-      title: 'CFO',
-      name: 'Michael Rodriguez',
-      role: 'Financial Strategist',
-      icon: 'fas fa-chart-line',
+      title: 'Rapid Execution',
+      description: 'Quick turnaround without compromising quality standards',
+      color: 'bg-amber-100 text-amber-600'
+    },
+    {
+      title: 'Data Protection',
+      description: 'Enterprise-grade security for your business information',
       color: 'bg-green-100 text-green-600'
-    }
+    },
   ];
 
   const stats = [
-    { number: 50, suffix: '+', label: 'Happy Clients', icon: 'fas fa-smile', color: 'text-indigo-600' },
-    { number: 100, suffix: '+', label: 'Projects', icon: 'fas fa-project-diagram', color: 'text-blue-600' },
-    { number: 20, suffix: '+', label: 'Team Members', icon: 'fas fa-users', color: 'text-amber-600' },
-    { number: 5, suffix: '', label: 'Global Offices', icon: 'fas fa-globe', color: 'text-green-600' }
+    { number: 150, suffix: '+', label: 'Businesses Empowered', color: 'text-indigo-600' },
+    { number: 95, suffix: '%', label: 'Client Retention', color: 'text-blue-600' },
+    { number: 24, suffix: '/7', label: 'Support Availability', color: 'text-amber-600' },
+    { number: 5, suffix: 'x', label: 'Faster Implementation', color: 'text-green-600' }
   ];
 
   return (
     <div className="font-sans antialiased bg-white text-gray-900 overflow-x-hidden">
       {/* Hero Section */}
-      <div className="relative w-full">
+      <div className="relative w-full h-screen max-h-[80vh] overflow-hidden">
         <img
           src={img1}
-          alt="Event Management"
-          className="w-full h-96 object-cover"
+          alt="Digital Solutions in Karaikudi"
+          className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/40 flex items-end p-8">
-          <div className="max-w-7xl mx-auto w-full">
-            <h1 className="text-3xl sm:text-4xl font-bold text-white mb-2">
-              Professional Event Management
-            </h1>
-            <p className="text-lg sm:text-xl text-gray-100">
-              Creating memorable experiences in Karaikudi and beyond
-            </p>
-          </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40 flex items-center px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-7xl mx-auto w-full"
+          >
+            <div className="max-w-2xl">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
+              Digital Transformation <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">Experts</span>
+              </h1>
+              <p className="text-lg sm:text-xl text-gray-100 mb-8">
+              Empowering Karaikudi businesses with innovative technology solutions
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button
+                  className="bg-gradient-to-r from-blue-600 to-indigo-500 text-white px-6 py-3 rounded-lg hover:shadow-lg transition-all font-medium cursor-pointer"
+                  onClick={() => navigate('/contact')}
+                >
+                  Connect with us <FiArrowRight className="inline ml-2" />
+                </button>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
 
       {/* Features Section */}
-      <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12 md:mb-16"
+            className="text-center mb-16"
           >
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 md:mb-4">
-              Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600">Core Values</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Why <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600">Choose Us</span>
             </h2>
-            <div className="w-16 md:w-20 h-1 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full mx-auto" />
+            <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full mx-auto" />
+            <p className="mt-6 text-lg text-gray-600 max-w-3xl mx-auto">
+              We combine global technology standards with deep local market understanding
+            </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
               <motion.div
                 key={index}
@@ -124,15 +135,15 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
-                className={`${feature.color} bg-opacity-50 rounded-xl md:rounded-2xl p-6 md:p-8 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100`}
+                whileHover={{ y: -5 }}
+                className={`${feature.color} bg-opacity-50 rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100`}
               >
-                <div className="w-16 h-16 md:w-20 md:h-20 rounded-xl md:rounded-2xl bg-white text-blue-500 flex items-center justify-center text-2xl md:text-3xl mb-4 md:mb-6 mx-auto shadow-sm">
-                  <i className={feature.icon} />
+                <div className="mb-6">
+                  <div className="w-12 h-1 bg-current opacity-50 mb-2"></div>
+                  <h3 className="text-xl font-bold text-gray-900">{feature.title}</h3>
                 </div>
-                <h3 className="text-lg md:text-xl font-bold text-gray-900 text-center mb-2 md:mb-3">{feature.title}</h3>
-                <p className="text-sm md:text-base text-gray-600 text-center">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.
+                <p className="text-gray-600">
+                  {feature.description}
                 </p>
               </motion.div>
             ))}
@@ -140,57 +151,54 @@ const About = () => {
         </div>
       </section>
 
-      
       {/* About Text Section */}
-      <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-5xl mx-auto text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-2xl md:text-3xl lg:text-4xl font-bold text-blue-600 mb-3 md:mb-4"
-          >
-            Who We Are
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-base md:text-lg text-gray-700 max-w-3xl mx-auto mb-4 md:mb-6"
-          >
-            Founded in 2022, <b>[Your Company Name]</b> is a dynamic and diversified private limited company based in India. With headquarters in Chennai and a modern development center in Karaikudi, we provide high-quality services and products across technology, training, event management, distribution, and utility sectors.
-          </motion.p>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1 }}
-            className="text-sm md:text-base text-gray-600 max-w-2xl mx-auto"
-          >
-            Our goal is to drive innovation, create value, and deliver excellence across every vertical. We believe in a customer-first approach, combined with a passion for technology, quality, and service.
-          </motion.p>
+      <section className="py-20 bg-gradient-to-r from-blue-50 to-indigo-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="relative rounded-xl overflow-hidden shadow-2xl">
+                <img src={img1} alt="Our Team" className="w-full h-auto" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+              </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <span className="text-blue-600 font-semibold">OUR STORY</span>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 mt-2">
+                Pioneering Digital Solutions in Karaikudi
+              </h2>
+              <p className="text-lg text-gray-700 mb-6">
+                Founded in 2015, Digitaly began as a small startup with a vision to transform how businesses in Karaikudi leverage technology. Today, we're the region's leading digital solutions provider, serving over 150 local businesses with our innovative platforms and services.
+              </p>
+              <p className="text-lg text-gray-700 mb-8">
+                What sets us apart is our unique blend of technical expertise and deep understanding of local business challenges. From our flagship Dial Karaikudi directory to our enterprise SaaS solutions, every product is designed with the Karaikudi business community in mind.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <button
+                  className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+                  onClick={() => navigate('/products')}
+                >
+                  Explore Our Products
+                </button>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section ref={ref} className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12 md:mb-20"
-          >
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 md:mb-6">
-              By The <span className="text-gray-600">Numbers</span>
-            </h2>
-            <div className="w-16 md:w-20 h-1 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full mx-auto" />
-          </motion.div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+      <section className="py-20 bg-white" ref={ref}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
@@ -198,25 +206,19 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                whileHover={{ scale: 1.05 }}
-                className="bg-white rounded-xl md:rounded-2xl p-6 md:p-10 text-center border border-gray-100 hover:border-blue-100 transition-all duration-300 shadow-sm hover:shadow-md"
+                className="p-6"
               >
-                <div className={`w-14 h-14 md:w-20 md:h-20 rounded-full ${stat.color} bg-opacity-10 flex items-center justify-center text-2xl md:text-3xl mb-4 md:mb-6 mx-auto`}>
-                  <i className={stat.icon} />
-                </div>
-                <div className={`text-3xl md:text-5xl font-extrabold mb-1 md:mb-2 ${stat.color}`}>
+                <div className={`text-4xl font-bold mb-2 ${stat.color}`}>
                   {startCount && (
-                    <CountUp 
-                      end={stat.number} 
-                      duration={2.5} 
-                      suffix={stat.suffix} 
-                      startOnMount={false}
+                    <CountUp
+                      start={0}
+                      end={stat.number}
+                      duration={2}
+                      suffix={stat.suffix}
                     />
                   )}
                 </div>
-                <div className="text-sm md:text-lg text-gray-600 font-medium">
-                  {stat.label}
-                </div>
+                <div className="text-gray-600">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -224,29 +226,30 @@ const About = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-600 to-indigo-700 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/diagonal-striped-brick.png')] opacity-10" />
-        
-        <div className="max-w-4xl mx-auto text-center relative">
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6">
-              Ready to <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-yellow-200">Transform</span> Your Business?
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Ready to <span className="text-yellow-300">Digitally Transform</span> Your Business?
             </h2>
-            <p className="text-base md:text-xl text-white/90 mb-8 md:mb-10 max-w-3xl mx-auto">
-              Let's build something extraordinary together. Get in touch with our team today.
+            <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+              Our team is ready to help you leverage technology for growth. Let's discuss how we can support your business goals.
             </p>
             <motion.div
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="inline-flex flex-col sm:flex-row gap-3 md:gap-4 justify-center"
+              className="inline-flex flex-col sm:flex-row gap-4 justify-center"
             >
-              <button className="px-6 py-3 md:px-8 md:py-4 bg-white text-blue-600 font-bold rounded-lg md:rounded-xl shadow-md hover:bg-gray-100 transition-colors text-sm md:text-base" onClick={() => navigate('/contact', { state: { details: "Enquiry"}})}>
-                Contact Us
+              <button
+                className="bg-white text-blue-600 px-8 py-3 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all"
+                onClick={() => navigate('/contact')}
+              >
+                Get Started Today
               </button>
             </motion.div>
           </motion.div>

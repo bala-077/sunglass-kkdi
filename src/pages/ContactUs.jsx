@@ -8,10 +8,9 @@ import { useLocation } from 'react-router-dom';
 const FORM_FIELDS = {
   'gtech': [
     { name: 'studentName', label: 'Student Name*', type: 'text', required: true },
-    { name: 'parentName', label: 'Parent Name*', type: 'text', required: true },
     { name: 'email', label: 'Email*', type: 'email', required: true },
     { name: 'phone', label: 'Phone*', type: 'text', required: true },
-    { name: 'grade', label: 'Grade/Class*', type: 'text', required: true },
+    { name: 'grade', label: 'Class*', type: 'text', required: true },
     { name: 'school', label: 'School Name', type: 'text', required: false },
     { name: 'comments', label: 'Comments', type: 'textarea', required: false },
   ],
