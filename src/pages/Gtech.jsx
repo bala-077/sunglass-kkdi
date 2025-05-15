@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { 
   FaLaptopCode, 
   FaMobileAlt, 
@@ -9,229 +9,471 @@ import {
   FaCertificate,
   FaHandshake,
   FaUsers,
-  FaRegClock
+  FaRegClock,
+  FaBook,
+  FaBriefcase,
+  FaUserGraduate,
+  FaCheckCircle
 } from 'react-icons/fa';
 import { IoIosRocket } from 'react-icons/io';
-import gtech from '/gtech.jpg';
+import { FiAward, FiBookOpen, FiUserCheck } from 'react-icons/fi';
+import gtechHero from '/gtech.jpg';
+import classroomImg from '/gtech.jpg';
+import studentsImg from '/gtech.jpg';
+import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import user from '/user.png';
 
 const Gtech = () => {
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  // Animation variants
+  const fadeIn = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  };
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 }
+    }
+  };
+
+  // Training Programs Data
+  const programs = [
+    {
+      title: "Full Stack Development",
+      icon: <FaLaptopCode className="text-xl" />,
+      color: "blue",
+      description: "Master MERN and Python stacks with hands-on projects and real-world applications.",
+      skills: ["React", "Node.js", "MongoDB", "Django", "Express", "REST APIs"],
+      duration: "3-6 Months",
+      projects: "5+ Projects",
+      placement: "90% Placement Rate"
+    },
+    {
+      title: "Web & Mobile Development",
+      icon: <FaMobileAlt className="text-xl" />,
+      color: "green",
+      description: "Build responsive websites and cross-platform mobile applications with modern frameworks.",
+      skills: ["Flutter", "React Native", "JavaScript", "HTML/CSS", "Responsive Design", "UI/UX"],
+      duration: "3-5 Months",
+      projects: "4+ Projects",
+      placement: "85% Placement Rate"
+    },
+    {
+      title: "Data Science & AI",
+      icon: <FaChartLine className="text-xl" />,
+      color: "purple",
+      description: "Learn data analysis, visualization, and machine learning algorithms with Python and R.",
+      skills: ["Python", "TensorFlow", "Pandas", "SQL", "Data Visualization", "ML Algorithms"],
+      duration: "4-6 Months",
+      projects: "3+ Capstone Projects",
+      placement: "80% Placement Rate"
+    },
+    {
+      title: "Office & Business Tools",
+      icon: <FaDatabase className="text-xl" />,
+      color: "yellow",
+      description: "Master essential software for business operations and office productivity.",
+      skills: ["Tally", "MS Office", "QuickBooks", "Computer Basics", "Accounting", "Business Communication"],
+      duration: "2-3 Months",
+      projects: "Practical Assignments",
+      placement: "95% Placement Rate"
+    }
+  ];
+
+  const features = [
+    { 
+      icon: <FaLaptopCode className="text-2xl" />, 
+      title: "Comprehensive Courses", 
+      description: "From fundamentals to advanced technologies, covering the complete spectrum of IT skills.",
+      color: "blue" 
+    },
+    { 
+      icon: <FaUserTie className="text-2xl" />, 
+      title: "Industry Experts", 
+      description: "Learn from professionals with real-world experience and up-to-date industry knowledge.",
+      color: "indigo" 
+    },
+    { 
+      icon: <FaCertificate className="text-2xl" />, 
+      title: "Certification", 
+      description: "Earn recognized certifications that validate your skills to employers.",
+      color: "green" 
+    },
+    { 
+      icon: <FaHandshake className="text-2xl" />, 
+      title: "Placement Assistance", 
+      description: "Dedicated support to help you transition from learning to employment.",
+      color: "purple" 
+    },
+    { 
+      icon: <FiBookOpen className="text-2xl" />, 
+      title: "Practical Curriculum", 
+      description: "80% hands-on training with real-world projects and case studies.",
+      color: "red" 
+    },
+    { 
+      icon: <FiAward className="text-2xl" />, 
+      title: "Industry Partnerships", 
+      description: "Direct connections with hiring companies and tech organizations.",
+      color: "yellow" 
+    }
+  ];
+
+  const staffAugmentationBenefits = [
+    "Deployment on live projects with our partner companies",
+    "Short-term and long-term placement opportunities",
+    "Direct exposure to industry workflows and client interactions",
+    "Professional work experience to enhance your resume",
+    "Mentorship from senior developers and managers",
+    "Potential for full-time employment offers"
+  ];
+
   return (
-    <div className="w-full bg-gray-50">
-      {/* Hero Section */}
-      <div className="relative w-full">
+    <div className="w-full bg-white">
+      {/* Hero Section - Reduced padding on mobile */}
+      <section className="relative w-full h-[50vh] sm:h-[60vh] min-h-[400px] sm:min-h-[500px] flex items-center justify-center">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40 z-10" />
         <img
-          src={gtech}
-          alt="Gtech"
-          className="w-full h-96 object-cover"
+          src={gtechHero}
+          alt="GTEC Computer Education"
+          className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-blue-600/50 flex items-end p-8">
-          <div>
-            <h1 className="text-4xl font-bold text-white mb-2">
-              GTEC Computer Education Partner
-            </h1>
-            <p className="text-xl text-blue-100">
-              Empowering careers through industry-relevant IT training
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 text-center text-white">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 sm:mb-6"
+          >
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-indigo-200">GTEC</span> Computer Education
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto mb-6 sm:mb-8"
+          >
+            Transforming careers through industry-aligned IT training and professional development.
+          </motion.p>
+          <motion.button
+            whileHover={{ y: -3, boxShadow: '0 10px 25px -5px rgba(37, 99, 235, 0.4)' }}
+            whileTap={{ scale: 0.98 }}
+            onClick={() => navigate('/contact', { state: { details: { slug: 'gtech' } } })}
+            className="px-6 sm:px-8 py-2 sm:py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all cursor-pointer text-sm sm:text-base"
+          >
+            Enroll Now
+          </motion.button>
+        </div>
+      </section>
+
+      {/* Introduction Section - Reduced padding */}
+      <section className="py-12 sm:py-20 px-4 sm:px-6 bg-white">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
+              <span className="text-blue-600">Bridging the Gap</span> Between Education and Employment
+            </h2>
+            <p className="text-base sm:text-lg text-gray-600 mb-4 sm:mb-6">
+              As proud partners of <strong className="text-blue-600">GTEC Computer Education</strong>, we deliver cutting-edge training programs designed for freshers, job seekers, and working professionals.
             </p>
+            <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8">
+              With a perfect blend of theoretical knowledge and practical application, we prepare students for real-world challenges.
+            </p>
+            
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative rounded-xl overflow-hidden shadow-xl mt-6 sm:mt-0"
+          >
+            <img
+              src={classroomImg}
+              alt="GTEC Classroom"
+              className="w-full h-auto rounded-xl"
+            />
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 sm:p-6 text-white">
+              <h3 className="text-lg sm:text-xl font-bold mb-1 sm:mb-2">Our Training Facility</h3>
+              <p className="text-xs sm:text-sm">Modern labs with the latest hardware and software</p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Features Section - Reduced padding */}
+      <section className="py-12 sm:py-20 px-4 sm:px-6 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-8 sm:mb-16"
+          >
+            <span className="text-blue-600 font-semibold text-sm sm:text-base">WHY CHOOSE US</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mt-1 sm:mt-2 mb-2 sm:mb-4">
+              Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600">Key Differentiators</span>
+            </h2>
+            <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full mx-auto" />
+          </motion.div>
+
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8"
+          >
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                variants={fadeIn}
+                whileHover={{ y: -5 }}
+                className={`bg-white p-4 sm:p-6 md:p-8 rounded-lg sm:rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border-l-4 border-${feature.color}-500`}
+              >
+                <div className={`w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-${feature.color}-100 flex items-center justify-center text-${feature.color}-600 mb-4 sm:mb-6`}>
+                  {feature.icon}
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">{feature.title}</h3>
+                <p className="text-gray-600 text-sm sm:text-base">{feature.description}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Training Programs Section - Reduced padding */}
+      <section className="py-12 sm:py-20 px-4 sm:px-6 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-8 sm:mb-16"
+          >
+            <span className="text-blue-600 font-semibold text-sm sm:text-base">OUR PROGRAMS</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mt-1 sm:mt-2 mb-2 sm:mb-4">
+              Industry-Ready <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600">Training Programs</span>
+            </h2>
+            <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full mx-auto" />
+            <p className="text-gray-600 text-sm sm:text-base max-w-3xl mx-auto mt-4 sm:mt-6">
+              Comprehensive courses designed to make you job-ready in today's competitive market
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+            {programs.map((program, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className={`bg-white rounded-lg sm:rounded-xl shadow-md border-l-4 border-${program.color}-500 overflow-hidden hover:shadow-lg transition-all duration-300`}
+              >
+                <div className="p-4 sm:p-6">
+                  <div className="flex items-center mb-3 sm:mb-4">
+                    <div className={`bg-${program.color}-100 p-2 sm:p-3 rounded-lg mr-3 sm:mr-4 text-${program.color}-600`}>
+                      {program.icon}
+                    </div>
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900">{program.title}</h3>
+                  </div>
+                  <p className="text-gray-600 text-sm sm:text-base mb-4 sm:mb-6">{program.description}</p>
+                  
+                  <div className="mb-4 sm:mb-6">
+                    <h4 className="font-semibold text-gray-900 text-sm sm:text-base mb-1 sm:mb-2">Skills Covered:</h4>
+                    <div className="flex flex-wrap gap-1 sm:gap-2">
+                      {program.skills.map((skill, i) => (
+                        <span key={i} className={`bg-${program.color}-100 text-${program.color}-800 text-xs px-2 sm:px-3 py-1 rounded-full`}>
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <div className="grid grid-cols-3 gap-2 sm:gap-4 text-center text-xs sm:text-sm">
+                    <div>
+                      <div className={`text-${program.color}-600 font-bold`}>{program.duration}</div>
+                      <div className="text-gray-500">Duration</div>
+                    </div>
+                    <div>
+                      <div className={`text-${program.color}-600 font-bold`}>{program.projects}</div>
+                      <div className="text-gray-500">Projects</div>
+                    </div>
+                    <div>
+                      <div className={`text-${program.color}-600 font-bold`}>{program.placement}</div>
+                      <div className="text-gray-500">Placement</div>
+                    </div>
+                  </div>
+                </div>
+                <div className={`bg-${program.color}-50 px-4 sm:px-6 py-2 sm:py-3 border-t border-${program.color}-100`}>
+                  <button 
+                    onClick={() => navigate('/contact', { state: { details: { slug: 'gtech', program: program.title } } })}
+                    className={`w-full text-center cursor-pointer text-${program.color}-600 font-medium hover:text-${program.color}-700 text-sm sm:text-base`}
+                  >
+                    Get connect with team →
+                  </button>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Introduction */}
-        <div className="mb-12">
-          <p className="text-lg text-gray-700 leading-relaxed mb-8">
-            As proud partners of <span className="font-semibold text-blue-600">GTEC Computer Education</span>, we deliver cutting-edge training programs designed for freshers, job seekers, and working professionals. Our curriculum bridges the gap between academic learning and industry requirements.
-          </p>
+      {/* Staff Augmentation Section - Reduced padding */}
+      <section className="py-12 sm:py-20 px-4 sm:px-6 bg-gradient-to-br from-blue-50 to-indigo-50">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-8 sm:mb-16"
+          >
+            <span className="text-blue-600 font-semibold text-sm sm:text-base">CAREER LAUNCHPAD</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mt-1 sm:mt-2 mb-2 sm:mb-4">
+              Staff <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600">Augmentation Program</span>
+            </h2>
+            <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full mx-auto" />
+            <p className="text-gray-600 text-sm sm:text-base max-w-3xl mx-auto mt-4 sm:mt-6">
+              Get real-world experience while you learn with our unique employment bridge program
+            </p>
+          </motion.div>
 
-          {/* Features Grid */}
-          <div className="grid md:grid-cols-2 gap-6 mb-12">
-            <div className="bg-white p-6 rounded-xl shadow-md flex items-start">
-              <div className="bg-blue-100 p-3 rounded-full mr-4">
-                <FaLaptopCode className="text-blue-600 text-2xl" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="bg-white rounded-lg sm:rounded-xl p-4 sm:p-6 md:p-8 shadow-md">
+                <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 flex items-center">
+                  <IoIosRocket className="mr-2 sm:mr-3 text-blue-600" />
+                  How It Works
+                </h3>
+                <ul className="space-y-2 sm:space-y-3">
+                  {staffAugmentationBenefits.map((benefit, index) => (
+                    <li key={index} className="flex items-start">
+                      <div className="bg-blue-100 p-1 rounded-full mr-3 mt-1">
+                        <FaCheckCircle className="text-blue-600 text-xs sm:text-sm" />
+                      </div>
+                      <span className="text-gray-700 text-sm sm:text-base">{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">Comprehensive Courses</h3>
-                <p className="text-gray-600">From fundamentals to advanced technologies, covering the complete spectrum of IT skills.</p>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-6"
+            >
+              <div className="bg-blue-600 text-white p-4 sm:p-6 rounded-lg shadow-md">
+                <h3 className="font-bold mb-2 sm:mb-3 text-blue-100 text-sm sm:text-base">For Students</h3>
+                <ul className="space-y-2 text-blue-100 text-xs sm:text-sm">
+                  <li className="flex items-start">
+                    <span className="bg-white text-blue-600 rounded-full w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center mr-2 flex-shrink-0 text-xs">1</span>
+                    <span>Gain practical experience</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="bg-white text-blue-600 rounded-full w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center mr-2 flex-shrink-0 text-xs">2</span>
+                    <span>Build professional network</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="bg-white text-blue-600 rounded-full w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center mr-2 flex-shrink-0 text-xs">3</span>
+                    <span>Enhance your resume</span>
+                  </li>
+                </ul>
               </div>
-            </div>
-
-            <div className="bg-white p-6 rounded-xl shadow-md flex items-start">
-              <div className="bg-indigo-100 p-3 rounded-full mr-4">
-                <FaUserTie className="text-indigo-600 text-2xl" />
+              
+              <div className="bg-indigo-600 text-white p-4 sm:p-6 rounded-lg shadow-md">
+                <h3 className="font-bold mb-2 sm:mb-3 text-indigo-100 text-sm sm:text-base">For Companies</h3>
+                <ul className="space-y-2 text-indigo-100 text-xs sm:text-sm">
+                  <li className="flex items-start">
+                    <span className="bg-white text-indigo-600 rounded-full w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center mr-2 flex-shrink-0 text-xs">1</span>
+                    <span>Access pre-trained talent</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="bg-white text-indigo-600 rounded-full w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center mr-2 flex-shrink-0 text-xs">2</span>
+                    <span>Flexible staffing solutions</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="bg-white text-indigo-600 rounded-full w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center mr-2 flex-shrink-0 text-xs">3</span>
+                    <span>Reduced hiring risks</span>
+                  </li>
+                </ul>
               </div>
-              <div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">Industry Experts</h3>
-                <p className="text-gray-600">Learn from professionals with real-world experience and up-to-date industry knowledge.</p>
+              
+              <div className="md:col-span-2 bg-white p-4 sm:p-6 rounded-lg shadow-md border border-gray-200">
+                <h3 className="font-bold mb-2 sm:mb-3 text-gray-900 text-sm sm:text-base">Success Stories</h3>
+                <div className="flex items-start">
+                  <img src={user} alt="Successful Students" className="w-12 h-12 sm:w-16 sm:h-16 rounded-full object-cover mr-3 sm:mr-4" />
+                  <div>
+                    <p className="text-gray-700 italic mb-1 sm:mb-2 text-xs sm:text-sm">"The staff augmentation program gave me the real-world experience I needed to land my dream job."</p>
+                    <p className="text-gray-600 text-xs">- Rahul K., Full Stack Developer</p>
+                  </div>
+                </div>
               </div>
-            </div>
-
-            <div className="bg-white p-6 rounded-xl shadow-md flex items-start">
-              <div className="bg-green-100 p-3 rounded-full mr-4">
-                <FaCertificate className="text-green-600 text-2xl" />
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">Certification</h3>
-                <p className="text-gray-600">Earn recognized certifications that validate your skills to employers.</p>
-              </div>
-            </div>
-
-            <div className="bg-white p-6 rounded-xl shadow-md flex items-start">
-              <div className="bg-purple-100 p-3 rounded-full mr-4">
-                <FaHandshake className="text-purple-600 text-2xl" />
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">Placement Assistance</h3>
-                <p className="text-gray-600">Dedicated support to help you transition from learning to employment.</p>
-              </div>
-            </div>
+            </motion.div>
           </div>
         </div>
+      </section>
 
-        {/* Training Programs */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-            <FaGraduationCap className="mr-3 text-blue-600" />
-            Our Training Programs
-          </h2>
-          
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
-            {/* Program 1 */}
-            <div className="bg-white p-6 rounded-xl shadow-md border-l-4 border-blue-500">
-              <div className="flex items-center mb-3">
-                <div className="bg-blue-100 p-2 rounded-lg mr-4">
-                  <FaLaptopCode className="text-blue-600 text-xl" />
-                </div>
-                <h3 className="text-lg font-semibold text-gray-800">Full Stack Development</h3>
-              </div>
-              <p className="text-gray-600 mb-3">Master MERN and Python stacks with hands-on projects and real-world applications.</p>
-              <div className="flex flex-wrap gap-2">
-                <span className="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">React</span>
-                <span className="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Node.js</span>
-                <span className="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">MongoDB</span>
-                <span className="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Django</span>
-              </div>
-            </div>
-
-            {/* Program 2 */}
-            <div className="bg-white p-6 rounded-xl shadow-md border-l-4 border-green-500">
-              <div className="flex items-center mb-3">
-                <div className="bg-green-100 p-2 rounded-lg mr-4">
-                  <FaMobileAlt className="text-green-600 text-xl" />
-                </div>
-                <h3 className="text-lg font-semibold text-gray-800">Web & Mobile Development</h3>
-              </div>
-              <p className="text-gray-600 mb-3">Build responsive websites and cross-platform mobile applications with modern frameworks.</p>
-              <div className="flex flex-wrap gap-2">
-                <span className="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Flutter</span>
-                <span className="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">React Native</span>
-                <span className="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">JavaScript</span>
-                <span className="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">HTML/CSS</span>
-              </div>
-            </div>
-
-            {/* Program 3 */}
-            <div className="bg-white p-6 rounded-xl shadow-md border-l-4 border-purple-500">
-              <div className="flex items-center mb-3">
-                <div className="bg-purple-100 p-2 rounded-lg mr-4">
-                  <FaChartLine className="text-purple-600 text-xl" />
-                </div>
-                <h3 className="text-lg font-semibold text-gray-800">Data Science & AI</h3>
-              </div>
-              <p className="text-gray-600 mb-3">Learn data analysis, visualization, and machine learning algorithms with Python and R.</p>
-              <div className="flex flex-wrap gap-2">
-                <span className="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Python</span>
-                <span className="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">TensorFlow</span>
-                <span className="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Pandas</span>
-                <span className="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">SQL</span>
-              </div>
-            </div>
-
-            {/* Program 4 */}
-            <div className="bg-white p-6 rounded-xl shadow-md border-l-4 border-yellow-500">
-              <div className="flex items-center mb-3">
-                <div className="bg-yellow-100 p-2 rounded-lg mr-4">
-                  <FaDatabase className="text-yellow-600 text-xl" />
-                </div>
-                <h3 className="text-lg font-semibold text-gray-800">Office & Business Tools</h3>
-              </div>
-              <p className="text-gray-600 mb-3">Master essential software for business operations and office productivity.</p>
-              <div className="flex flex-wrap gap-2">
-                <span className="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full">Tally</span>
-                <span className="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full">MS Office</span>
-                <span className="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full">QuickBooks</span>
-                <span className="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full">Computer Basics</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Staff Augmentation */}
-        <div className="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-8 text-white mb-12">
-          <div className="flex flex-col md:flex-row items-center">
-            <div className="md:w-2/3 mb-6 md:mb-0 md:pr-8">
-              <h2 className="text-2xl font-bold mb-4 flex items-center">
-                <IoIosRocket className="mr-3 text-yellow-300" />
-                Staff Augmentation Program
-              </h2>
-              <p className="mb-4 text-blue-100">
-                We bridge the gap between learning and employment by providing real-world exposure through our unique staff augmentation model.
-              </p>
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <FaUsers className="mt-1 mr-3 text-blue-200 flex-shrink-0" />
-                  <span>Deployment on live projects with our partner companies</span>
-                </li>
-                <li className="flex items-start">
-                  <FaRegClock className="mt-1 mr-3 text-blue-200 flex-shrink-0" />
-                  <span>Short-term and long-term placement opportunities</span>
-                </li>
-                <li className="flex items-start">
-                  <FaHandshake className="mt-1 mr-3 text-blue-200 flex-shrink-0" />
-                  <span>Direct exposure to industry workflows and client interactions</span>
-                </li>
-              </ul>
-            </div>
-            <div className="md:w-1/3 bg-white/10 p-6 rounded-xl backdrop-blur-sm">
-              <h3 className="font-semibold mb-3 text-yellow-300">Benefits</h3>
-              <ul className="space-y-2 text-sm">
-                <li className="flex items-start">
-                  <span className="bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center mr-2 flex-shrink-0">1</span>
-                  <span>Gain practical experience</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center mr-2 flex-shrink-0">2</span>
-                  <span>Build professional network</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center mr-2 flex-shrink-0">3</span>
-                  <span>Enhance your resume</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center mr-2 flex-shrink-0">4</span>
-                  <span>Potential for full-time offers</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        {/* Call to Action */}
-        <div className="text-center py-8">
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">Ready to Transform Your Career?</h2>
-          <p className="text-xl text-gray-600 mb-6 max-w-2xl mx-auto">
+      {/* Final CTA Section - Reduced padding */}
+      <section className="py-12 sm:py-20 px-4 sm:px-6 bg-gradient-to-br from-blue-600 to-indigo-700 text-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6"
+          >
+            Ready to <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-yellow-200">Launch</span> Your Tech Career?
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-blue-100 text-sm sm:text-base md:text-lg mb-6 sm:mb-8 max-w-3xl mx-auto"
+          >
             Join our next batch and take the first step toward becoming an industry-ready professional.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition-colors">
+          </motion.p>
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="inline-flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center"
+          >
+            <button 
+              onClick={() => navigate('/contact', { state: { details: { slug: 'gtech' } } })}
+              className="px-6 sm:px-8 py-3 bg-white text-blue-600 font-bold rounded-lg shadow-md hover:bg-gray-100 transition-colors text-sm sm:text-base"
+            >
               Enroll Now
             </button>
-            <button className="bg-white border border-blue-600 text-blue-600 font-semibold py-3 px-8 rounded-full shadow-lg transition-colors hover:bg-blue-50">
-              Request Syllabus
-            </button>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </section>
     </div>
   );
 };

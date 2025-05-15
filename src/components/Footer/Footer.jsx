@@ -1,7 +1,9 @@
 import React from 'react'
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
 
 const Footer = () => {
+  const navigate = useNavigate()
   return (
     <footer className="bg-white text-gray-800 py-12 px-4 shadow-inner">
       <div className="max-w-7xl mx-auto">
@@ -37,30 +39,60 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4 text-gray-800 border-b pb-2 border-gray-200">Quick Links</h4>
             <ul className="space-y-3">
-              <li><a href="/aboutus" className="text-gray-600 hover:text-blue-600 transition-colors flex items-center">
-                <span className="w-1 h-1 bg-blue-600 rounded-full mr-2"></span>
-                About Us
-              </a></li>
-              <li><a href="/gtech" className="text-gray-600 hover:text-blue-600 transition-colors flex items-center">
-                <span className="w-1 h-1 bg-blue-600 rounded-full mr-2"></span>
-                GTEC Training
-              </a></li>
-              <li><a href="/event-management" className="text-gray-600 hover:text-blue-600 transition-colors flex items-center">
-                <span className="w-1 h-1 bg-blue-600 rounded-full mr-2"></span>
-                Event Management
-              </a></li>
-              <li><a href="/fmcg" className="text-gray-600 hover:text-blue-600 transition-colors flex items-center">
-                <span className="w-1 h-1 bg-blue-600 rounded-full mr-2"></span>
-                FMCG Distribution
-              </a></li>
-              <li><a href="/gallery" className="text-gray-600 hover:text-blue-600 transition-colors flex items-center">
-                <span className="w-1 h-1 bg-blue-600 rounded-full mr-2"></span>
-                Gallery
-              </a></li>
-              <li><a href="/contact" className="text-gray-600 hover:text-blue-600 transition-colors flex items-center">
-                <span className="w-1 h-1 bg-blue-600 rounded-full mr-2"></span>
-                Contact Us
-              </a></li>
+              <li>
+                <button
+                  onClick={() => navigate('/aboutus')}
+                  className="text-gray-600 hover:text-blue-600 transition-colors flex items-center bg-transparent border-none outline-none cursor-pointer p-0"
+                >
+                  <span className="w-1 h-1 bg-blue-600 rounded-full mr-2"></span>
+                  About Us
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => navigate('/gtech')}
+                  className="text-gray-600 hover:text-blue-600 transition-colors flex items-center bg-transparent border-none outline-none cursor-pointer p-0"
+                >
+                  <span className="w-1 h-1 bg-blue-600 rounded-full mr-2"></span>
+                  GTEC Training
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => navigate('/event-management')}
+                  className="text-gray-600 hover:text-blue-600 transition-colors flex items-center bg-transparent border-none outline-none cursor-pointer p-0"
+                >
+                  <span className="w-1 h-1 bg-blue-600 rounded-full mr-2"></span>
+                  Event Management
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => navigate('/fmcg')}
+                  className="text-gray-600 hover:text-blue-600 transition-colors flex items-center bg-transparent border-none outline-none cursor-pointer p-0"
+                >
+                  <span className="w-1 h-1 bg-blue-600 rounded-full mr-2"></span>
+                  FMCG Distribution
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => navigate('/gallery')}
+                  className="text-gray-600 hover:text-blue-600 transition-colors flex items-center bg-transparent border-none outline-none cursor-pointer p-0"
+                >
+                  <span className="w-1 h-1 bg-blue-600 rounded-full mr-2"></span>
+                  Gallery
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => navigate('/contact')}
+                  className="text-gray-600 hover:text-blue-600 transition-colors flex items-center bg-transparent border-none outline-none cursor-pointer p-0"
+                >
+                  <span className="w-1 h-1 bg-blue-600 rounded-full mr-2"></span>
+                  Contact Us
+                </button>
+              </li>
             </ul>
           </div>
 
@@ -78,7 +110,7 @@ const Footer = () => {
                 </p>
               </div>
               <div className="flex items-center">
-                <div className="bg-green-100 p-2 rounded-lg mr-3 text-green-600">
+                <div className="bg-green-100 p-2 rotate-90 rounded-lg mr-3 text-green-600">
                   <FaPhone />
                 </div>
                 <a href="tel:+919876543210" className="text-gray-600 hover:text-blue-600 transition-colors">
@@ -103,9 +135,24 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} Sunglass. All rights reserved.
           </p>
           <div className="flex space-x-6">
-            <a href="/privacy-policy" className="text-gray-500 hover:text-blue-600 text-sm transition-colors">Privacy Policy</a>
-            <a href="/terms" className="text-gray-500 hover:text-blue-600 text-sm transition-colors">Terms of Service</a>
-            <a href="/sitemap" className="text-gray-500 hover:text-blue-600 text-sm transition-colors">Sitemap</a>
+            <button
+              onClick={() => navigate('/privacy-policy')}
+              className="text-gray-500 hover:text-blue-600 text-sm transition-colors bg-transparent border-none outline-none cursor-pointer p-0"
+            >
+              Privacy Policy
+            </button>
+            <button
+              onClick={() => navigate('/terms')}
+              className="text-gray-500 hover:text-blue-600 text-sm transition-colors bg-transparent border-none outline-none cursor-pointer p-0"
+            >
+              Terms of Service
+            </button>
+            <button
+              onClick={() => navigate('/sitemap')}
+              className="text-gray-500 hover:text-blue-600 text-sm transition-colors bg-transparent border-none outline-none cursor-pointer p-0"
+            >
+              Sitemap
+            </button>
           </div>
         </div>
       </div>

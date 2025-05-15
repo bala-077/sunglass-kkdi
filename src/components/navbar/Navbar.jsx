@@ -1,30 +1,31 @@
 import React, { useState } from 'react';
 import { FaInfoCircle, FaBuilding, FaCalendarAlt, FaShoppingCart, FaImages, FaEnvelope, FaBars, FaTimes } from 'react-icons/fa';
 import logo from '/empty.png';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const navItems = [
   { name: 'About Us', path: '/aboutus' },
-  { name: 'Gtech', path: '/gtech' },
+  { name: 'Digitaly-AI tec', path: '/digitaly' },
+  { name: 'G-tec', path: '/gtech' },
   { name: 'Event Management', path: '/event-management' },
   { name: 'FMCG', path: '/fmcg' },
-  { name: 'Gallery', path: '/gallery' },
   { name: 'Contact Us', path: '/contact' },
 ];
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const location = useLocation(); // <-- Add this
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [activeItem, setActiveItem] = useState('');
 
-  const handleItemClick = (path, name) => {
+  // Remove activeItem state and logic
+
+  const handleItemClick = (path) => {
     navigate(path);
-    setActiveItem(name);
     setSidebarOpen(false);
   };
 
   return (
-    <>
+    <> 
       <nav className="sticky top-0 z-50 bg-white backdrop-blur-md border-b border-gray-100 px-4 sm:px-8 py-3">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           {/* Logo Section */}
@@ -32,7 +33,6 @@ const Navbar = () => {
             className="flex items-center cursor-pointer group" 
             onClick={() => {
               navigate('/');
-              setActiveItem('');
             }}
           >
             <img 
@@ -41,7 +41,7 @@ const Navbar = () => {
               className="h-12 w-12 object-contain mr-3 rounded-full group-hover:rotate-6 transition-all duration-500" 
             />
             <span className="text-xl font-bold text-gray-800 tracking-wide group-hover:text-indigo-600 transition-colors duration-300">
-              Gtech
+              Sunglass
             </span>
           </div>
 
@@ -59,16 +59,16 @@ const Navbar = () => {
             {navItems.map((item) => (
               <li key={item.name}>
                 <a
-                  onClick={() => handleItemClick(item.path, item.name)}
+                  onClick={() => handleItemClick(item.path)}
                   className={`relative px-1 py-2 font-medium cursor-pointer transition-all duration-300 ${
-                    activeItem === item.name
+                    location.pathname === item.path
                       ? 'text-indigo-600'
                       : 'text-gray-700 hover:text-indigo-600'
                   }`}
                 >
                   <span className="relative">
                     {item.name}
-                    {activeItem === item.name && (
+                    {location.pathname === item.path && (
                       <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-indigo-600 rounded-full"></span>
                     )}
                   </span>
@@ -100,7 +100,6 @@ const Navbar = () => {
             className="flex items-center p-6 cursor-pointer"
             onClick={() => {
               navigate('/');
-              setActiveItem('');
               setSidebarOpen(false);
             }}
           >
@@ -117,9 +116,9 @@ const Navbar = () => {
             {navItems.map((item) => (
               <li key={item.name}>
                 <a
-                  onClick={() => handleItemClick(item.path, item.name)}
+                  onClick={() => handleItemClick(item.path)}
                   className={`flex items-center px-4 py-3 rounded-lg transition-all duration-200 cursor-pointer ${
-                    activeItem === item.name
+                    location.pathname === item.path
                       ? 'text-indigo-600 font-medium'
                       : 'text-gray-700 hover:text-indigo-600'
                   }`}
