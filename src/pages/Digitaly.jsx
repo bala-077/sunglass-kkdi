@@ -4,11 +4,11 @@ import demo from '/fmcg.webp';
 import { FiArrowRight, FiCheckCircle, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { FaBolt, FaMobileAlt, FaCloud, FaLock, FaChartLine, FaUsers, FaShieldAlt } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-import DialKaraikudi from './DialKaraikudi.jpg';
-import DigiAIQuest from '/DigiAIQuest.jpg';
-import ERP from '/ERP.jpg';
-import HRMS from '/HRMS.jpg';
-import Invoice from '/Invoice.jpg';
+// import DialKaraikudi from './DialKaraikudi.jpg';
+// import DigiAIQuest from '/DigiAIQuest.jpg';
+// import ERP from '/ERP.jpg';
+// import HRMS from '/HRMS.jpg';
+// import Invoice from '/Invoice.jpg';
 
 
 
