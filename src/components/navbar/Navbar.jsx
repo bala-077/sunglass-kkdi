@@ -5,8 +5,8 @@ import { useNavigate, useLocation } from 'react-router-dom';
 
 const navItems = [
   { name: 'About Us', path: '/aboutus' },
-  { name: 'Digitaly-AI tec', path: '/digitaly' },
-  { name: 'G-tec', path: '/gtech' },
+  { name: 'Digitaly AI Tech Solution ', path: '/digitaly-ai-solutions' },
+  { name: 'G-Tec', path: '/gtech' },
   { name: 'Event Management', path: '/event-management' },
   { name: 'FMCG', path: '/fmcg' },
   { name: 'Contact Us', path: '/contact' },
@@ -26,7 +26,7 @@ const Navbar = () => {
 
   return (
     <> 
-      <nav className="sticky top-0 z-50 bg-white backdrop-blur-md border-b border-gray-100 px-4 sm:px-8 py-3">
+      <nav className="sticky top-0 shadow-xl z-50 bg-white backdrop-blur-md border-b border-gray-100 px-4 sm:px-8 py-3">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           {/* Logo Section */}
           <div 
@@ -55,10 +55,10 @@ const Navbar = () => {
           </button>
 
           {/* Navigation Items for desktop */}
-          <ul className="hidden lg:flex space-x-8">
+          <ul className="hidden lg:flex space-x-5">
             {navItems.map((item) => (
               <li key={item.name}>
-                <a
+                <div
                   onClick={() => handleItemClick(item.path)}
                   className={`relative px-1 py-2 font-medium cursor-pointer transition-all duration-300 ${
                     location.pathname === item.path
@@ -72,7 +72,7 @@ const Navbar = () => {
                       <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-indigo-600 rounded-full"></span>
                     )}
                   </span>
-                </a>
+                </div>
               </li>
             ))}
           </ul>
@@ -115,7 +115,7 @@ const Navbar = () => {
           <ul className="py-2 px-4">
             {navItems.map((item) => (
               <li key={item.name}>
-                <a
+                <div
                   onClick={() => handleItemClick(item.path)}
                   className={`flex items-center px-4 py-3 rounded-lg transition-all duration-200 cursor-pointer ${
                     location.pathname === item.path
@@ -124,7 +124,7 @@ const Navbar = () => {
                   }`}
                 >
                   <span className="text-sm tracking-wide">{item.name}</span>
-                </a>
+                </div>
               </li>
             ))}
           </ul>

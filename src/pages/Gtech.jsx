@@ -138,7 +138,7 @@ const Gtech = () => {
   ];
 
   return (
-    <div className="w-full bg-white">
+    <div className="w-full bg-white overflow-hidden">
       {/* Hero Section - Reduced padding on mobile */}
       <section className="relative w-full h-[50vh] sm:h-[60vh] min-h-[400px] sm:min-h-[500px] flex items-center justify-center">
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40 z-10" />
@@ -152,7 +152,7 @@ const Gtech = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 sm:mb-6"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4"
           >
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-indigo-200">GTEC</span> Computer Education
           </motion.h1>
@@ -160,7 +160,7 @@ const Gtech = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto mb-6 sm:mb-8"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto mb-4 sm:mb-6"
           >
             Transforming careers through industry-aligned IT training and professional development.
           </motion.p>
@@ -168,7 +168,7 @@ const Gtech = () => {
             whileHover={{ y: -3, boxShadow: '0 10px 25px -5px rgba(37, 99, 235, 0.4)' }}
             whileTap={{ scale: 0.98 }}
             onClick={() => navigate('/contact', { state: { details: { slug: 'gtech' } } })}
-            className="px-6 sm:px-8 py-2 sm:py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all cursor-pointer text-sm sm:text-base"
+            className="px-5 sm:px-6 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all cursor-pointer text-sm sm:text-base"
           >
             Enroll Now
           </motion.button>
@@ -176,57 +176,57 @@ const Gtech = () => {
       </section>
 
       {/* Introduction Section - Reduced padding */}
-      <section className="py-12 sm:py-20 px-4 sm:px-6 bg-white">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+      <section className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 bg-white">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
+            className="lg:pr-4 xl:pr-8"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
               <span className="text-blue-600">Bridging the Gap</span> Between Education and Employment
             </h2>
-            <p className="text-base sm:text-lg text-gray-600 mb-4 sm:mb-6">
+            <p className="text-sm sm:text-base lg:text-lg text-gray-600 mb-3 sm:mb-4">
               As proud partners of <strong className="text-blue-600">GTEC Computer Education</strong>, we deliver cutting-edge training programs designed for freshers, job seekers, and working professionals.
             </p>
-            <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8">
+            <p className="text-sm sm:text-base lg:text-lg text-gray-600 mb-4 sm:mb-6">
               With a perfect blend of theoretical knowledge and practical application, we prepare students for real-world challenges.
             </p>
-            
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative rounded-xl overflow-hidden shadow-xl mt-6 sm:mt-0"
+            className="relative rounded-xl overflow-hidden shadow-xl"
           >
             <img
               src={classroomImg}
               alt="GTEC Classroom"
               className="w-full h-auto rounded-xl"
             />
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 sm:p-6 text-white">
-              <h3 className="text-lg sm:text-xl font-bold mb-1 sm:mb-2">Our Training Facility</h3>
-              <p className="text-xs sm:text-sm">Modern labs with the latest hardware and software</p>
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3 sm:p-4 text-white">
+              <h3 className="text-base sm:text-lg font-bold mb-1">Our Training Facility</h3>
+              <p className="text-xs">Modern labs with the latest hardware and software</p>
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* Features Section - Reduced padding */}
-      <section className="py-12 sm:py-20 px-4 sm:px-6 bg-gray-50">
+      <section className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-8 sm:mb-16"
+            className="text-center mb-6 sm:mb-10"
           >
-            <span className="text-blue-600 font-semibold text-sm sm:text-base">WHY CHOOSE US</span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mt-1 sm:mt-2 mb-2 sm:mb-4">
+            <span className="text-blue-600 font-semibold text-xs sm:text-sm">WHY CHOOSE US</span>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mt-1 mb-2 sm:mb-3">
               Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600">Key Differentiators</span>
             </h2>
             <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full mx-auto" />
@@ -237,19 +237,19 @@ const Gtech = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6"
           >
             {features.map((feature, index) => (
               <motion.div
                 key={index}
                 variants={fadeIn}
                 whileHover={{ y: -5 }}
-                className={`bg-white p-4 sm:p-6 md:p-8 rounded-lg sm:rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border-l-4 border-${feature.color}-500`}
+                className={`bg-white p-4 sm:p-5 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border-l-4 border-${feature.color}-500`}
               >
-                <div className={`w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-${feature.color}-100 flex items-center justify-center text-${feature.color}-600 mb-4 sm:mb-6`}>
+                <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-${feature.color}-100 flex items-center justify-center text-${feature.color}-600 mb-3 sm:mb-4`}>
                   {feature.icon}
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">{feature.title}</h3>
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">{feature.title}</h3>
                 <p className="text-gray-600 text-sm sm:text-base">{feature.description}</p>
               </motion.div>
             ))}
@@ -258,26 +258,26 @@ const Gtech = () => {
       </section>
 
       {/* Training Programs Section - Reduced padding */}
-      <section className="py-12 sm:py-20 px-4 sm:px-6 bg-white">
+      <section className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-8 sm:mb-16"
+            className="text-center mb-6 sm:mb-10"
           >
-            <span className="text-blue-600 font-semibold text-sm sm:text-base">OUR PROGRAMS</span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mt-1 sm:mt-2 mb-2 sm:mb-4">
+            <span className="text-blue-600 font-semibold text-xs sm:text-sm">OUR PROGRAMS</span>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mt-1 mb-2 sm:mb-3">
               Industry-Ready <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600">Training Programs</span>
             </h2>
             <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full mx-auto" />
-            <p className="text-gray-600 text-sm sm:text-base max-w-3xl mx-auto mt-4 sm:mt-6">
+            <p className="text-gray-600 text-xs sm:text-sm max-w-3xl mx-auto mt-3 sm:mt-4">
               Comprehensive courses designed to make you job-ready in today's competitive market
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 lg:gap-6">
             {programs.map((program, index) => (
               <motion.div
                 key={index}
@@ -285,19 +285,19 @@ const Gtech = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className={`bg-white rounded-lg sm:rounded-xl shadow-md border-l-4 border-${program.color}-500 overflow-hidden hover:shadow-lg transition-all duration-300`}
+                className={`bg-white rounded-lg shadow-md border-l-4 border-${program.color}-500 overflow-hidden hover:shadow-lg transition-all duration-300`}
               >
-                <div className="p-4 sm:p-6">
-                  <div className="flex items-center mb-3 sm:mb-4">
-                    <div className={`bg-${program.color}-100 p-2 sm:p-3 rounded-lg mr-3 sm:mr-4 text-${program.color}-600`}>
+                <div className="p-4 sm:p-5">
+                  <div className="flex items-center mb-3">
+                    <div className={`bg-${program.color}-100 p-2 sm:p-3 rounded-lg mr-3 text-${program.color}-600`}>
                       {program.icon}
                     </div>
                     <h3 className="text-lg sm:text-xl font-bold text-gray-900">{program.title}</h3>
                   </div>
-                  <p className="text-gray-600 text-sm sm:text-base mb-4 sm:mb-6">{program.description}</p>
+                  <p className="text-gray-600 text-sm sm:text-base mb-3 sm:mb-4">{program.description}</p>
                   
-                  <div className="mb-4 sm:mb-6">
-                    <h4 className="font-semibold text-gray-900 text-sm sm:text-base mb-1 sm:mb-2">Skills Covered:</h4>
+                  <div className="mb-3 sm:mb-4">
+                    <h4 className="font-semibold text-gray-900 text-sm sm:text-base mb-1">Skills Covered:</h4>
                     <div className="flex flex-wrap gap-1 sm:gap-2">
                       {program.skills.map((skill, i) => (
                         <span key={i} className={`bg-${program.color}-100 text-${program.color}-800 text-xs px-2 sm:px-3 py-1 rounded-full`}>
@@ -307,7 +307,7 @@ const Gtech = () => {
                     </div>
                   </div>
                   
-                  <div className="grid grid-cols-3 gap-2 sm:gap-4 text-center text-xs sm:text-sm">
+                  <div className="grid grid-cols-3 gap-2 sm:gap-3 text-center text-xs sm:text-sm">
                     <div>
                       <div className={`text-${program.color}-600 font-bold`}>{program.duration}</div>
                       <div className="text-gray-500">Duration</div>
@@ -322,10 +322,10 @@ const Gtech = () => {
                     </div>
                   </div>
                 </div>
-                <div className={`bg-${program.color}-50 px-4 sm:px-6 py-2 sm:py-3 border-t border-${program.color}-100`}>
+                <div className={`bg-${program.color}-50 px-4 sm:px-5 py-2 border-t border-${program.color}-100`}>
                   <button 
                     onClick={() => navigate('/contact', { state: { details: { slug: 'gtech', program: program.title } } })}
-                    className={`w-full text-center cursor-pointer text-${program.color}-600 font-medium hover:text-${program.color}-700 text-sm sm:text-base`}
+                    className={`w-full text-center cursor-pointer text-${program.color}-600 font-medium hover:text-${program.color}-700 text-xs sm:text-sm`}
                   >
                     Get connect with team →
                   </button>
@@ -337,42 +337,42 @@ const Gtech = () => {
       </section>
 
       {/* Staff Augmentation Section - Reduced padding */}
-      <section className="py-12 sm:py-20 px-4 sm:px-6 bg-gradient-to-br from-blue-50 to-indigo-50">
+      <section className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 bg-gradient-to-br from-blue-50 to-indigo-50">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-8 sm:mb-16"
+            className="text-center mb-6 sm:mb-10"
           >
-            <span className="text-blue-600 font-semibold text-sm sm:text-base">CAREER LAUNCHPAD</span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mt-1 sm:mt-2 mb-2 sm:mb-4">
+            <span className="text-blue-600 font-semibold text-xs sm:text-sm">CAREER LAUNCHPAD</span>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mt-1 mb-2 sm:mb-3">
               Staff <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600">Augmentation Program</span>
             </h2>
             <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full mx-auto" />
-            <p className="text-gray-600 text-sm sm:text-base max-w-3xl mx-auto mt-4 sm:mt-6">
+            <p className="text-gray-600 text-xs sm:text-sm max-w-3xl mx-auto mt-3 sm:mt-4">
               Get real-world experience while you learn with our unique employment bridge program
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <div className="bg-white rounded-lg sm:rounded-xl p-4 sm:p-6 md:p-8 shadow-md">
-                <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 flex items-center">
-                  <IoIosRocket className="mr-2 sm:mr-3 text-blue-600" />
+              <div className="bg-white rounded-lg sm:rounded-xl p-4 sm:p-5 shadow-md">
+                <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 flex items-center">
+                  <IoIosRocket className="mr-2 text-blue-600" />
                   How It Works
                 </h3>
                 <ul className="space-y-2 sm:space-y-3">
                   {staffAugmentationBenefits.map((benefit, index) => (
                     <li key={index} className="flex items-start">
-                      <div className="bg-blue-100 p-1 rounded-full mr-3 mt-1">
-                        <FaCheckCircle className="text-blue-600 text-xs sm:text-sm" />
+                      <div className="bg-blue-100 p-1 rounded-full mr-2 mt-1">
+                        <FaCheckCircle className="text-blue-600 text-xs" />
                       </div>
                       <span className="text-gray-700 text-sm sm:text-base">{benefit}</span>
                     </li>
@@ -386,50 +386,50 @@ const Gtech = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-6"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4"
             >
-              <div className="bg-blue-600 text-white p-4 sm:p-6 rounded-lg shadow-md">
-                <h3 className="font-bold mb-2 sm:mb-3 text-blue-100 text-sm sm:text-base">For Students</h3>
-                <ul className="space-y-2 text-blue-100 text-xs sm:text-sm">
+              <div className="bg-blue-600 text-white p-3 sm:p-4 rounded-lg shadow-md">
+                <h3 className="font-bold mb-2 text-blue-100 text-xs sm:text-sm">For Students</h3>
+                <ul className="space-y-1 text-blue-100 text-xs">
                   <li className="flex items-start">
-                    <span className="bg-white text-blue-600 rounded-full w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center mr-2 flex-shrink-0 text-xs">1</span>
+                    <span className="bg-white text-blue-600 rounded-full w-4 h-4 flex items-center justify-center mr-2 flex-shrink-0 text-xs">1</span>
                     <span>Gain practical experience</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="bg-white text-blue-600 rounded-full w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center mr-2 flex-shrink-0 text-xs">2</span>
+                    <span className="bg-white text-blue-600 rounded-full w-4 h-4 flex items-center justify-center mr-2 flex-shrink-0 text-xs">2</span>
                     <span>Build professional network</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="bg-white text-blue-600 rounded-full w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center mr-2 flex-shrink-0 text-xs">3</span>
+                    <span className="bg-white text-blue-600 rounded-full w-4 h-4 flex items-center justify-center mr-2 flex-shrink-0 text-xs">3</span>
                     <span>Enhance your resume</span>
                   </li>
                 </ul>
               </div>
               
-              <div className="bg-indigo-600 text-white p-4 sm:p-6 rounded-lg shadow-md">
-                <h3 className="font-bold mb-2 sm:mb-3 text-indigo-100 text-sm sm:text-base">For Companies</h3>
-                <ul className="space-y-2 text-indigo-100 text-xs sm:text-sm">
+              <div className="bg-indigo-600 text-white p-3 sm:p-4 rounded-lg shadow-md">
+                <h3 className="font-bold mb-2 text-indigo-100 text-xs sm:text-sm">For Companies</h3>
+                <ul className="space-y-1 text-indigo-100 text-xs">
                   <li className="flex items-start">
-                    <span className="bg-white text-indigo-600 rounded-full w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center mr-2 flex-shrink-0 text-xs">1</span>
+                    <span className="bg-white text-indigo-600 rounded-full w-4 h-4 flex items-center justify-center mr-2 flex-shrink-0 text-xs">1</span>
                     <span>Access pre-trained talent</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="bg-white text-indigo-600 rounded-full w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center mr-2 flex-shrink-0 text-xs">2</span>
+                    <span className="bg-white text-indigo-600 rounded-full w-4 h-4 flex items-center justify-center mr-2 flex-shrink-0 text-xs">2</span>
                     <span>Flexible staffing solutions</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="bg-white text-indigo-600 rounded-full w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center mr-2 flex-shrink-0 text-xs">3</span>
+                    <span className="bg-white text-indigo-600 rounded-full w-4 h-4 flex items-center justify-center mr-2 flex-shrink-0 text-xs">3</span>
                     <span>Reduced hiring risks</span>
                   </li>
                 </ul>
               </div>
               
-              <div className="md:col-span-2 bg-white p-4 sm:p-6 rounded-lg shadow-md border border-gray-200">
-                <h3 className="font-bold mb-2 sm:mb-3 text-gray-900 text-sm sm:text-base">Success Stories</h3>
+              <div className="sm:col-span-2 bg-white p-3 sm:p-4 rounded-lg shadow-md border border-gray-200">
+                <h3 className="font-bold mb-2 text-gray-900 text-xs sm:text-sm">Success Stories</h3>
                 <div className="flex items-start">
-                  <img src={user} alt="Successful Students" className="w-12 h-12 sm:w-16 sm:h-16 rounded-full object-cover mr-3 sm:mr-4" />
+                  <img src={user} alt="Successful Students" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover mr-2 sm:mr-3" />
                   <div>
-                    <p className="text-gray-700 italic mb-1 sm:mb-2 text-xs sm:text-sm">"The staff augmentation program gave me the real-world experience I needed to land my dream job."</p>
+                    <p className="text-gray-700 italic mb-1 text-xs">"The staff augmentation program gave me the real-world experience I needed to land my dream job."</p>
                     <p className="text-gray-600 text-xs">- Rahul K., Full Stack Developer</p>
                   </div>
                 </div>
@@ -440,14 +440,14 @@ const Gtech = () => {
       </section>
 
       {/* Final CTA Section - Reduced padding */}
-      <section className="py-12 sm:py-20 px-4 sm:px-6 bg-gradient-to-br from-blue-600 to-indigo-700 text-white">
+      <section className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 bg-gradient-to-br from-blue-600 to-indigo-700 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6"
+            className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4"
           >
             Ready to <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-yellow-200">Launch</span> Your Tech Career?
           </motion.h2>
@@ -456,18 +456,18 @@ const Gtech = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-blue-100 text-sm sm:text-base md:text-lg mb-6 sm:mb-8 max-w-3xl mx-auto"
+            className="text-blue-100 text-xs sm:text-sm mb-4 sm:mb-6 max-w-3xl mx-auto"
           >
             Join our next batch and take the first step toward becoming an industry-ready professional.
           </motion.p>
           <motion.div
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="inline-flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center"
+            className="inline-flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center"
           >
             <button 
               onClick={() => navigate('/contact', { state: { details: { slug: 'gtech' } } })}
-              className="px-6 sm:px-8 py-3 bg-white text-blue-600 font-bold rounded-lg shadow-md hover:bg-gray-100 transition-colors text-sm sm:text-base"
+              className="px-5 sm:px-6 py-2 sm:py-3 bg-white text-blue-600 font-bold rounded-lg shadow-md hover:bg-gray-100 transition-colors text-sm sm:text-base cursor-pointer"
             >
               Enroll Now
             </button>

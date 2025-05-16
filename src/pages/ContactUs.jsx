@@ -3,6 +3,7 @@ import emailjs from '@emailjs/browser';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useLocation } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 // Define field configs for each slug
 const FORM_FIELDS = {
@@ -10,8 +11,13 @@ const FORM_FIELDS = {
     { name: 'studentName', label: 'Student Name*', type: 'text', required: true },
     { name: 'email', label: 'Email*', type: 'email', required: true },
     { name: 'phone', label: 'Phone*', type: 'text', required: true },
-    { name: 'grade', label: 'Class*', type: 'text', required: true },
-    { name: 'school', label: 'School Name', type: 'text', required: false },
+    { 
+      name: 'grade', 
+      label: 'Education Level*', 
+      type: 'select', 
+      options: ['School', 'UG (Undergraduate)', 'PG (Postgraduate)']
+    },
+    { name: 'school', label: 'School/College Name', type: 'text', required: false },
     { name: 'comments', label: 'Comments', type: 'textarea', required: false },
   ],
   'fmcg': [
@@ -22,6 +28,20 @@ const FORM_FIELDS = {
     { name: 'productInterest', label: 'Product Interest*', type: 'text', required: true },
     { name: 'comments', label: 'Comments', type: 'textarea', required: false },
   ],
+  'event-management': [
+    { name: 'eventType', label: 'Event Type*', type: 'select', 
+      options: ['Corporate Event', 'Wedding', 'Cultural Program', 'Promotional Event'], 
+      required: true 
+    },
+    { name: 'eventDate', label: 'Event Date*', type: 'date', required: true },
+    { name: 'contactPerson', label: 'Contact Person*', type: 'text', required: true },
+    { name: 'email', label: 'Email*', type: 'email', required: true },
+    { name: 'phone', label: 'Phone*', type: 'text', required: true },
+    { name: 'eventLocation', label: 'Event Location', type: 'text', required: false },
+    { name: 'attendees', label: 'Expected Attendees', type: 'number', required: false },
+    { name: 'budget', label: 'Approximate Budget', type: 'text', required: false },
+    { name: 'specialRequirements', label: 'Special Requirements', type: 'textarea', required: false }
+  ],
   'default': [
     { name: 'firstName', label: 'First Name*', type: 'text', required: true },
     { name: 'lastName', label: 'Last Name*', type: 'text', required: true },
@@ -29,7 +49,7 @@ const FORM_FIELDS = {
     { name: 'company', label: 'Company*', type: 'text', required: true },
     { name: 'jobTitle', label: 'Job Title*', type: 'text', required: true },
     { name: 'country', label: 'Country*', type: 'select', required: true },
-    { name: 'comments', label: 'Comments*', type: 'textarea', required: true },
+    { name: 'comments', label: 'Comments*', type: 'textarea', required: false },
   ]
 };
 
@@ -40,7 +60,8 @@ const COUNTRIES = [
 
 const ContactUs = () => {
   const enquiryDetails = useLocation()?.state?.details;
-  const slug = enquiryDetails?.slug || 'default';
+  // Normalize the slug to match the navbar path
+  const slug = enquiryDetails?.slug === 'event-management' ? 'event-management' : 'default';
   console.log(slug)
 
   // Pick the correct fields for the slug
@@ -82,19 +103,53 @@ const ContactUs = () => {
 
   const validateForm = () => {
     const newErrors = {};
+    const phoneRegex = /^[+]?[(]?[0-9]{1,4}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{3,6}$/;
+    const nameRegex = /^[a-zA-Z\s'-]+$/;
+    
     fields.forEach(field => {
-      if (field.required) {
-        if (!formData[field.name] || !formData[field.name].trim()) {
-          newErrors[field.name] = `${field.label.replace('*', '')} is required`;
-        }
+      const value = formData[field.name]?.trim();
+      
+      if (field.required && !value) {
+        newErrors[field.name] = `${field.label.replace('*', '')} is required`;
+        return;
       }
-      if (field.type === 'email' && formData[field.name]) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(formData[field.name])) {
-          newErrors[field.name] = 'Please enter a valid email';
-        }
+
+      switch (field.type) {
+        case 'email':
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(value)) {
+            newErrors[field.name] = 'Please enter a valid email address';
+          }
+          break;
+          
+        case 'text':
+          if (field.name.includes('Name')) {
+            if (!nameRegex.test(value)) {
+              newErrors[field.name] = 'Please enter a valid name';
+            }
+          }
+          break;
+          
+        case 'phone':
+          if (!phoneRegex.test(value)) {
+            newErrors[field.name] = 'Please enter a valid phone number';
+          }
+          break;
+          
+        case 'select':
+          if (!value) {
+            newErrors[field.name] = `Please select a ${field.label.replace('*', '')}`;
+          }
+          break;
+          
+        case 'textarea':
+          if (value.length < 10) {
+            newErrors[field.name] = 'Please provide more details (minimum 10 characters)';
+          }
+          break;
       }
     });
+    
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -130,8 +185,16 @@ const ContactUs = () => {
     }
   };
 
+  // Add motion import
+
+  // Add animation variants
+  const fadeIn = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
+  };
+
   return (
-    <div className="min-h-screen flex flex-col items-center py-8 px-2 sm:px-4 lg:px-8">
+    <div className="min-h-screen flex flex-col items-center py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50">
       <ToastContainer
         position="bottom-right"
         autoClose={1000}
@@ -141,103 +204,105 @@ const ContactUs = () => {
         className="w-full max-w-xs sm:max-w-sm"
       />
 
-      <div className="w-full max-w-4xl space-y-6 bg-white rounded-lg p-4 sm:p-6 md:p-8 shadow-lg mx-2 sm:mx-4">
+      <motion.div
+        className="w-full max-w-4xl space-y-6 bg-white rounded-xl p-6 sm:p-8 md:p-10 shadow-2xl mx-2 sm:mx-4 border border-gray-100"
+        initial="hidden"
+        animate="visible"
+        variants={fadeIn}
+      >
         <div className="text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900">
-            Contact Us
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500">
+              Contact Us
+            </span>
           </h2>
-          {/* Show extra details if present */}
           {enquiryDetails?.purpose && (
-            <p className="mt-2 text-base text-blue-700 font-semibold">{enquiryDetails.purpose}</p>
+            <p className="mt-2 text-lg text-blue-700 font-semibold">{enquiryDetails.purpose}</p>
           )}
           {enquiryDetails?.message && (
-            <p className="mt-1 text-sm text-gray-600">{enquiryDetails.message}</p>
+            <p className="mt-1 text-base text-gray-600">{enquiryDetails.message}</p>
           )}
-          <p className="mt-2 text-sm sm:text-base text-gray-600 px-2">
-            {slug === 'g-tech' && 'Please fill in student details for G-Tech enquiry.'}
-            {slug === 'fmcg' && 'Please fill in your company and product interest for FMCG enquiry.'}
-            {slug === 'default' && 'Complete the form below and we will contact you to discuss your project. Your information will be kept confidential.'}
-          </p>
+          {slug === 'event-management' && (
+            <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+              Let us help you create an unforgettable event experience. Please provide the details below.
+            </p>
+          )}
         </div>
 
-        <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
-          <div className="space-y-4 md:col-span-2">
-            {fields.map(field => (
-              <div key={field.name} className={field.type === 'textarea' ? 'md:col-span-2' : ''}>
-                <label htmlFor={field.name} className="sr-only">{field.label}</label>
-                {field.type === 'select' ? (
-                  <select
-                    id={field.name}
-                    name={field.name}
-                    value={formData[field.name]}
-                    onChange={handleChange}
-                    className={`w-full border ${errors[field.name] ? 'border-red-500' : 'border-gray-300'
-                      } rounded-lg px-4 py-2 sm:px-5 sm:py-3 focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-150 shadow-sm bg-gray-50`}
-                    aria-invalid={!!errors[field.name]}
-                    aria-describedby={errors[field.name] ? `${field.name}-error` : undefined}
-                  >
-                    <option value="">Select a country*</option>
-                    {COUNTRIES.map(country => (
-                      <option key={country} value={country}>
-                        {country}
-                      </option>
-                    ))}
-                  </select>
-                ) : field.type === 'textarea' ? (
-                  <textarea
-                    id={field.name}
-                    name={field.name}
-                    placeholder={field.label}
-                    value={formData[field.name]}
-                    onChange={handleChange}
-                    rows={4}
-                    className={`w-full border ${errors[field.name] ? 'border-red-500' : 'border-gray-300'
-                      } rounded-lg px-4 py-2 sm:px-5 sm:py-3 focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-150 shadow-sm bg-gray-50 resize-none`}
-                    aria-invalid={!!errors[field.name]}
-                    aria-describedby={errors[field.name] ? `${field.name}-error` : undefined}
-                  ></textarea>
-                ) : (
-                  <input
-                    type={field.type}
-                    id={field.name}
-                    name={field.name}
-                    placeholder={field.label}
-                    value={formData[field.name]}
-                    onChange={handleChange}
-                    className={`w-full border ${errors[field.name] ? 'border-red-500' : 'border-gray-300'
-                      } rounded-lg px-4 py-2 sm:px-5 sm:py-3 focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-150 shadow-sm bg-gray-50`}
-                    aria-invalid={!!errors[field.name]}
-                    aria-describedby={errors[field.name] ? `${field.name}-error` : undefined}
-                  />
-                )}
-                {errors[field.name] && (
-                  <p id={`${field.name}-error`} className="mt-1 text-xs sm:text-sm text-red-500">
-                    {errors[field.name]}
-                  </p>
-                )}
-              </div>
-            ))}
-          </div>
-          <div className="md:col-span-2 pt-2">
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className={`w-full bg-gradient-to-r from-blue-600 to-indigo-500 text-white py-2 sm:py-3 px-4 rounded-lg font-semibold shadow-lg hover:from-blue-700 hover:to-indigo-600 transition duration-200 text-base sm:text-lg tracking-wide ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
-                }`}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {fields.map((field, index) => (
+            <motion.div
+              key={field.name}
+              className={field.type === 'textarea' ? 'md:col-span-2' : ''}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
             >
-              {isSubmitting ? (
-                <span className="flex items-center justify-center">
-                  <svg className="animate-spin -ml-1 mr-2 h-4 w-4 sm:h-5 sm:w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                  </svg>
-                  Sending...
-                </span>
-              ) : 'Send Message'}
-            </button>
-          </div>
-        </form>
-      </div>
+              <label htmlFor={field.name} className="block text-sm font-medium text-gray-700 mb-2">
+                {field.label}
+              </label>
+              {field.type === 'select' ? (
+              <select
+                id={field.name}
+                name={field.name}
+                value={formData[field.name]}
+                onChange={handleChange}
+                className={`w-full px-4 py-3 rounded-lg border ${
+                  errors[field.name] ? 'border-red-500' : 'border-gray-200'
+                } focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none`}
+              >
+                <option value="">Select {field.label.replace('*', '')}</option>
+                {(field.options || COUNTRIES).map(option => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </select>
+              ) : field.type === 'textarea' ? (
+                <>
+                  <div className="relative">
+                    <textarea
+                      id={field.name}
+                      name={field.name}
+                      value={formData[field.name]}
+                      onChange={handleChange}
+                      rows={4}
+                      maxLength={250}
+                      className={`w-full px-4 py-3 rounded-lg border ${
+                        errors[field.name] ? 'border-red-500' : 'border-gray-200'
+                      } focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none`}
+                    />
+                  </div>
+                  <div className="text-sm text-gray-500 bg-white px-2 rounded">
+                    {250 - (formData[field.name]?.length || 0)} characters remaining
+                  </div>
+                </>
+              ) : (
+                <input
+                  type={field.type}
+                  id={field.name}
+                  name={field.name}
+                  value={formData[field.name]}
+                  onChange={handleChange}
+                  className={`w-full px-4 py-3 rounded-lg border ${
+                    errors[field.name] ? 'border-red-500' : 'border-gray-200'
+                  } focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none`}
+                />
+              )}
+            </motion.div>
+          ))}
+
+          <motion.button
+            onClick={handleSubmit}
+            className="md:col-span-2 bg-gradient-to-r from-blue-600 to-indigo-500 text-white px-6 py-4 rounded-lg hover:shadow-lg transition-all font-medium cursor-pointer text-lg w-full"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? 'Sending...' : 'Send Message'}
+          </motion.button>
+        </div>
+      </motion.div>
     </div>
   );
 };

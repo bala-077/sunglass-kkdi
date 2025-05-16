@@ -1,5 +1,5 @@
-import React from 'react';
-import { 
+import React, { useEffect } from 'react';
+import {
   FaBusinessTime,
   FaMusic,
   FaGlassCheers,
@@ -7,228 +7,275 @@ import {
   FaMicrophone,
   FaCalendarAlt,
   FaPhotoVideo,
-  FaClipboardCheck
+  FaClipboardCheck,
+  FaMapMarkerAlt,
+  FaUsers,
+  FaRegSmile
 } from 'react-icons/fa';
+import { FiArrowRight } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
 import eventManagement from '/event-Management.jpg';
+import { motion } from 'framer-motion';
 
 const EventManagement = () => {
+  const navigate = useNavigate();
+
+  const fadeIn = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
+  };
+
+  useEffect(() => {
+    window.scroll(0, 0)
+  }, [])
+
   return (
     <div className="w-full bg-white">
-      {/* Hero Section */}
-      <div className="relative w-full">
+      {/* Hero Section - Matching Digital Transformation Style */}
+      <div className="relative w-full h-screen max-h-[80vh] overflow-hidden">
         <img
           src={eventManagement}
           alt="Event Management"
-          className="w-full h-96 object-cover"
+          className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/40 flex items-end p-8">
-          <div className="max-w-7xl mx-auto w-full">
-            <h1 className="text-3xl sm:text-4xl font-bold text-white mb-2">
-              Professional Event Management
-            </h1>
-            <p className="text-lg sm:text-xl text-gray-100">
-              Creating memorable experiences in Karaikudi and beyond
-            </p>
-          </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40 flex items-center px-8">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={fadeIn}
+            className="max-w-7xl mx-auto w-full"
+          >
+            <div className="max-w-2xl">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
+                Creating <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">Unforgettable Experiences</span>
+              </h1>
+              <p className="text-lg sm:text-xl text-gray-100 mb-8">
+                Professional event management services in Karaikudi that transform your vision into reality
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button
+                  className="bg-gradient-to-r from-blue-600 to-indigo-500 text-white px-6 py-3 rounded-lg hover:shadow-lg transition-all font-medium cursor-pointer"
+                  onClick={() => navigate('/contact', { state:  { slug: 'event-management' } })}
+                >
+                  Plan Your Event <FiArrowRight className="inline ml-2" />
+                </button>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
 
+
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Introduction */}
-        <div className="mb-12">
-          <p className="text-lg text-gray-700 leading-relaxed mb-8">
-            Our event management division operates with creativity, precision, and local expertise. Based in Karaikudi, we provide end-to-end event planning and execution services, making us a preferred partner for both social and corporate events.
-          </p>
-
-          {/* Features Grid */}
-          <div className="grid md:grid-cols-2 gap-6 mb-12">
-            <div className="bg-white p-6 rounded-xl shadow-md border border-gray-200 flex items-start">
-              <div className="bg-blue-100 p-3 rounded-full mr-4">
-                <FaClipboardCheck className="text-blue-600 text-2xl" />
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">End-to-End Planning</h3>
-                <p className="text-gray-600">Comprehensive event management from concept to execution.</p>
-              </div>
-            </div>
-
-            <div className="bg-white p-6 rounded-xl shadow-md border border-gray-200 flex items-start">
-              <div className="bg-purple-100 p-3 rounded-full mr-4">
-                <FaCalendarAlt className="text-purple-600 text-2xl" />
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">Local Expertise</h3>
-                <p className="text-gray-600">Deep knowledge of Karaikudi venues and vendors.</p>
-              </div>
-            </div>
-
-            <div className="bg-white p-6 rounded-xl shadow-md border border-gray-200 flex items-start">
-              <div className="bg-green-100 p-3 rounded-full mr-4">
-                <FaPhotoVideo className="text-green-600 text-2xl" />
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">AV Production</h3>
-                <p className="text-gray-600">Professional audio-visual setup and technical support.</p>
-              </div>
-            </div>
-
-            <div className="bg-white p-6 rounded-xl shadow-md border border-gray-200 flex items-start">
-              <div className="bg-red-100 p-3 rounded-full mr-4">
-                <FaMicrophone className="text-red-600 text-2xl" />
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">Talent Coordination</h3>
-                <p className="text-gray-600">Access to performers, speakers, and emcees.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Services */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-            <FaBusinessTime className="mr-3 text-blue-600" />
-            Our Event Services
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        {/* Enhanced Introduction */}
+        <div className="mb-16 text-center">
+          <h2 className="text-3xl font-bold text-gray-800 mb-6">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-400">
+              Karaikudi's Premier Event Partners
+            </span>
           </h2>
-          
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
-            {/* Service 1 */}
-            <div className="bg-white p-6 rounded-xl shadow-md border border-gray-200 border-l-4 border-blue-500">
-              <div className="flex items-center mb-3">
-                <div className="bg-blue-100 p-2 rounded-lg mr-4">
-                  <FaBusinessTime className="text-blue-600 text-xl" />
-                </div>
-                <h3 className="text-lg font-semibold text-gray-800">Corporate Events</h3>
-              </div>
-              <p className="text-gray-600 mb-3">Professional management for business gatherings, product launches, and team events.</p>
-              <div className="flex flex-wrap gap-2">
-                <span className="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Seminars</span>
-                <span className="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Conferences</span>
-                <span className="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Product Launches</span>
-                <span className="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Annual Days</span>
-              </div>
-            </div>
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            Combining <span className="font-semibold text-blue-600">digital innovation</span> with <span className="font-semibold text-indigo-600">event expertise</span>, we bring a unique approach to event management. Our tech-enabled solutions ensure seamless planning while our local knowledge guarantees authentic experiences.
+          </p>
+        </div>
 
-            {/* Service 2 */}
-            <div className="bg-white p-6 rounded-xl shadow-md border border-gray-200 border-l-4 border-purple-500">
-              <div className="flex items-center mb-3">
-                <div className="bg-purple-100 p-2 rounded-lg mr-4">
-                  <FaMusic className="text-purple-600 text-xl" />
-                </div>
-                <h3 className="text-lg font-semibold text-gray-800">Cultural Programs</h3>
+        {/* Features Grid with Enhanced UI */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          {[
+            {
+              icon: <FaClipboardCheck className="text-blue-600 text-2xl" />,
+              title: "Digital Planning Tools",
+              desc: "Online dashboards for real-time event tracking",
+              bg: "bg-blue-100"
+            },
+            {
+              icon: <FaCalendarAlt className="text-purple-600 text-2xl" />,
+              title: "Local Expertise",
+              desc: "Deep Karaikudi market knowledge",
+              bg: "bg-purple-100"
+            },
+            {
+              icon: <FaPhotoVideo className="text-green-600 text-2xl" />,
+              title: "Tech Integration",
+              desc: "Advanced AV and digital solutions",
+              bg: "bg-green-100"
+            },
+            {
+              icon: <FaMicrophone className="text-red-600 text-2xl" />,
+              title: "Talent Network",
+              desc: "Curated performers and speakers",
+              bg: "bg-red-100"
+            }
+          ].map((feature, index) => (
+            <div key={index} className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+              <div className={`${feature.bg} p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6 mx-auto`}>
+                {feature.icon}
               </div>
-              <p className="text-gray-600 mb-3">Vibrant celebrations of local traditions and artistic performances.</p>
-              <div className="flex flex-wrap gap-2">
-                <span className="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Stage Shows</span>
-                <span className="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Music Concerts</span>
-                <span className="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Dance Performances</span>
-                <span className="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Festivities</span>
-              </div>
+              <h3 className="text-xl font-semibold text-center text-gray-800 mb-3">{feature.title}</h3>
+              <p className="text-gray-600 text-center">{feature.desc}</p>
             </div>
+          ))}
+        </div>
 
-            {/* Service 3 */}
-            <div className="bg-white p-6 rounded-xl shadow-md border border-gray-200 border-l-4 border-pink-500">
-              <div className="flex items-center mb-3">
-                <div className="bg-pink-100 p-2 rounded-lg mr-4">
-                  <FaGlassCheers className="text-pink-600 text-xl" />
-                </div>
-                <h3 className="text-lg font-semibold text-gray-800">Weddings & Receptions</h3>
-              </div>
-              <p className="text-gray-600 mb-3">Unforgettable celebrations with perfect coordination and elegant execution.</p>
-              <div className="flex flex-wrap gap-2">
-                <span className="bg-pink-100 text-pink-800 text-xs px-3 py-1 rounded-full">Weddings</span>
-                <span className="bg-pink-100 text-pink-800 text-xs px-3 py-1 rounded-full">Receptions</span>
-                <span className="bg-pink-100 text-pink-800 text-xs px-3 py-1 rounded-full">Anniversaries</span>
-                <span className="bg-pink-100 text-pink-800 text-xs px-3 py-1 rounded-full">Private Parties</span>
-              </div>
-            </div>
+        {/* Enhanced Services Section */}
+        <div className="mb-16">
+          <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-400">
+              Our Comprehensive Services
+            </span>
+          </h2>
 
-            {/* Service 4 */}
-            <div className="bg-white p-6 rounded-xl shadow-md border border-gray-200 border-l-4 border-red-500">
-              <div className="flex items-center mb-3">
-                <div className="bg-red-100 p-2 rounded-lg mr-4">
-                  <FaBullhorn className="text-red-600 text-xl" />
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                title: "Corporate Events",
+                icon: <FaBusinessTime className="text-blue-600 text-xl" />,
+                desc: "Tech-enabled business gatherings with digital integration",
+                tags: ["Hybrid Conferences", "Product Launches", "Team Building"],
+                border: "border-blue-500"
+              },
+              {
+                title: "Cultural Programs",
+                icon: <FaMusic className="text-purple-600 text-xl" />,
+                desc: "Celebrating local heritage with modern production values",
+                tags: ["Music Festivals", "Dance Performances", "Traditional Events"],
+                border: "border-purple-500"
+              },
+              {
+                title: "Weddings & Receptions",
+                icon: <FaGlassCheers className="text-pink-600 text-xl" />,
+                desc: "Seamless celebrations with digital planning tools",
+                tags: ["Destination Weddings", "Receptions", "Anniversaries"],
+                border: "border-pink-500"
+              },
+              {
+                title: "Promotional Campaigns",
+                icon: <FaBullhorn className="text-red-600 text-xl" />,
+                desc: "Data-driven marketing events with digital analytics",
+                tags: ["Brand Activations", "Retail Launches", "PR Stunts"],
+                border: "border-red-500"
+              }
+            ].map((service, index) => (
+              <div key={index} className={`bg-white p-8 rounded-xl shadow-md border-l-4 ${service.border} hover:translate-y-[-5px] transition-transform`}>
+                <div className="flex items-center mb-4">
+                  <div className={`${service.border.replace('border', 'bg')}100 p-3 rounded-lg mr-4`}>
+                    {service.icon}
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-800">{service.title}</h3>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-800">Promotional Campaigns</h3>
+                <p className="text-gray-600 mb-5">{service.desc}</p>
+                <div className="flex flex-wrap gap-2">
+                  {service.tags.map((tag, tagIndex) => (
+                    <span key={tagIndex} className={`${service.border.replace('border', 'bg')}100 ${service.border.replace('border', 'text')}-800 text-xs px-3 py-1 rounded-full`}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
-              <p className="text-gray-600 mb-3">Impactful marketing events that create buzz and engagement.</p>
-              <div className="flex flex-wrap gap-2">
-                <span className="bg-red-100 text-red-800 text-xs px-3 py-1 rounded-full">Roadshows</span>
-                <span className="bg-red-100 text-red-800 text-xs px-3 py-1 rounded-full">Store Openings</span>
-                <span className="bg-red-100 text-red-800 text-xs px-3 py-1 rounded-full">Brand Activations</span>
-                <span className="bg-red-100 text-red-800 text-xs px-3 py-1 rounded-full">PR Events</span>
+            ))}
+          </div>
+        </div>
+
+        {/* Stats Section - New Addition */}
+        <div className="bg-gradient-to-r from-blue-600 to-indigo-500 mb-20 py-12 text-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+              <div>
+                <div className="text-4xl font-bold mb-2 flex items-center justify-center">
+                  <FaCalendarAlt className="mr-2" /> 250+
+                </div>
+                <p className="text-blue-100">Events Managed</p>
+              </div>
+              <div>
+                <div className="text-4xl font-bold mb-2 flex items-center justify-center">
+                  <FaMapMarkerAlt className="mr-2" /> 50+
+                </div>
+                <p className="text-blue-100">Venues Partnered</p>
+              </div>
+              <div>
+                <div className="text-4xl font-bold mb-2 flex items-center justify-center">
+                  <FaUsers className="mr-2" /> 10K+
+                </div>
+                <p className="text-blue-100">Attendees Served</p>
+              </div>
+              <div>
+                <div className="text-4xl font-bold mb-2 flex items-center justify-center">
+                  <FaRegSmile className="mr-2" /> 100%
+                </div>
+                <p className="text-blue-100">Client Satisfaction</p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Full Service Package */}
-        <div className="bg-white rounded-2xl p-8 shadow-md border border-gray-200 mb-12">
-          <div className="flex flex-col md:flex-row items-center">
-            <div className="md:w-2/3 mb-6 md:mb-0 md:pr-8">
-              <h2 className="text-2xl font-bold mb-4 flex items-center text-gray-800">
-                <FaClipboardCheck className="mr-3 text-blue-600" />
-                Complete Event Solutions
+
+        {/* Enhanced Full Service Package */}
+        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-10 shadow-lg border border-gray-200 mb-16 overflow-hidden">
+          <div className="flex flex-col lg:flex-row">
+            <div className="lg:w-2/3 mb-10 lg:mb-0 lg:pr-10">
+              <h2 className="text-3xl font-bold mb-6 text-gray-800">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500">
+                  End-to-End Digital Event Solutions
+                </span>
               </h2>
-              <p className="mb-4 text-gray-600">
-                We handle every aspect of your event to ensure flawless execution and unforgettable experiences.
+              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+                Our unique combination of <span className="font-semibold text-blue-600">event expertise</span> and <span className="font-semibold text-indigo-600">digital innovation</span> ensures your event stands out in today's competitive landscape.
               </p>
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <FaCalendarAlt className="mt-1 mr-3 text-blue-500 flex-shrink-0" />
-                  <span className="text-gray-700">Venue selection and booking</span>
-                </li>
-                <li className="flex items-start">
-                  <FaPhotoVideo className="mt-1 mr-3 text-blue-500 flex-shrink-0" />
-                  <span className="text-gray-700">Stage design and audio-visual production</span>
-                </li>
-                <li className="flex items-start">
-                  <FaGlassCheers className="mt-1 mr-3 text-blue-500 flex-shrink-0" />
-                  <span className="text-gray-700">Catering and hospitality management</span>
-                </li>
-                <li className="flex items-start">
-                  <FaMicrophone className="mt-1 mr-3 text-blue-500 flex-shrink-0" />
-                  <span className="text-gray-700">Entertainment and talent coordination</span>
-                </li>
-              </ul>
+
+              <div className="grid sm:grid-cols-2 gap-6">
+                {[
+                  { icon: <FaCalendarAlt className="text-blue-500 text-xl" />, text: "Venue sourcing with 3D virtual tours" },
+                  { icon: <FaPhotoVideo className="text-blue-500 text-xl" />, text: "Hybrid event streaming solutions" },
+                  { icon: <FaClipboardCheck className="text-blue-500 text-xl" />, text: "Digital attendee management" },
+                  { icon: <FaMicrophone className="text-blue-500 text-xl" />, text: "Augmented reality experiences" }
+                ].map((item, index) => (
+                  <div key={index} className="flex items-start">
+                    <span className="mt-1 mr-4 flex-shrink-0">{item.icon}</span>
+                    <span className="text-gray-700">{item.text}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="md:w-1/3 bg-blue-50 p-6 rounded-xl border border-blue-100">
-              <h3 className="font-semibold mb-3 text-blue-600">Why Choose Us</h3>
-              <ul className="space-y-2 text-sm">
-                <li className="flex items-start">
-                  <span className="bg-blue-600 text-white rounded-full w-5 h-5 flex items-center justify-center mr-2 flex-shrink-0">1</span>
-                  <span className="text-gray-700">Local market expertise</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="bg-blue-600 text-white rounded-full w-5 h-5 flex items-center justify-center mr-2 flex-shrink-0">2</span>
-                  <span className="text-gray-700">Vendor network</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="bg-blue-600 text-white rounded-full w-5 h-5 flex items-center justify-center mr-2 flex-shrink-0">3</span>
-                  <span className="text-gray-700">Attention to detail</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="bg-blue-600 text-white rounded-full w-5 h-5 flex items-center justify-center mr-2 flex-shrink-0">4</span>
-                  <span className="text-gray-700">Stress-free experience</span>
-                </li>
+
+            <div className="lg:w-1/3 bg-white p-8 rounded-xl shadow-md border border-blue-100">
+              <h3 className="text-xl font-semibold mb-6 text-blue-600 flex items-center">
+                <FaRegSmile className="mr-2" /> Why We're Different
+              </h3>
+              <ul className="space-y-4">
+                {[
+                  "Tech-forward event solutions",
+                  "Data-driven decision making",
+                  "Seamless digital integration",
+                  "Local market specialization",
+                  "Sustainable event practices"
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start">
+                    <span className="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0 text-sm">
+                      {index + 1}
+                    </span>
+                    <span className="text-gray-700">{item}</span>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
         </div>
 
-        {/* Call to Action */}
-        <div className="text-center py-8">
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">Ready to Plan Your Perfect Event?</h2>
-          <p className="text-xl text-gray-600 mb-6 max-w-2xl mx-auto">
-            Let us handle the details while you enjoy the experience.
+        {/* Enhanced Call to Action */}
+        <div className="text-center py-12 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            Ready to <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500">Elevate Your Event?</span>
+          </h2>
+          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            Let's combine digital innovation with unforgettable experiences.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full shadow-md transition-colors">
-              Get a Quote
-            </button>
-            <button className="bg-white border border-blue-600 text-blue-600 font-semibold py-3 px-8 rounded-full shadow-md transition-colors hover:bg-blue-50">
-              View Portfolio
+            <button
+              className="cursor-pointer bg-gradient-to-r from-blue-600 to-indigo-500 hover:from-blue-700 hover:to-indigo-600 text-white font-semibold py-4 px-10 rounded-full shadow-lg transition-all flex items-center"
+              onClick={() => navigate('/contact')}
+            >
+              Get Started <FiArrowRight className="ml-2" />
             </button>
           </div>
         </div>

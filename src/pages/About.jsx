@@ -90,10 +90,10 @@ const About = () => {
           >
             <div className="max-w-2xl">
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
-              Digital Transformation <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">Experts</span>
+                Digital Transformation <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">Experts</span>
               </h1>
               <p className="text-lg sm:text-xl text-gray-100 mb-8">
-              Empowering Karaikudi businesses with innovative technology solutions
+                Empowering Karaikudi businesses with innovative technology solutions
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
@@ -177,19 +177,11 @@ const About = () => {
                 Pioneering Digital Solutions in Karaikudi
               </h2>
               <p className="text-lg text-gray-700 mb-6">
-                Founded in 2015, Digitaly began as a small startup with a vision to transform how businesses in Karaikudi leverage technology. Today, we're the region's leading digital solutions provider, serving over 150 local businesses with our innovative platforms and services.
+                Digitaly began as a small startup with a vision to transform how businesses in Karaikudi leverage technology. Today, we're the region's leading digital solutions provider, serving over 150 local businesses with our innovative platforms and services.
               </p>
               <p className="text-lg text-gray-700 mb-8">
                 What sets us apart is our unique blend of technical expertise and deep understanding of local business challenges. From our flagship Dial Karaikudi directory to our enterprise SaaS solutions, every product is designed with the Karaikudi business community in mind.
               </p>
-              <div className="flex flex-wrap gap-4">
-                <button
-                  className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
-                  onClick={() => navigate('/products')}
-                >
-                  Explore Our Products
-                </button>
-              </div>
             </motion.div>
           </div>
         </div>
@@ -246,7 +238,7 @@ const About = () => {
               className="inline-flex flex-col sm:flex-row gap-4 justify-center"
             >
               <button
-                className="bg-white text-blue-600 px-8 py-3 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all"
+                className="bg-white text-blue-600 px-8 py-3 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all cursor-pointer"
                 onClick={() => navigate('/contact')}
               >
                 Get Started Today

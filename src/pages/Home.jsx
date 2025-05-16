@@ -79,7 +79,7 @@ const Home = () => {
   return (
     <div className="bg-white text-gray-900">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-20 px-6 overflow-hidden">
+      <section className="relative min-h-[93vh] flex items-center justify-center pt-20 px-6 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/70" />
           <img
@@ -117,30 +117,6 @@ const Home = () => {
               We deliver cutting-edge artificial intelligence solutions that drive efficiency, innovation, and competitive advantage for businesses worldwide.
             </motion.p>
             
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.8 }}
-              className="flex flex-wrap justify-center gap-6"
-            >
-              <motion.button
-                whileHover={{ y: -5, boxShadow: '0 10px 25px -5px rgba(37, 99, 235, 0.4)' }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl flex items-center"
-                onClick={() => navigate('/contact')}
-              >
-                Request Demo <FiArrowRight className="ml-2" />
-              </motion.button>
-              
-              <motion.button
-                whileHover={{ y: -5 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 bg-white text-gray-800 font-semibold rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl flex items-center"
-                onClick={() => navigate('/solutions')}
-              >
-                Explore Solutions <FiChevronRight className="ml-2" />
-              </motion.button>
-            </motion.div>
           </motion.div>
         </div>
 

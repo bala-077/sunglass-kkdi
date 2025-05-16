@@ -13,6 +13,7 @@ import jobs from '/Jobs.jpg'
 import news from '/News.jpg'
 import Expense from '/Mobile App.jpg'
 import ecom from '/E-Commerce.jpg'
+import { motion } from 'framer-motion'; // <-- Add this line
 
 const features = [
     { icon: <FaBolt className="text-2xl" />, title: 'Fast Delivery', color: 'bg-indigo-100 text-indigo-600', description: 'Rapid implementation and deployment of digital solutions to get you to market faster.' },
@@ -94,6 +95,12 @@ const Digitaly = () => {
     const navigate = useNavigate();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+    // Animation variants for hero section
+    const fadeIn = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
+    };
+
     useEffect(() => {
         window.scroll(0, 0);
     }, []);
@@ -108,7 +115,12 @@ const Digitaly = () => {
                     className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40 flex items-center px-8">
-                    <div className="max-w-7xl mx-auto w-full">
+                    <motion.div
+                        initial="hidden"
+                        animate="visible"
+                        variants={fadeIn}
+                        className="max-w-7xl mx-auto w-full"
+                    >
                         <div className="max-w-2xl">
                             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
                                 Transforming Businesses Through <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">Digital Innovation</span>
@@ -125,7 +137,7 @@ const Digitaly = () => {
                                 </button>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
 
