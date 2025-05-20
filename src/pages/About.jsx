@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import CountUp from 'react-countup';
-import img1 from '/gtech.jpg';
+import img1 from '/abouts.jpg';
+import img2 from '/aboutus.jpg';
 import { useInView } from 'react-intersection-observer';
 import { useNavigate } from 'react-router-dom';
 import { FiArrowRight } from 'react-icons/fi';
@@ -77,11 +78,11 @@ const About = () => {
       {/* Hero Section */}
       <div className="relative w-full h-screen max-h-[80vh] overflow-hidden">
         <img
-          src={img1}
+          src={img2}
           alt="Digital Solutions in Karaikudi"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40 flex items-center px-8">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-black/40 flex items-center px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -98,7 +99,7 @@ const About = () => {
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
                   className="bg-gradient-to-r from-blue-600 to-indigo-500 text-white px-6 py-3 rounded-lg hover:shadow-lg transition-all font-medium cursor-pointer"
-                  onClick={() => navigate('/contact')}
+                  onClick={() => navigate('/contact', { state:  { slug: 'aboutus' } })}
                 >
                   Connect with us <FiArrowRight className="inline ml-2" />
                 </button>

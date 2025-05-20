@@ -13,6 +13,7 @@ import {
   FaRegSmile
 } from 'react-icons/fa';
 import { FiArrowRight } from 'react-icons/fi';
+import eventHerImg from '/abouts.jpg'
 import { useNavigate } from 'react-router-dom';
 import eventManagement from '/event-Management.jpg';
 import { motion } from 'framer-motion';
@@ -34,7 +35,7 @@ const EventManagement = () => {
       {/* Hero Section - Matching Digital Transformation Style */}
       <div className="relative w-full h-screen max-h-[80vh] overflow-hidden">
         <img
-          src={eventManagement}
+          src={eventHerImg}
           alt="Event Management"
           className="w-full h-full object-cover"
         />

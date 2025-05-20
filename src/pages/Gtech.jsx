@@ -16,6 +16,7 @@ import {
   FaCheckCircle
 } from 'react-icons/fa';
 import { IoIosRocket } from 'react-icons/io';
+import gtechHeroImg from '/gtechHeroImg.jpg';
 import { FiAward, FiBookOpen, FiUserCheck } from 'react-icons/fi';
 import gtechHero from '/gtech.jpg';
 import classroomImg from '/gtech.jpg';
@@ -143,7 +144,7 @@ const Gtech = () => {
       <section className="relative w-full h-[50vh] sm:h-[60vh] min-h-[400px] sm:min-h-[500px] flex items-center justify-center">
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40 z-10" />
         <img
-          src={gtechHero}
+          src={gtechHeroImg}
           alt="GTEC Computer Education"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -167,8 +168,8 @@ const Gtech = () => {
           <motion.button
             whileHover={{ y: -3, boxShadow: '0 10px 25px -5px rgba(37, 99, 235, 0.4)' }}
             whileTap={{ scale: 0.98 }}
-            onClick={() => navigate('/contact', { state: { details: { slug: 'gtech' } } })}
-            className="px-5 sm:px-6 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all cursor-pointer text-sm sm:text-base"
+            onClick={() => navigate('/contact', { state: { slug: 'gtech' }} )}
+            className="bg-gradient-to-r from-blue-600 to-indigo-500 text-white px-5 py-3 rounded-lg hover:shadow-lg transition-all font-medium cursor-pointer"
           >
             Enroll Now
           </motion.button>

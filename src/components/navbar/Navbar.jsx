@@ -108,7 +108,7 @@ const Navbar = () => {
               alt="Logo" 
               className="h-10 w-10 object-contain mr-3 rounded-full" 
             />
-            <span className="text-lg font-bold text-gray-800">Gtech</span>
+            <span className="text-lg font-bold text-gray-800">Sunglass</span>
           </div>
 
           {/* Mobile menu items */}

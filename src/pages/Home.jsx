@@ -96,7 +96,7 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
@@ -107,8 +107,8 @@ const Home = () => {
               </span>{' '}
               <span className="text-white">Business Transformation</span>
             </motion.h1>
-            
-            <motion.p 
+
+            <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
@@ -116,7 +116,7 @@ const Home = () => {
             >
               We deliver cutting-edge artificial intelligence solutions that drive efficiency, innovation, and competitive advantage for businesses worldwide.
             </motion.p>
-            
+
           </motion.div>
         </div>
 
@@ -305,7 +305,7 @@ const Home = () => {
                 </div>
                 <p className="text-gray-700 italic mb-6">"{testimonial.quote}"</p>
                 <div className="flex items-center">
-                  <img src={testimonial.avatar} alt={testimonial.author} className={`w-16 h-16 rounded-full mr-4 object-cover border-4 ${index % 2 === 0 ? "border-green-500" : "border-blue-500" }`} />
+                  <img src={testimonial.avatar} alt={testimonial.author} className={`w-16 h-16 rounded-full mr-4 object-cover border-4 ${index % 2 === 0 ? "border-green-500" : "border-blue-500"}`} />
                   <div>
                     <p className="font-bold text-gray-900">{testimonial.author}</p>
                     <p className="text-gray-500 text-sm">{testimonial.role}</p>
@@ -337,7 +337,7 @@ const Home = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-white text-blue-600 font-semibold px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
-                onClick={() => navigate('/contact')}
+                onClick={() => navigate('/contact', { state: { slug: '/' } })}
               >
                 Get Free Consultation <FiArrowRight className="ml-1" />
               </motion.button>

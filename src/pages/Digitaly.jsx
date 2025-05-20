@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import digitaly from '/gtech.jpg';
+import digitalyHeroImg from '/digitaly.jpg';
 import demo from '/fmcg.webp';
 import { FiArrowRight, FiCheckCircle, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { FaBolt, FaMobileAlt, FaCloud, FaLock, FaChartLine, FaUsers, FaShieldAlt } from 'react-icons/fa';
@@ -110,7 +111,7 @@ const Digitaly = () => {
             {/* Hero Section */}
             <div className="relative w-full h-screen max-h-[80vh] overflow-hidden">
                 <img
-                    src={digitaly}
+                    src={digitalyHeroImg}
                     alt="Digital Transformation"
                     className="w-full h-full object-cover"
                 />
@@ -130,7 +131,7 @@ const Digitaly = () => {
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <button
-                                    className="bg-gradient-to-r from-blue-600 to-indigo-500 text-white px-6 py-3 rounded-lg hover:shadow-lg transition-all font-medium cursor-pointer"
+                                    className="bg-gradient-to-r from-blue-600 to-indigo-500 text-white px-5 py-3 rounded-lg hover:shadow-lg transition-all font-medium cursor-pointer"
                                     onClick={() => navigate('/contact')}
                                 >
                                     Connect with us <FiArrowRight className="inline ml-2" />
@@ -321,7 +322,7 @@ const Digitaly = () => {
                     <div className="flex flex-col sm:flex-row justify-center gap-4">
                         <button
                             className="bg-white text-blue-600 px-8 py-3 rounded-lg hover:shadow-lg transition-all font-medium cursor-pointer"
-                            onClick={() => navigate('/contact')}
+                            onClick={() => navigate('/contact', { state:  { slug: 'digitaly-ai-solutions' } })}
                         >
                             Get a Free Consultation
                         </button>

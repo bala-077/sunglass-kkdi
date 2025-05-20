@@ -27,17 +27,6 @@ const Footer = () => {
             <p className="text-gray-600 text-sm leading-relaxed">
               Empowering skills and enabling success through comprehensive training and services across multiple industries.
             </p>
-            <div className="flex space-x-4 pt-2">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="bg-blue-100 hover:bg-blue-200 p-3 rounded-full text-blue-600 transition-all duration-300 transform hover:-translate-y-1 shadow-sm">
-                <FaFacebookF className="text-lg" />
-              </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="bg-pink-100 hover:bg-pink-200 p-3 rounded-full text-pink-600 transition-all duration-300 transform hover:-translate-y-1 shadow-sm">
-                <FaInstagram className="text-lg" />
-              </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-blue-100 hover:bg-blue-200 p-3 rounded-full text-blue-600 transition-all duration-300 transform hover:-translate-y-1 shadow-sm">
-                <FaLinkedinIn className="text-lg" />
-              </a>
-            </div>
           </div>
 
           {/* Quick Links */}
@@ -49,7 +38,7 @@ const Footer = () => {
               {[
                 { path: '/', label: 'Home' },
                 { path: '/aboutus', label: 'About Us' },
-                { path: '/digital-ai-solution', label: 'Digitaly AI Tech Solution' },
+                { path: '/digitaly-ai-solutions', label: 'Digitaly AI Tech Solution' },
                 { path: '/gtech', label: 'G-TEC Computer Center ' },
                 { path: '/event-management', label: 'Event Management' },
                 { path: '/fmcg', label: 'FMCG' },

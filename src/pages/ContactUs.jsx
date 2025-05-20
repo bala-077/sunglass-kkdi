@@ -59,11 +59,8 @@ const COUNTRIES = [
 ];
 
 const ContactUs = () => {
-  const enquiryDetails = useLocation()?.state?.details;
-  // Normalize the slug to match the navbar path
-  const slug = enquiryDetails?.slug === 'event-management' ? 'event-management' : 'default';
-  console.log(slug)
-
+  const location = useLocation();
+  const slug = location?.state?.slug || 'default';
   // Pick the correct fields for the slug
   const fields = FORM_FIELDS[slug] || FORM_FIELDS['default'];
 
@@ -168,7 +165,7 @@ const ContactUs = () => {
       const response = await emailjs.send(
         'service_l8r7vo7',
         'template_9qe2ykk',
-        { ...formData, enquiryDetails }
+        { ...formData, slug } // <-- replace enquiryDetails with slug
       );
 
       if (response.status === 200) {
@@ -216,12 +213,13 @@ const ContactUs = () => {
               Contact Us
             </span>
           </h2>
-          {enquiryDetails?.purpose && (
+          {/* Remove or update these lines if you don't have purpose/message in your state anymore */}
+          {/* {enquiryDetails?.purpose && (
             <p className="mt-2 text-lg text-blue-700 font-semibold">{enquiryDetails.purpose}</p>
           )}
           {enquiryDetails?.message && (
             <p className="mt-1 text-base text-gray-600">{enquiryDetails.message}</p>
-          )}
+          )} */}
           {slug === 'event-management' && (
             <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
               Let us help you create an unforgettable event experience. Please provide the details below.
