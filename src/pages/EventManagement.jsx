@@ -181,7 +181,7 @@ const EventManagement = () => {
         {/* Stats Section - New Addition */}
         <div className="bg-gradient-to-r from-blue-600 to-indigo-500 mb-20 py-12 text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
               <div>
                 <div className="text-4xl font-bold mb-2 flex items-center justify-center">
                   <FaCalendarAlt className="mr-2" /> 250+
@@ -212,7 +212,7 @@ const EventManagement = () => {
 
 
         {/* Enhanced Full Service Package */}
-        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-10 shadow-lg border border-gray-200 mb-16 overflow-hidden">
+        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-3 shadow-lg border border-gray-200 mb-5 overflow-hidden md:p-10 md:mb-16">
           <div className="flex flex-col lg:flex-row">
             <div className="lg:w-2/3 mb-10 lg:mb-0 lg:pr-10">
               <h2 className="text-3xl font-bold mb-6 text-gray-800">
@@ -220,11 +220,11 @@ const EventManagement = () => {
                   End-to-End Digital Event Solutions
                 </span>
               </h2>
-              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+              <p className="text-base text-gray-700 mb-8 leading-relaxed md:text-lg">
                 Our unique combination of <span className="font-semibold text-blue-600">event expertise</span> and <span className="font-semibold text-indigo-600">digital innovation</span> ensures your event stands out in today's competitive landscape.
               </p>
 
-              <div className="grid sm:grid-cols-2 gap-6">
+              <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
                 {[
                   { icon: <FaCalendarAlt className="text-blue-500 text-xl" />, text: "Venue sourcing with 3D virtual tours" },
                   { icon: <FaPhotoVideo className="text-blue-500 text-xl" />, text: "Hybrid event streaming solutions" },
@@ -239,7 +239,7 @@ const EventManagement = () => {
               </div>
             </div>
 
-            <div className="lg:w-1/3 bg-white p-8 rounded-xl shadow-md border border-blue-100">
+            <div className="lg:w-1/3 bg-white p-2 rounded-xl shadow-md border border-blue-100 md:p-8">
               <h3 className="text-xl font-semibold mb-6 text-blue-600 flex items-center">
                 <FaRegSmile className="mr-2" /> Why We're Different
               </h3>
@@ -268,13 +268,14 @@ const EventManagement = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
             Ready to <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500">Elevate Your Event?</span>
           </h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          <p className="text-base text-gray-600 mb-8 max-w-2xl mx-auto md:text-xl">
             Let's combine digital innovation with unforgettable experiences.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
-              className="cursor-pointer bg-gradient-to-r from-blue-600 to-indigo-500 hover:from-blue-700 hover:to-indigo-600 text-white font-semibold py-4 px-10 rounded-full shadow-lg transition-all flex items-center"
-              onClick={() => navigate('/contact')}
+              className="cursor-pointer bg-gradient-to-r w-48 from-blue-600 to-indigo-500 hover:from-blue-700
+               hover:to-indigo-600 text-white font-semibold py-4 px-10 rounded-full shadow-lg transition-all flex items-center md:w-full"
+              onClick={() => navigate('/contact',  { state:  { slug: 'event-management' } })}
             >
               Get Started <FiArrowRight className="ml-2" />
             </button>

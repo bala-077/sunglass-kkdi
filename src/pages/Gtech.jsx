@@ -24,6 +24,7 @@ import studentsImg from '/gtech.jpg';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import user from '/user.png';
+import gtechimg from '/gtechImg1.jpg';
 
 const Gtech = () => {
   const navigate = useNavigate();
@@ -146,7 +147,7 @@ const Gtech = () => {
         <img
           src={gtechHeroImg}
           alt="GTEC Computer Education"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover "
         />
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 text-center text-white">
           <motion.h1
@@ -204,9 +205,9 @@ const Gtech = () => {
             className="relative rounded-xl overflow-hidden shadow-xl"
           >
             <img
-              src={classroomImg}
+              src={gtechimg}
               alt="GTEC Classroom"
-              className="w-full h-auto rounded-xl"
+              className="w-full h-auto object-cover rounded-xl md:h-92"
             />
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3 sm:p-4 text-white">
               <h3 className="text-base sm:text-lg font-bold mb-1">Our Training Facility</h3>

@@ -6,6 +6,7 @@ import img2 from '/aboutus.jpg';
 import { useInView } from 'react-intersection-observer';
 import { useNavigate } from 'react-router-dom';
 import { FiArrowRight } from 'react-icons/fi';
+import digitalyimg from '/digitalyImg.jpg';
 
 const About = () => {
   const navigate = useNavigate();
@@ -163,7 +164,7 @@ const About = () => {
               transition={{ duration: 0.8 }}
             >
               <div className="relative rounded-xl overflow-hidden shadow-2xl">
-                <img src={img1} alt="Our Team" className="w-full h-auto" />
+                <img src={digitalyimg} alt="Our Team" className="w-full h-auto" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
               </div>
             </motion.div>

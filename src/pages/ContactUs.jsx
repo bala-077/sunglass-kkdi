@@ -38,7 +38,7 @@ const FORM_FIELDS = {
     { name: 'email', label: 'Email*', type: 'email', required: true },
     { name: 'phone', label: 'Phone*', type: 'text', required: true },
     { name: 'eventLocation', label: 'Event Location', type: 'text', required: false },
-    { name: 'attendees', label: 'Expected Attendees', type: 'number', required: false },
+    { name: 'attendees', label: 'Expected Attendees', type: 'number', required: false, min: 1  },
     { name: 'budget', label: 'Approximate Budget', type: 'text', required: false },
     { name: 'specialRequirements', label: 'Special Requirements', type: 'textarea', required: false }
   ],
@@ -282,6 +282,7 @@ const ContactUs = () => {
                   name={field.name}
                   value={formData[field.name]}
                   onChange={handleChange}
+                  min={field.min}
                   className={`w-full px-4 py-3 rounded-lg border ${
                     errors[field.name] ? 'border-red-500' : 'border-gray-200'
                   } focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none`}

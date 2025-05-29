@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaInfoCircle, FaBuilding, FaCalendarAlt, FaShoppingCart, FaImages, FaEnvelope, FaBars, FaTimes } from 'react-icons/fa';
-import logo from '/empty.png';
+import logo from '/Sunglasschettinad.png';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const navItems = [
@@ -26,8 +26,8 @@ const Navbar = () => {
 
   return (
     <> 
-      <nav className="sticky top-0 shadow-xl z-50 bg-white backdrop-blur-md border-b border-gray-100 px-4 sm:px-8 py-3">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <nav className="sticky top-0 shadow-sm z-50 bg-white backdrop-blur-md border-b border-gray-100 px-4 sm:px-8 py-3">
+        <div className="max-w-7xl flex items-center justify-between">
           {/* Logo Section */}
           <div 
             className="flex items-center cursor-pointer group" 
@@ -38,11 +38,8 @@ const Navbar = () => {
             <img 
               src={logo} 
               alt="Logo" 
-              className="h-12 w-12 object-contain mr-3 rounded-full group-hover:rotate-6 transition-all duration-500" 
+              className="h-12 w-20 object-contain rounded-full transition-all duration-500" 
             />
-            <span className="text-xl font-bold text-gray-800 tracking-wide group-hover:text-indigo-600 transition-colors duration-300">
-              Sunglass
-            </span>
           </div>
 
           {/* Hamburger for mobile */}
@@ -82,7 +79,7 @@ const Navbar = () => {
       {/* Mobile Sidebar */}
       <div
         className={`fixed inset-0 z-50 transform ${
-          sidebarOpen ? 'translate-x-0' : '-translate-x-full'
+          sidebarOpen ? 'translate-x-0' : '-translate-x-[700px]'
         } lg:hidden transition-transform duration-300 ease-in-out`}
       >
         <div className="relative w-80 h-full bg-white shadow-xl">

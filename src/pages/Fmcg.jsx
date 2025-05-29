@@ -123,9 +123,9 @@ const Fmcg = () => {
                 </div>
 
                 {/* Enhanced Product Categories */}
-                <div className="mb-8 sm:mb-12">
-                    <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-6 sm:mb-12 text-center">
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-400">
+                <div className="mb-12 md:mb-8">
+                    <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-10 md:mb-6 text-center">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r  from-blue-500 to-indigo-400">
                             Our Product Portfolio
                         </span>
                     </h2>
@@ -223,7 +223,7 @@ const Fmcg = () => {
                             </div>
                         </div>
 
-                        <div className="lg:w-1/3 bg-white p-4 sm:p-6 rounded-xl shadow-md border border-blue-100">
+                        <div className="lg:w-1/3 bg-white p-4  rounded-xl shadow-md border border-blue-100 md:p-4">
                             <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-blue-600 flex items-center">
                                 <FaHeadset className="mr-3 text-xl sm:text-2xl" /> Why Partner With Us
                             </h3>
