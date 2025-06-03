@@ -82,7 +82,7 @@ const Gtech = () => {
     {
       title: "Office & Business Tools",
       icon: <FaDatabase className="text-xl" />,
-      color: "yellow",
+      color: "indigo",
       description: "Master essential software for business operations and office productivity.",
       skills: ["Tally", "MS Office", "QuickBooks", "Computer Basics", "Accounting", "Business Communication"],
       duration: "2-3 Months",
@@ -96,19 +96,19 @@ const Gtech = () => {
       icon: <FaLaptopCode className="text-2xl" />, 
       title: "Comprehensive Courses", 
       description: "From fundamentals to advanced technologies, covering the complete spectrum of IT skills.",
-      color: "blue" 
+      color: "indigo" 
     },
     { 
       icon: <FaUserTie className="text-2xl" />, 
       title: "Industry Experts", 
       description: "Learn from professionals with real-world experience and up-to-date industry knowledge.",
-      color: "indigo" 
+      color: "green" 
     },
     { 
       icon: <FaCertificate className="text-2xl" />, 
       title: "Certification", 
       description: "Earn recognized certifications that validate your skills to employers.",
-      color: "green" 
+      color: "indigo" 
     },
     { 
       icon: <FaHandshake className="text-2xl" />, 
@@ -126,7 +126,7 @@ const Gtech = () => {
       icon: <FiAward className="text-2xl" />, 
       title: "Industry Partnerships", 
       description: "Direct connections with hiring companies and tech organizations.",
-      color: "yellow" 
+      color: "purple" 
     }
   ];
 
@@ -154,7 +154,7 @@ const Gtech = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4"
           >
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-indigo-200">GTEC</span> Computer Education
           </motion.h1>
@@ -162,7 +162,7 @@ const Gtech = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-base sm:text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto mb-4 sm:mb-6"
+            className="text-base sm:text-xs md:text-sm lg:text-lg max-w-3xl mx-auto mb-4 sm:mb-6"
           >
             Transforming careers through industry-aligned IT training and professional development.
           </motion.p>
@@ -187,7 +187,7 @@ const Gtech = () => {
             transition={{ duration: 0.8 }}
             className="lg:pr-4 xl:pr-8"
           >
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">
               <span className="text-blue-600">Bridging the Gap</span> Between Education and Employment
             </h2>
             <p className="text-sm sm:text-base lg:text-lg text-gray-600 mb-3 sm:mb-4">
@@ -228,7 +228,7 @@ const Gtech = () => {
             className="text-center mb-6 sm:mb-10"
           >
             <span className="text-blue-600 font-semibold text-xs sm:text-sm">WHY CHOOSE US</span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mt-1 mb-2 sm:mb-3">
+            <h2 className="text-2xl  md:text-3xl font-bold text-gray-900 mt-1 mb-2 sm:mb-3">
               Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600">Key Differentiators</span>
             </h2>
             <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full mx-auto" />
@@ -270,7 +270,7 @@ const Gtech = () => {
             className="text-center mb-6 sm:mb-10"
           >
             <span className="text-blue-600 font-semibold text-xs sm:text-sm">OUR PROGRAMS</span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mt-1 mb-2 sm:mb-3">
+            <h2 className="text-2xl  md:text-3xl font-bold text-gray-900 mt-1 mb-2 sm:mb-3">
               Industry-Ready <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600">Training Programs</span>
             </h2>
             <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full mx-auto" />
@@ -349,7 +349,7 @@ const Gtech = () => {
             className="text-center mb-6 sm:mb-10"
           >
             <span className="text-blue-600 font-semibold text-xs sm:text-sm">CAREER LAUNCHPAD</span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mt-1 mb-2 sm:mb-3">
+            <h2 className="text-2xl  md:text-3xl font-bold text-gray-900 mt-1 mb-2 sm:mb-3">
               Staff <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600">Augmentation Program</span>
             </h2>
             <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full mx-auto" />

@@ -123,10 +123,10 @@ const Digitaly = () => {
                         className="max-w-7xl mx-auto w-full"
                     >
                         <div className="max-w-2xl">
-                            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
+                            <h1 className=" text-3xl md:text-5xl font-bold text-white mb-4 leading-tight">
                                 Transforming Businesses Through <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">Digital Innovation</span>
                             </h1>
-                            <p className="text-lg sm:text-xl text-gray-100 mb-8">
+                            <p className="text-sm md:text-lg text-gray-100 mb-8">
                                 We deliver cutting-edge digital solutions tailored to help your business thrive in the modern marketplace.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4">
@@ -147,7 +147,7 @@ const Digitaly = () => {
                 <div className="max-w-7xl mx-auto relative">
                     <div className="text-center mb-16">
                         <span className="text-blue-600 font-semibold">OUR SOLUTIONS</span>
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 mt-2">
+                        <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 mt-2">
                             Digital Solutions <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600">Tailored for Growth</span>
                         </h2>
                         <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full mx-auto" />
@@ -194,7 +194,7 @@ const Digitaly = () => {
 
                         <div className="text-center mb-16 relative z-10">
                             <span className="text-blue-600 font-semibold">OUR PRODUCTS</span>
-                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 mt-2">
+                            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 mt-2">
                                 Digital Platforms <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600">for the Community</span>
                             </h2>
                             <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full mx-auto" />
@@ -248,7 +248,7 @@ const Digitaly = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center">
                         <span className="text-blue-600 font-semibold">SAAS SOLUTIONS</span>
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 mt-2">
+                        <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 mt-2">
                             Business Tools <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600">for Modern Enterprises</span>
                         </h2>
                         <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full mx-auto" />
@@ -313,7 +313,7 @@ const Digitaly = () => {
             {/* CTA Section */}
             <section className="py-20 bg-gradient-to-r from-blue-600 to-indigo-700">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                    <h2 className="text-xl md:text-3xl font-bold text-white mb-6">
                         Ready to Transform Your Business?
                     </h2>
                     <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">

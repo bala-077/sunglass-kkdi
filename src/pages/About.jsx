@@ -48,17 +48,17 @@ const About = () => {
     {
       title: 'Innovation Driven',
       description: 'We constantly push boundaries with cutting-edge solutions tailored for Karaikudi businesses',
-      color: 'bg-indigo-100 text-indigo-600'
+      color: 'bg-green-100 text-green-600'
     },
     {
       title: 'Local Expertise',
       description: 'Deep understanding of Karaikudi market dynamics and business needs',
-      color: 'bg-blue-100 text-blue-600'
+      color: 'bg-green-100 text-green-600'
     },
     {
       title: 'Rapid Execution',
       description: 'Quick turnaround without compromising quality standards',
-      color: 'bg-amber-100 text-amber-600'
+      color: 'bg-green-100 text-green-600'
     },
     {
       title: 'Data Protection',
@@ -91,10 +91,10 @@ const About = () => {
             className="max-w-7xl mx-auto w-full"
           >
             <div className="max-w-2xl">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
-                Digital Transformation <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">Experts</span>
+              <h1 className="text-4xl sm:text-5xl md:text-5xl font-bold text-white mb-4 leading-tight">
+                Digital Transformation <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 text-5xl to-indigo-300">Experts</span>
               </h1>
-              <p className="text-lg sm:text-xl text-gray-100 mb-8">
+              <p className="text-sm md:text-lg text-gray-100 mb-8">
                 Empowering Karaikudi businesses with innovative technology solutions
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -120,7 +120,7 @@ const About = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-2xl font-bold text-gray-900 mb-4">
               Why <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600">Choose Us</span>
             </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full mx-auto" />
@@ -175,7 +175,7 @@ const About = () => {
               transition={{ duration: 0.8 }}
             >
               <span className="text-blue-600 font-semibold">OUR STORY</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 mt-2">
+              <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-6 mt-2">
                 Pioneering Digital Solutions in Karaikudi
               </h2>
               <p className="text-lg text-gray-700 mb-6">
@@ -228,10 +228,10 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Ready to <span className="text-yellow-300">Digitally Transform</span> Your Business?
+            <h2 className="text-xl md:text-3xl font-bold mb-6">
+              Ready to <span className="text-yellow-300">Digitaly Transform</span> Your Business?
             </h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+            <p className="text-lg text-blue-100 mb-8 max-w-3xl mx-auto">
               Our team is ready to help you leverage technology for growth. Let's discuss how we can support your business goals.
             </p>
             <motion.div

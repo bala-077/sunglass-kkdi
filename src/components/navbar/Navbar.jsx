@@ -26,7 +26,7 @@ const Navbar = () => {
 
   return (
     <> 
-      <nav className="sticky top-0 shadow-sm z-50 bg-white backdrop-blur-md border-b border-gray-100 px-4 sm:px-8 py-3">
+      <nav className="sticky top-0 shadow-sm z-50  bg-white backdrop-blur-md border-b border-gray-100 px-4 sm:px-8 py-3">
         <div className="max-w-7xl flex items-center justify-between">
           {/* Logo Section */}
           <div 
@@ -57,7 +57,7 @@ const Navbar = () => {
               <li key={item.name}>
                 <div
                   onClick={() => handleItemClick(item.path)}
-                  className={`relative px-1 py-2 font-medium cursor-pointer transition-all duration-300 ${
+                  className={`relative px-1 py-2 font-medium cursor-pointer text-xl transition-all duration-300 ${
                     location.pathname === item.path
                       ? 'text-indigo-600'
                       : 'text-gray-700 hover:text-indigo-600'
@@ -114,7 +114,7 @@ const Navbar = () => {
               <li key={item.name}>
                 <div
                   onClick={() => handleItemClick(item.path)}
-                  className={`flex items-center px-4 py-3 rounded-lg transition-all duration-200 cursor-pointer ${
+                  className={`flex items-center px-4 py-3 rounded-lg transition-all duration-200  cursor-pointer ${
                     location.pathname === item.path
                       ? 'text-indigo-600 font-medium'
                       : 'text-gray-700 hover:text-indigo-600'

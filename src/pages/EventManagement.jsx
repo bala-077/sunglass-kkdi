@@ -47,10 +47,10 @@ const EventManagement = () => {
             className="max-w-7xl mx-auto w-full"
           >
             <div className="max-w-2xl">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
+              <h1 className=" text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
                 Creating <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">Unforgettable Experiences</span>
               </h1>
-              <p className="text-lg sm:text-xl text-gray-100 mb-8">
+              <p className="text-sm md:text-lg text-gray-100 mb-8">
                 Professional event management services in Karaikudi that transform your vision into reality
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -76,6 +76,7 @@ const EventManagement = () => {
               Karaikudi's Premier Event Partners
             </span>
           </h2>
+          <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full mx-auto mb-6" />
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
             Combining <span className="font-semibold text-blue-600">digital innovation</span> with <span className="font-semibold text-indigo-600">event expertise</span>, we bring a unique approach to event management. Our tech-enabled solutions ensure seamless planning while our local knowledge guarantees authentic experiences.
           </p>
@@ -126,6 +127,7 @@ const EventManagement = () => {
               Our Comprehensive Services
             </span>
           </h2>
+          <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full mx-auto mb-6" />
 
           <div className="grid md:grid-cols-2 gap-8">
             {[
@@ -265,10 +267,10 @@ const EventManagement = () => {
 
         {/* Enhanced Call to Action */}
         <div className="text-center py-12 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
             Ready to <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500">Elevate Your Event?</span>
           </h2>
-          <p className="text-base text-gray-600 mb-8 max-w-2xl mx-auto md:text-xl">
+          <p className="text-base text-gray-600 mb-8 max-w-2xl mx-auto md:text-lg">
             Let's combine digital innovation with unforgettable experiences.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

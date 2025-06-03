@@ -37,7 +37,7 @@ const Footer = () => {
                 { path: '/', label: 'Home' },
                 { path: '/aboutus', label: 'About Us' },
                 { path: '/digitaly-ai-solutions', label: 'Digitaly AI Tech Solution' },
-                { path: '/gtech', label: 'G-TEC Computer Center ' },
+                { path: '/gtech', label: 'G-TEC  ' },
                 { path: '/event-management', label: 'Event Management' },
                 { path: '/fmcg', label: 'FMCG' },
                 { path: '/contact', label: 'Contact Us' },
@@ -69,24 +69,24 @@ const Footer = () => {
                 <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-2 rounded-lg mr-3 text-white shadow-md">
                   <FaMapMarkerAlt size={14} />
                 </div>
-                <p className="text-gray-500 text-xs">
-                8, Muthoorani East, Near Vidhyagiri School, Karaikudi<br />
-                  Tamil Nadu, India - 630001
+                <p className="text-gray-500 text-sm">
+                 Dial Karaikudi, No.8 Muthoorani East, Muththupattinam, Karaikudi-630 001
+                  
                 </p>
               </div>
               <div className="flex items-center">
                 <div className="bg-gradient-to-r from-green-500 to-green-600 p-2 rounded-lg mr-3 text-white shadow-md">
                   <FaPhone size={14} className="rotate-90" />
                 </div>
-                <a href="tel:+919876543210" className="text-gray-500 hover:text-blue-600 text-xs">
-                  +91 9876543210
+                <a href="tel:+919876543210" className="text-gray-500 hover:text-blue-600 text-sm">
+                  +919442338670
                 </a>
               </div>
               <div className="flex items-center">
                 <div className="bg-gradient-to-r from-red-500 to-red-600 p-2 rounded-lg mr-3 text-white shadow-md">
                   <FaEnvelope size={14} />
                 </div>
-                <a href="mailto:admin@digitaly.live" className="text-gray-500 hover:text-blue-600 text-xs">
+                <a href="mailto:admin@digitaly.live" className="text-gray-500 hover:text-blue-600 text-sm">
                 admin@digitaly.live
                 </a>
               </div>

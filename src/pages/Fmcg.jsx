@@ -49,10 +49,10 @@ const Fmcg = () => {
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ delay: 0.2, duration: 0.5 }}
                         >
-                            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
+                            <h1 className="text-3xl  md:text-5xl font-bold text-white mb-4 leading-tight">
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">FMCG Distribution</span> Network
                             </h1>
-                            <p className="text-base sm:text-xl md:text-2xl text-gray-100 mb-8">
+                            <p className="text-base sm:text-sm md:text-lg text-gray-100 mb-8">
                                 Powering Karaikudi's retail ecosystem with efficient, tech-driven supply chain solutions
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4">
@@ -74,12 +74,12 @@ const Fmcg = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
                 {/* Enhanced Introduction */}
                 <div className="mb-8 sm:mb-12 text-center">
-                    <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-4 sm:mb-6">
+                    <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4 sm:mb-6">
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-400">
                             Karaikudi's Most Reliable Distribution Partner
                         </span>
                     </h2>
-                    <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                    <p className="text-sm  md:text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
                         Combining <span className="font-semibold text-blue-600">local market expertise</span> with <span className="font-semibold text-indigo-600">modern supply chain solutions</span>, we bridge the gap between manufacturers and retailers with unmatched efficiency.
                     </p>
                 </div>
@@ -124,7 +124,7 @@ const Fmcg = () => {
 
                 {/* Enhanced Product Categories */}
                 <div className="mb-12 md:mb-8">
-                    <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-10 md:mb-6 text-center">
+                    <h2 className="text-2xl  md:text-3xl font-bold text-gray-800 mb-10 md:mb-6 text-center">
                         <span className="text-transparent bg-clip-text bg-gradient-to-r  from-blue-500 to-indigo-400">
                             Our Product Portfolio
                         </span>
@@ -180,9 +180,9 @@ const Fmcg = () => {
                                     <div className={`${category.border.replace('border', 'bg')}100 p-3 sm:p-4 rounded-lg mr-3 sm:mr-4`}>
                                         {category.icon}
                                     </div>
-                                    <h3 className="text-xl sm:text-2xl font-semibold text-gray-800">{category.title}</h3>
+                                    <h3 className="text-sm md:text-lg font-semibold text-gray-800">{category.title}</h3>
                                 </div>
-                                <p className="text-base sm:text-lg text-gray-600 mb-4 sm:mb-6">{category.desc}</p>
+                                <p className="text-base md:text-sm text-gray-600 mb-4 sm:mb-6">{category.desc}</p>
                                 <div className="flex flex-wrap gap-2">
                                     {category.tags.map((tag, tagIndex) => (
                                         <span key={tagIndex} className={`${category.border.replace('border', 'bg')}100 ${category.border.replace('border', 'text')}-800 text-xs sm:text-sm px-3 py-1 sm:px-4 sm:py-2 rounded-full`}>
@@ -199,12 +199,12 @@ const Fmcg = () => {
                 <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-4 sm:p-6 shadow-lg border border-gray-200 mb-8 sm:mb-12 overflow-hidden">
                     <div className="flex flex-col lg:flex-row">
                         <div className="lg:w-2/3 mb-6 sm:mb-8 lg:mb-0 lg:pr-6 sm:lg:pr-8">
-                            <h2 className="text-2xl sm:text-4xl font-bold mb-4 sm:mb-6 text-gray-800">
+                            <h2 className="text-2xl md:text-3xl font-bold mb-4 sm:mb-6 text-gray-800">
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500">
                                     Our Supply Chain Advantage
                                 </span>
                             </h2>
-                            <p className="text-lg sm:text-xl text-gray-700 mb-6 sm:mb-8 leading-relaxed">
+                            <p className="text-sm md:text-lg text-gray-700 mb-6 sm:mb-8 leading-relaxed">
                                 Our <span className="font-semibold text-blue-600">tech-enabled distribution network</span> ensures products move efficiently from manufacturers to retailers' shelves with <span className="font-semibold text-indigo-600">minimal waste and maximum freshness</span>.
                             </p>
 
@@ -251,27 +251,27 @@ const Fmcg = () => {
                 {/* Stats Section - New Addition */}
                 <div className="bg-gradient-to-r from-blue-600 to-indigo-500 mb-8 sm:mb-14 py-6 sm:py-10 text-white">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-12 text-center">
+                        <h2 className="text-2xl  md:text-3xl font-bold mb-6 sm:mb-12 text-center">
                             Our Distribution Network in Numbers
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-10 text-center">
                             <div>
-                                <div className="text-3xl sm:text-5xl font-bold mb-2 sm:mb-4 flex items-center justify-center gap-2">
+                                <div className="text-xl md:text-2xl font-bold mb-2 sm:mb-4 flex items-center justify-center gap-2">
                                     <FaStore className="w-6 h-6 sm:w-8 sm:h-8" /> 750+
                                 </div>
-                                <p className="text-blue-100 text-sm sm:text-xl">Retail Partners</p>
+                                <p className="text-blue-100 text-sm md:text-lg">Retail Partners</p>
                             </div>
                             <div>
-                                <div className="text-3xl sm:text-5xl font-bold mb-2 sm:mb-4 flex items-center justify-center gap-2">
+                                <div className="text-xl md:text-2xl font-bold mb-2 sm:mb-4 flex items-center justify-center gap-2">
                                     <FaBoxes className="w-6 h-6 sm:w-8 sm:h-8" /> 100+
                                 </div>
-                                <p className="text-blue-100 text-sm sm:text-xl">Brands Distributed</p>
+                                <p className="text-blue-100 text-sm md:text-lg">Brands Distributed</p>
                             </div>
                             <div>
-                                <div className="text-3xl sm:text-5xl font-bold mb-2 sm:mb-4 flex items-center justify-center gap-2">
+                                <div className="text-xl md:text-2xl font-bold mb-2 sm:mb-4 flex items-center justify-center gap-2">
                                     <FaMapMarkerAlt className="w-6 h-6 sm:w-8 sm:h-8" /> 15+
                                 </div>
-                                <p className="text-blue-100 text-sm sm:text-xl">Localities Served</p>
+                                <p className="text-blue-100 text-sm md:text-lg">Localities Served</p>
                             </div>
                         </div>
                     </div>
@@ -280,12 +280,12 @@ const Fmcg = () => {
                 {/* Brand Partnership Section - New Addition */}
                 <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-lg border border-gray-200 mb-8 sm:mb-12">
                     <div className="text-center mb-6 sm:mb-8">
-                        <h2 className="text-2xl sm:text-4xl font-bold text-gray-800 mb-4 sm:mb-6">
+                        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4 sm:mb-6">
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500">
                                 Brand Partnership Program
                             </span>
                         </h2>
-                        <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
+                        <p className="text-sm md:text-lg text-gray-600 max-w-3xl mx-auto">
                             We help FMCG brands establish and grow their presence in the Karaikudi market
                         </p>
                     </div>
@@ -312,7 +312,7 @@ const Fmcg = () => {
                                 <div className="bg-white p-3 sm:p-4 rounded-full w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mb-4 sm:mb-6 mx-auto shadow-md">
                                     {service.icon}
                                 </div>
-                                <h3 className="text-xl sm:text-2xl font-semibold text-center text-gray-800 mb-4 sm:mb-6">{service.title}</h3>
+                                <h3 className="text-lg md:text-xl font-semibold text-center text-gray-800 mb-4 sm:mb-6">{service.title}</h3>
                                 <ul className="space-y-2 sm:space-y-4">
                                     {service.features.map((feature, fIndex) => (
                                         <li key={fIndex} className="flex items-start">
@@ -330,15 +330,15 @@ const Fmcg = () => {
 
                 {/* Enhanced Call to Action */}
                 <div className="text-center py-6 sm:py-10 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl px-4">
-                    <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-4 sm:mb-6">
+                    <h2 className="text-2xl  md:text-3xl font-bold text-gray-800 mb-4 sm:mb-6">
                         Ready to <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500">Transform Your Distribution?</span>
                     </h2>
-                    <p className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-6 sm:mb-10 max-w-2xl mx-auto">
+                    <p className="text-sm  md:text-lg text-gray-600 mb-6 sm:mb-10 max-w-2xl mx-auto">
                         Connect with Karaikudi's most efficient FMCG distribution network
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
                         <button
-                            className="cursor-pointer bg-gradient-to-r from-blue-600 to-indigo-500 hover:from-blue-700 hover:to-indigo-600 text-white font-semibold py-3 px-8 sm:py-4 sm:px-12 rounded-full shadow-lg transition-all flex items-center justify-center text-base sm:text-lg"
+                            className="cursor-pointer bg-gradient-to-r from-blue-600 to-indigo-500 hover:from-blue-700 hover:to-indigo-600 text-white font-semibold py-3 px-8 sm:py-4 sm:px-12 rounded-full shadow-lg transition-all flex items-center justify-center text-sm sm:text-base"
                             onClick={() => navigate('/contact', { state: { slug: 'efmcg' } })}
                         >
                             Get Started <FiArrowRight className="ml-2 sm:ml-3 text-lg sm:text-xl" />
