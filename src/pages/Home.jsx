@@ -100,11 +100,11 @@ const Home = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight"
+              className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight"
             >
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-indigo-200">
                 AI-Powered
-              </span>{' '}
+              </span>{' '} 
               <span className="text-white">Business Transformation</span>
             </motion.h1>
 
@@ -112,7 +112,7 @@ const Home = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
-              className="text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto mb-10 leading-relaxed"
+              className="text-sm md:text-lg text-gray-200 max-w-4xl mx-auto mb-10 leading-relaxed"
             >
               We deliver cutting-edge artificial intelligence solutions that drive efficiency, innovation, and competitive advantage for businesses worldwide.
             </motion.p>
@@ -145,7 +145,7 @@ const Home = () => {
             className="text-center mb-16"
           >
             <span className="text-blue-600 font-semibold">OUR IMPACT</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mt-2 mb-4">
               Transforming Businesses Through <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Data & AI</span>
             </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full mx-auto mb-6" />
@@ -164,7 +164,7 @@ const Home = () => {
                 transition={{ delay: idx * 0.1, duration: 0.5 }}
                 className="bg-white rounded-xl shadow-lg hover:shadow-xl p-8 border border-gray-100 transition-all duration-300 hover:-translate-y-2"
               >
-                <span className="text-4xl md:text-5xl font-extrabold text-blue-600 mb-2 block">
+                <span className="text-3xl md:text-4xl font-extrabold text-blue-600 mb-2 block">
                   <CountUp end={stat.value} duration={2.5} suffix={stat.suffix} />
                 </span>
                 <span className="text-xl font-bold text-gray-800 block mb-2">{stat.label}</span>
@@ -186,7 +186,7 @@ const Home = () => {
             className="text-center mb-16"
           >
             <span className="text-blue-600 font-semibold">OUR SERVICES</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mt-2 mb-4">
               Comprehensive <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">AI Solutions</span>
             </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full mx-auto mb-6" />
@@ -234,7 +234,7 @@ const Home = () => {
             className="text-center mb-16"
           >
             <span className="text-blue-600 font-semibold">INDUSTRIES WE SERVE</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mt-2 mb-4">
               AI Solutions for <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Every Sector</span>
             </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full mx-auto mb-6" />
@@ -277,7 +277,7 @@ const Home = () => {
             className="text-center mb-16"
           >
             <span className="text-blue-600 font-semibold">CLIENT TESTIMONIALS</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mt-2 mb-4">
               What Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Clients Say</span>
             </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full mx-auto mb-6" />
@@ -326,10 +326,10 @@ const Home = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
               Ready to Harness the Power of AI?
             </h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
               Schedule a free consultation with our AI experts to discuss how we can transform your business.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
