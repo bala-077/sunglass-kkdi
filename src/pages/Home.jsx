@@ -109,7 +109,7 @@ const Home = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight"
+              className="text-3xl md:text-5xl lg:text-5xl font-extrabold text-white mb-6 leading-tight"
             >
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-indigo-200">
                 AI-Powered

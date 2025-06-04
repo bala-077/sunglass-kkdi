@@ -10,7 +10,7 @@ const Footer = () => {
   return (
     <footer className="bg-gradient-to-b from-white to-gray-50 text-gray-800 py-8 px-4 md:px-6 shadow-lg">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand Info */}
           <div className="space-y-4">
             <div className="flex items-center">
@@ -57,19 +57,6 @@ const Footer = () => {
               Contact Us
             </h4>
             <div className="space-y-3">
-              <div className="flex items-start">
-                <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-2 rounded-lg mr-3 text-white shadow-md">
-                  <FaMapMarkerAlt size={14} />
-                </div>
-                <a
-                  href="https://maps.app.goo.gl/WTvDLWkRNjKn1FAM8"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-500 hover:text-blue-600 text-sm"
-                >
-                  Dial Karaikudi, No.8 Muthoorani East, Muthupattinam, Karaikudi-630 001
-                </a>
-              </div>
               <div className="flex items-center">
                 <div className="bg-gradient-to-r from-green-500 to-green-600 p-2 rounded-lg mr-3 text-white shadow-md">
                   <FaPhone size={14} className="rotate-90" />
@@ -88,6 +75,50 @@ const Footer = () => {
               </div>
             </div>
           </div>
+
+          {/* Our Offices */}
+          <div>
+            <h4 className="text-lg font-semibold mb-4 text-gray-800 relative pb-2 after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-gradient-to-r after:from-blue-500 after:to-blue-600">
+              Our Offices
+            </h4>
+            <div className="space-y-4">
+              <div>
+                <h5 className="font-bold underline text-sm text-gray-700 mb-1">Corporate Office</h5>
+                <div className="flex items-start">
+                  <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-2 rounded-lg mr-2 text-white shadow-md">
+                    <FaMapMarkerAlt size={14} />
+                  </div>
+                  <p className="text-gray-500 text-sm">
+                    153, 13th St, Maxworth Nagar, Kovilambakkam, Chennai-600117
+                  </p>
+                </div>
+              </div>
+              
+              <div>
+                <h5 className="font-bold underline text-sm text-gray-700 mb-1">Marketing Office</h5>
+                <div className="flex items-start">
+                  <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-2 rounded-lg mr-2 text-white shadow-md">
+                    <FaMapMarkerAlt size={14} />
+                  </div>
+                  <p className="text-gray-500 text-sm">
+                    No.32 F1 Sabarmathi dwaraka, Chandrasekaran Avenue 2nd cross street, 2nd main road, Thoraipakkam, Chennai-600097
+                  </p>
+                </div>
+              </div>
+              
+              <div>
+                <h5 className="font-bold underline text-sm text-gray-700 mb-1">Development Centre</h5>
+                <div className="flex items-start">
+                  <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-2 rounded-lg mr-2 text-white shadow-md">
+                    <FaMapMarkerAlt size={14} />
+                  </div>
+                  <p className="text-gray-500 text-sm">
+                    8, Muthoorani East, Muthupatinam, Karaikudi-630001
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Copyright */}
@@ -103,7 +134,7 @@ const Footer = () => {
               <button
                 key={index}
                 onClick={() => navigate(item.path)}
-                className="text-gray-500 hover:text-blue-600 text-xs transition-colors bg-transparent border-none outline-none cursor-pointer"
+                className="text-gray-500 border-b-2 border-transparent hover:border-blue-500 hover:text-blue-600 text-xs bg-transparent outline-none cursor-pointer transition-all duration-300 ease-in-out"
               >
                 {item.label}
               </button>
