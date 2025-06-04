@@ -79,6 +79,8 @@ const Fmcg = () => {
                             Karaikudi's Most Reliable Distribution Partner
                         </span>
                     </h2>
+                    <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full mx-auto mb-6" />
+
                     <p className="text-sm  md:text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
                         Combining <span className="font-semibold text-blue-600">local market expertise</span> with <span className="font-semibold text-indigo-600">modern supply chain solutions</span>, we bridge the gap between manufacturers and retailers with unmatched efficiency.
                     </p>
@@ -128,6 +130,8 @@ const Fmcg = () => {
                         <span className="text-transparent bg-clip-text bg-gradient-to-r  from-blue-500 to-indigo-400">
                             Our Product Portfolio
                         </span>
+          <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full mx-auto mt-6" />
+
                     </h2>
 
                     <div className="grid md:grid-cols-2 gap-4 sm:gap-8">

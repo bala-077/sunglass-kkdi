@@ -208,14 +208,14 @@ const ContactUs = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50">
-      <ToastContainer
+      {/* <ToastContainer
         position="bottom-right"
         autoClose={1000}
         hideProgressBar={false}
         closeOnClick
         pauseOnHover
         className="w-full max-w-xs sm:max-w-sm"
-      />
+      /> */}
 
       <motion.div
         className="w-full max-w-4xl space-y-6 bg-white rounded-xl p-6 sm:p-8 md:p-10 shadow-2xl mx-2 sm:mx-4 border border-gray-100"
