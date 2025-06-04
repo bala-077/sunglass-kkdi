@@ -33,7 +33,7 @@ const TermsAndComdition = () => {
             <p>Address: Dial Karaikudi, No.8 Muthoorani East, Muththupattinam, Karaikudi-630 001</p>
           </div>
           <div className="flex items-center justify-center gap-2 text-gray-600">
-            <FaPhone className="text-indigo-500" />
+            <FaPhone className="text-indigo-500 rotate-90" />
             <p>Contact: +919442338670</p>
           </div>
         </div>

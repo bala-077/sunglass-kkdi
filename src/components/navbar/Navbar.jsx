@@ -57,7 +57,7 @@ const Navbar = () => {
               <li key={item.name}>
                 <div
                   onClick={() => handleItemClick(item.path)}
-                  className={`relative px-1 py-2 font-medium cursor-pointer text-xl transition-all duration-300 ${
+                  className={`relative px-1 py-2 font-medium cursor-pointer text-base transition-all duration-300 ${
                     location.pathname === item.path
                       ? 'text-indigo-600'
                       : 'text-gray-700 hover:text-indigo-600'
@@ -79,7 +79,7 @@ const Navbar = () => {
       {/* Mobile Sidebar */}
       <div
         className={`fixed inset-0 z-50 transform ${
-          sidebarOpen ? 'translate-x-0' : '-translate-x-[700px]'
+          sidebarOpen ? 'translate-x-0' : '-translate-x-full'
         } lg:hidden transition-transform duration-300 ease-in-out`}
       >
         <div className="relative w-80 h-full bg-white shadow-xl">

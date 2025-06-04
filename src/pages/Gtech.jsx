@@ -309,7 +309,7 @@ const Gtech = () => {
                     </div>
                   </div>
                   
-                  <div className="grid grid-cols-3 gap-2 sm:gap-3 text-center text-xs sm:text-sm">
+                  <div className="mt-5 grid grid-cols-2 gap-2 sm:gap-3 text-start text-xs sm:text-sm sm:grid-cols-3">
                     <div>
                       <div className={`text-${program.color}-600 font-bold`}>{program.duration}</div>
                       <div className="text-gray-500">Duration</div>

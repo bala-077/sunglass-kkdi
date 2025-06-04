@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import CountUp from 'react-countup';
 import heroImg from '/gtech.jpg';
 import { useNavigate } from 'react-router-dom';
 import { FiArrowRight, FiCheck, FiChevronRight, FiAward, FiUsers, FiCode, FiLayers } from 'react-icons/fi';
 import { FaRobot, FaBrain, FaEye, FaComments } from 'react-icons/fa';
+import { TbRibbonHealth } from "react-icons/tb";
+import { FaIndustry } from 'react-icons/fa'; 
+import { SiWebmoney } from "react-icons/si";
+import { MdInsights, MdOutlineInsights } from 'react-icons/md';
+import { BsGraphUpArrow, BsBarChartLine } from 'react-icons/bs'; 
+
 import user from '/user.png'
 const stats = [
   { label: 'AI Experts', value: 25, suffix: '+', description: 'Certified professionals with advanced AI expertise' },
@@ -41,12 +47,12 @@ const services = [
 ];
 
 const industries = [
-  { name: "Healthcare", icon: <FiLayers className="mr-2" />, description: "AI for diagnostics, patient care and drug discovery" },
-  { name: "Finance", icon: <FiLayers className="mr-2" />, description: "Fraud detection, algorithmic trading and risk assessment" },
-  { name: "Retail", icon: <FiLayers className="mr-2" />, description: "Personalized recommendations and inventory optimization" },
-  { name: "Manufacturing", icon: <FiLayers className="mr-2" />, description: "Predictive maintenance and quality control" },
-  { name: "Telecom", icon: <FiLayers className="mr-2" />, description: "Network optimization and customer churn prediction" },
-  { name: "Agriculture", icon: <FiLayers className="mr-2" />, description: "Crop monitoring and yield prediction" },
+  { name: "Healthcare", icon: <TbRibbonHealth className="mr-2" />, description: "AI for diagnostics, patient care and drug discovery" },
+  { name: "Finance", icon: <SiWebmoney className="mr-2" />, description: "Fraud detection, algorithmic trading and risk assessment" },
+  { name: "Retail", icon: <MdInsights className="mr-2" />, description: "Personalized recommendations and inventory optimization" },
+  { name: "Manufacturing", icon: <FaIndustry className="mr-2" />, description: "Predictive maintenance and quality control" },
+  { name: "Telecom", icon: <BsGraphUpArrow className="mr-2" />, description: "Network optimization and customer churn prediction" },
+  { name: "Agriculture", icon: <BsBarChartLine className="mr-2" />, description: "Crop monitoring and yield prediction" },
 ];
 
 const testimonials = [
@@ -75,6 +81,9 @@ const testimonials = [
 // ];
 
 const Home = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  })
   const navigate = useNavigate();
   return (
     <div className="bg-white text-gray-900">

@@ -8,24 +8,24 @@ import { motion } from 'framer-motion';
 // Define field configs for each slug
 const FORM_FIELDS = {
   'gtech': [
-    { name: 'studentName', label: 'Student Name*', type: 'text', required: true },
+    { name: 'studentName', label: 'Student Name*', type: 'text', required: true, maxLength: 50 },
     { name: 'email', label: 'Email*', type: 'email', required: true },
-    { name: 'phone', label: 'Phone*', type: 'text', required: true },
+    { name: 'phone', label: 'Phone*', type: 'text', required: true, maxLength: 14 },
     { 
       name: 'grade', 
       label: 'Education Level*', 
       type: 'select', 
       options: ['School', 'UG (Undergraduate)', 'PG (Postgraduate)']
     },
-    { name: 'school', label: 'School/College Name', type: 'text', required: false },
+    { name: 'school', label: 'School/College Name', type: 'text', required: false, maxLength: 100 },
     { name: 'comments', label: 'Comments', type: 'textarea', required: false },
   ],
   'fmcg': [
-    { name: 'companyName', label: 'Company Name*', type: 'text', required: true },
-    { name: 'contactPerson', label: 'Contact Person*', type: 'text', required: true },
+    { name: 'companyName', label: 'Company Name*', type: 'text', required: true, maxLength: 100 },
+    { name: 'contactPerson', label: 'Contact Person*', type: 'text', required: true, maxLength: 50 },
     { name: 'email', label: 'Email*', type: 'email', required: true },
-    { name: 'phone', label: 'Phone*', type: 'text', required: true },
-    { name: 'productInterest', label: 'Product Interest*', type: 'text', required: true },
+    { name: 'phone', label: 'Phone*', type: 'text', required: true, maxLength: 15 },
+    { name: 'productInterest', label: 'Product Interest*', type: 'text', required: true, maxLength: 100 },
     { name: 'comments', label: 'Comments', type: 'textarea', required: false },
   ],
   'event-management': [
@@ -33,23 +33,23 @@ const FORM_FIELDS = {
       options: ['Corporate Event', 'Wedding', 'Cultural Program', 'Promotional Event'], 
       required: true 
     },
-    { name: 'eventDate', label: 'Event Date*', type: 'date', required: true },
-    { name: 'contactPerson', label: 'Contact Person*', type: 'text', required: true },
+    { name: 'eventDate', label: 'Event Date*', type: 'date', required: true, min: new Date().toISOString().split('T')[0] },
+    { name: 'contactPerson', label: 'Contact Person*', type: 'text', required: true, maxLength: 50 },
     { name: 'email', label: 'Email*', type: 'email', required: true },
-    { name: 'phone', label: 'Phone*', type: 'text', required: true },
-    { name: 'eventLocation', label: 'Event Location', type: 'text', required: false },
-    { name: 'attendees', label: 'Expected Attendees', type: 'number', required: false, min: 1  },
-    { name: 'budget', label: 'Approximate Budget', type: 'text', required: false },
+    { name: 'phone', label: 'Phone*', type: 'text', required: true, maxLength: 15 },
+    { name: 'eventLocation', label: 'Event Location', type: 'text', required: false, maxLength: 100 },
+    { name: 'attendees', label: 'Expected Attendees', type: 'number', required: false, min: 1 },
+    { name: 'budget', label: 'Approximate Budget', type: 'text', required: false, maxLength: 20 },
     { name: 'specialRequirements', label: 'Special Requirements', type: 'textarea', required: false }
   ],
   'default': [
-    { name: 'firstName', label: 'First Name*', type: 'text', required: true },
-    { name: 'lastName', label: 'Last Name*', type: 'text', required: true },
+    { name: 'firstName', label: 'First Name*', type: 'text', required: true, maxLength: 50 },
+    { name: 'lastName', label: 'Last Name*', type: 'text', required: true, maxLength: 50 },
     { name: 'email', label: 'Email*', type: 'email', required: true },
-    { name: 'company', label: 'Company*', type: 'text', required: true },
-    { name: 'jobTitle', label: 'Job Title*', type: 'text', required: true },
+    { name: 'company', label: 'Company*', type: 'text', required: true, maxLength: 100 },
+    { name: 'jobTitle', label: 'Job Title*', type: 'text', required: false, maxLength: 50 },
     { name: 'country', label: 'Country*', type: 'select', required: true },
-    { name: 'comments', label: 'Comments*', type: 'textarea', required: false },
+    { name: 'comments', label: 'Comments', type: 'textarea', required: false },
   ]
 };
 
@@ -100,8 +100,11 @@ const ContactUs = () => {
 
   const validateForm = () => {
     const newErrors = {};
-    const phoneRegex = /^[+]?[(]?[0-9]{1,4}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{3,6}$/;
+    const phoneRegex = /^(\+?\d{1,3}[- ]?)?\d{10}$/; // Improved phone regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const nameRegex = /^[a-zA-Z\s'-]+$/;
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
     
     fields.forEach(field => {
       const value = formData[field.name]?.trim();
@@ -111,37 +114,53 @@ const ContactUs = () => {
         return;
       }
 
+      // Skip validation if field is not required and empty
+      if (!field.required && !value) return;
+
       switch (field.type) {
         case 'email':
-          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
           if (!emailRegex.test(value)) {
-            newErrors[field.name] = 'Please enter a valid email address';
+            newErrors[field.name] = 'Enter a valid email (e.g., name@domain.com)';
           }
           break;
           
         case 'text':
-          if (field.name.includes('Name')) {
+          if (field.name.includes('Name') || field.name.includes('Person') || 
+              field.name === 'firstName' || field.name === 'lastName') {
             if (!nameRegex.test(value)) {
-              newErrors[field.name] = 'Please enter a valid name';
+              newErrors[field.name] = "Only letters, spaces, - or ' allowed";
+            }
+            if (field.maxLength && value.length > field.maxLength) {
+              newErrors[field.name] = `Maximum ${field.maxLength} characters allowed`;
             }
           }
-          break;
-          
-        case 'phone':
-          if (!phoneRegex.test(value)) {
-            newErrors[field.name] = 'Please enter a valid phone number';
+          if (field.name === 'phone' && !phoneRegex.test(value)) {
+            newErrors[field.name] = 'Invalid phone number format';
           }
           break;
           
         case 'select':
-          if (!value) {
+          if (field.required && !value) {
             newErrors[field.name] = `Please select a ${field.label.replace('*', '')}`;
           }
           break;
           
         case 'textarea':
-          if (value.length < 10) {
+          if (value && value.length < 10) {
             newErrors[field.name] = 'Please provide more details (minimum 10 characters)';
+          }
+          break;
+          
+        case 'date':
+          if (field.required && !value) {
+            newErrors[field.name] = `Please select a ${field.label.replace('*', '')}`;
+          }
+          if (value) {
+            const selectedDate = new Date(value);
+            selectedDate.setHours(0, 0, 0, 0);
+            if (selectedDate < today) {
+              newErrors[field.name] = 'Event date must be in the future';
+            }
           }
           break;
       }
@@ -165,7 +184,7 @@ const ContactUs = () => {
       const response = await emailjs.send(
         'service_l8r7vo7',
         'template_9qe2ykk',
-        { ...formData, slug } // <-- replace enquiryDetails with slug
+        { ...formData, slug }
       );
 
       if (response.status === 200) {
@@ -182,9 +201,6 @@ const ContactUs = () => {
     }
   };
 
-  // Add motion import
-
-  // Add animation variants
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
@@ -213,13 +229,6 @@ const ContactUs = () => {
               Contact Us
             </span>
           </h2>
-          {/* Remove or update these lines if you don't have purpose/message in your state anymore */}
-          {/* {enquiryDetails?.purpose && (
-            <p className="mt-2 text-lg text-blue-700 font-semibold">{enquiryDetails.purpose}</p>
-          )}
-          {enquiryDetails?.message && (
-            <p className="mt-1 text-base text-gray-600">{enquiryDetails.message}</p>
-          )} */}
           {slug === 'event-management' && (
             <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
               Let us help you create an unforgettable event experience. Please provide the details below.
@@ -231,33 +240,43 @@ const ContactUs = () => {
           {fields.map((field, index) => (
             <motion.div
               key={field.name}
-              className={field.type === 'textarea' ? 'md:col-span-2' : ''}
+              className={`${field.type === 'textarea' ? 'md:col-span-2' : ''} min-h-[100px]`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
             >
               <label htmlFor={field.name} className="block text-sm font-medium text-gray-700 mb-2">
                 {field.label}
+                {field.maxLength && (
+                  <span className="text-xs text-gray-500 ml-1">
+                    (max {field.maxLength} chars)
+                  </span>
+                )}
               </label>
               {field.type === 'select' ? (
-              <select
-                id={field.name}
-                name={field.name}
-                value={formData[field.name]}
-                onChange={handleChange}
-                className={`w-full px-4 py-3 rounded-lg border ${
-                  errors[field.name] ? 'border-red-500' : 'border-gray-200'
-                } focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none`}
-              >
-                <option value="">Select {field.label.replace('*', '')}</option>
-                {(field.options || COUNTRIES).map(option => (
-                  <option key={option} value={option}>
-                    {option}
-                  </option>
-                ))}
-              </select>
+                <div>
+                  <select
+                    id={field.name}
+                    name={field.name}
+                    value={formData[field.name]}
+                    onChange={handleChange}
+                    className={`w-full px-4 py-3 rounded-lg border ${
+                      errors[field.name] ? 'border-red-500' : 'border-gray-200'
+                    } focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none`}
+                  >
+                    <option value="">Select {field.label.replace('*', '')}</option>
+                    {(field.options || COUNTRIES).map(option => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
+                  </select>
+                  {errors[field.name] && (
+                    <p className="mt-1 text-sm text-red-600">{errors[field.name]}</p>
+                  )}
+                </div>
               ) : field.type === 'textarea' ? (
-                <>
+                <div>
                   <div className="relative">
                     <textarea
                       id={field.name}
@@ -269,24 +288,63 @@ const ContactUs = () => {
                       className={`w-full px-4 py-3 rounded-lg border ${
                         errors[field.name] ? 'border-red-500' : 'border-gray-200'
                       } focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none`}
+                      placeholder={field.required ? '' : 'Optional'}
                     />
                   </div>
-                  <div className="text-sm text-gray-500 bg-white px-2 rounded">
-                    {250 - (formData[field.name]?.length || 0)} characters remaining
+                  <div className="flex justify-between">
+                    {errors[field.name] ? (
+                      <p className="text-sm text-red-600">{errors[field.name]}</p>
+                    ) : (
+                      <div className="text-sm text-gray-500">
+                        {field.required ? '' : 'Optional field'}
+                      </div>
+                    )}
+                    <div className="text-sm text-gray-500">
+                      {formData[field.name]?.length || 0}/250 characters
+                    </div>
                   </div>
-                </>
+                </div>
+              ) : field.type === 'date' ? (
+                <div>
+                  <input
+                    type="date"
+                    id={field.name}
+                    name={field.name}
+                    value={formData[field.name]}
+                    onChange={handleChange}
+                    min={field.min || new Date().toISOString().split('T')[0]}
+                    className={`w-full px-4 py-3 rounded-lg border ${
+                      errors[field.name] ? 'border-red-500' : 'border-gray-200'
+                    } focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none`}
+                  />
+                  {errors[field.name] && (
+                    <p className="mt-1 text-sm text-red-600">{errors[field.name]}</p>
+                  )}
+                </div>
               ) : (
-                <input
-                  type={field.type}
-                  id={field.name}
-                  name={field.name}
-                  value={formData[field.name]}
-                  onChange={handleChange}
-                  min={field.min}
-                  className={`w-full px-4 py-3 rounded-lg border ${
-                    errors[field.name] ? 'border-red-500' : 'border-gray-200'
-                  } focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none`}
-                />
+                <div>
+                  <input
+                    type={field.type}
+                    id={field.name}
+                    name={field.name}
+                    value={formData[field.name]}
+                    onChange={handleChange}
+                    min={field.min}
+                    maxLength={field.maxLength}
+                    className={`w-full px-4 py-3 rounded-lg border ${
+                      errors[field.name] ? 'border-red-500' : 'border-gray-200'
+                    } focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none`}
+                    placeholder={field.required ? '' : 'Optional'}
+                  />
+                  {errors[field.name] && (
+                    <p className="mt-1 text-sm text-red-600">{errors[field.name]}</p>
+                  )}
+                  {field.maxLength && (
+                    <div className="text-xs text-gray-500 mt-1">
+                      {formData[field.name]?.length || 0}/{field.maxLength} characters
+                    </div>
+                  )}
+                </div>
               )}
             </motion.div>
           ))}
