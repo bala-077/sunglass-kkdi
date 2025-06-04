@@ -47,7 +47,7 @@ const FORM_FIELDS = {
     { name: 'lastName', label: 'Last Name*', type: 'text', required: true, maxLength: 50 },
     { name: 'email', label: 'Email*', type: 'email', required: true },
     { name: 'company', label: 'Company*', type: 'text', required: true, maxLength: 100 },
-    { name: 'jobTitle', label: 'Job Title*', type: 'text', required: false, maxLength: 50 },
+    { name: 'jobTitle', label: 'Job Title*', type: 'text', required: true, maxLength: 50 },
     { name: 'country', label: 'Country*', type: 'select', required: true },
     { name: 'comments', label: 'Comments', type: 'textarea', required: false },
   ]
@@ -77,6 +77,7 @@ const ContactUs = () => {
   const [formData, setFormData] = useState(initialFormData);
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -179,6 +180,7 @@ const ContactUs = () => {
     }
 
     setIsSubmitting(true);
+    setIsSuccess(false);
 
     try {
       const response = await emailjs.send(
@@ -190,12 +192,14 @@ const ContactUs = () => {
       if (response.status === 200) {
         toast.success('Message sent successfully! We will contact you soon.');
         setFormData(initialFormData);
+        setIsSuccess(true);
       } else {
         throw new Error('Unexpected response status');
       }
     } catch (error) {
       console.error('EmailJS Error:', error);
       toast.error(`Failed to send message: ${error.text || 'Please try again later.'}`);
+      setIsSuccess(false);
     } finally {
       setIsSubmitting(false);
     }
@@ -210,7 +214,7 @@ const ContactUs = () => {
     <div className="min-h-screen flex flex-col items-center py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50">
       {/* <ToastContainer
         position="bottom-right"
-        autoClose={1000}
+        autoClose={5000}
         hideProgressBar={false}
         closeOnClick
         pauseOnHover
@@ -358,6 +362,17 @@ const ContactUs = () => {
           >
             {isSubmitting ? 'Sending...' : 'Send Message'}
           </motion.button>
+
+          {isSuccess && (
+            <motion.p 
+              className="md:col-span-2 text-center text-green-600 font-medium mt-2"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              Your message has been sent successfully! We'll get back to you soon.
+            </motion.p>
+          )}
         </div>
       </motion.div>
     </div>
