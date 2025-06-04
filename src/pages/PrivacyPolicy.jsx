@@ -27,7 +27,7 @@ const PrivacyPolicy = () => {
           <div className="flex flex-col  items-start  justify-center gap-1 sm:gap-2 text-sm sm:text-base text-gray-600 mb-1 md:items-center">
             <div className="flex items-start gap-4 text-start md:gap-3 md:items-center md:text-center ">
               <FaMapMarkerAlt className="text-indigo-500 text-2xl md:text-sm " />
-              <p className='text-xs md:text-sm'>Address: Dial Karaikudi, No.8 Muthoorani East, Muththupattinam, Karaikudi-630 001</p>
+              <p className='text-xs md:text-sm'>Address: Dial Karaikudi, No.8 Muthoorani East, Muthupattinam, Karaikudi-630 001</p>
             </div>
             <div className="flex items-center text-xs  text-start gap-2 sm:gap-3 mt-2 md:mt-0 md:text-sm md:text-center">
               <FaPhone className="text-indigo-500 rotate-90 text-xl md:text-sm" />
