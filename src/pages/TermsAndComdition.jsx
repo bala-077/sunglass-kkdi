@@ -30,7 +30,7 @@ const TermsAndComdition = () => {
           <h2 className="text-xl font-semibold mb-2 text-indigo-700">SUNGLASSCHETTINAD RETAIL PRIVATE LIMITED</h2>
           <div className="flex items-center justify-center gap-2 text-gray-600 mb-1">
             <FaMapMarkerAlt className="text-indigo-500" />
-            <p>Address: Dial Karaikudi, No.8 Muthoorani East, Muththupattinam, Karaikudi-630 001</p>
+            <p>Address: Dial Karaikudi, No.8 Muthoorani East, Muthupattinam, Karaikudi-630 001</p>
           </div>
           <div className="flex items-center justify-center gap-2 text-gray-600">
             <FaPhone className="text-indigo-500 rotate-90" />
