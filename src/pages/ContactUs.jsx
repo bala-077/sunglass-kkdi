@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -64,10 +62,8 @@ const ContactUs = () => {
   const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
   const PUBLIC_KEY = import.meta.env.VITE_PUBLIC_KEY;
 
-  // console.log(serviceID, "jherkjerjkerkjb")
   const location = useLocation();
   const slug = location?.state?.slug || 'default';
-  // Pick the correct fields for the slug
   const fields = FORM_FIELDS[slug] || FORM_FIELDS['default'];
 
   // Initialize formData with all possible fields
@@ -84,6 +80,7 @@ const ContactUs = () => {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -97,17 +94,23 @@ const ContactUs = () => {
       [name]: value
     }));
 
+    // Clear error when user starts typing
     if (errors[name]) {
       setErrors(prev => ({
         ...prev,
         [name]: null
       }));
     }
+
+    // Clear submission error when user makes any change
+    if (error) {
+      setError(null);
+    }
   };
 
   const validateForm = () => {
     const newErrors = {};
-    const phoneRegex = /^(\+?\d{1,3}[- ]?)?\d{10}$/; // Improved phone regex
+    const phoneRegex = /^(\+?\d{1,3}[- ]?)?\d{10}$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const nameRegex = /^[a-zA-Z\s'-]+$/;
     const today = new Date();
@@ -121,7 +124,6 @@ const ContactUs = () => {
         return;
       }
 
-      // Skip validation if field is not required and empty
       if (!field.required && !value) return;
 
       switch (field.type) {
@@ -181,12 +183,13 @@ const ContactUs = () => {
     e.preventDefault();
 
     if (!validateForm()) {
-      toast.error('Please fill all required fields correctly');
+      setError('Please fill all required fields correctly');
       return;
     }
 
     setIsSubmitting(true);
     setIsSuccess(false);
+    setError(null);
 
     try {
       const response = await emailjs.send(
@@ -196,16 +199,14 @@ const ContactUs = () => {
       );
 
       if (response.status === 200) {
-        // toast.success('Message sent successfully! We will contact you soon.');
         setFormData(initialFormData);
         setIsSuccess(true);
       } else {
-        throw new Error('Unexpected response status');
+        throw new Error('Failed to send message');
       }
     } catch (error) {
       console.error('EmailJS Error:', error);
-      toast.error(`Failed to send message: ${error.text || 'Please try again later.'}`);
-      setIsSuccess(false);
+      setError('Failed to send message. Please try again later or contact us directly.');
     } finally {
       setIsSubmitting(false);
       setTimeout(() => {
@@ -221,15 +222,6 @@ const ContactUs = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50">
-      {/* <ToastContainer
-        position="bottom-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        closeOnClick
-        pauseOnHover
-        className="w-full max-w-xs sm:max-w-sm"
-      /> */}
-
       <motion.div
         className="w-full max-w-4xl space-y-6 bg-white rounded-xl p-6 sm:p-8 md:p-10 shadow-2xl mx-2 sm:mx-4 border border-gray-100"
         initial="hidden"
@@ -367,6 +359,17 @@ const ContactUs = () => {
           >
             {isSubmitting ? 'Sending...' : 'Send Message'}
           </motion.button>
+
+          {error && (
+            <motion.p
+              className="md:col-span-2 text-center text-red-600 font-medium mt-2"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              {error}
+            </motion.p>
+          )}
 
           {isSuccess && (
             <motion.p
