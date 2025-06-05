@@ -4,12 +4,12 @@ import logo from '/Sunglasschettinad.png';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const navItems = [
-  { name: 'About Us', path: '/aboutus' },
-  { name: 'Digitaly AI Tech Solution ', path: '/digitaly-ai-solutions' },
-  { name: 'G-Tec', path: '/gtech' },
+  { name: 'About Us', path: '/about-us' },
+  { name: 'Digitaly AI Tech Solution ', path: '/digitaly-ai-tech-solutions' },
+  { name: 'G-Tec', path: '/g-tech' },
   { name: 'Event Management', path: '/event-management' },
   { name: 'FMCG', path: '/fmcg' },
-  { name: 'Contact Us', path: '/contact' },
+  { name: 'Contact Us', path: '/contact-us' },
 ];
 
 const Navbar = () => {

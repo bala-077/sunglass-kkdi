@@ -58,14 +58,14 @@ const App = () => {
           <Route path="*" element={<NotFoundPage />} />
           <Route path="/" element={<Mainlayout />}>
             <Route index element={<Home />} />
-            <Route path="gtech" element={<Gtech />} />
-            <Route path="digitaly-ai-solutions" element={<Digitaly />} />
-            <Route path="aboutus" element={<About />} />
+            <Route path="g-tech" element={<Gtech />} />
+            <Route path="digitaly-ai-tech-solutions" element={<Digitaly />} />
+            <Route path="about-us" element={<About />} />
             <Route path="event-management" element={<EventManagement />} />
             <Route path="fmcg" element={<Fmcg />} />
-            <Route path="contact" element={<ContactUs />} />
+            <Route path="contact-us" element={<ContactUs />} />
             <Route path="privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="terms-conditions" element={<TermsAndComdition />} />
+            <Route path="terms&conditions" element={<TermsAndComdition />} />
           </Route>
         </Routes>
       </Suspense>

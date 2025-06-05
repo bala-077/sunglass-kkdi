@@ -29,12 +29,12 @@ const Footer = () => {
             <ul className="space-y-2 md:space-y-3">
               {[
                 { path: '/', label: 'Home' },
-                { path: '/aboutus', label: 'About Us' },
-                { path: '/digitaly-ai-solutions', label: 'Digitaly AI Tech Solution' },
-                { path: '/gtech', label: 'G-TEC' },
+                { path: '/about-us', label: 'About Us' },
+                { path: '/digitaly-ai-tech-solutions', label: 'Digitaly AI Tech Solution' },
+                { path: '/g-tech', label: 'G-TEC' },
                 { path: '/event-management', label: 'Event Management' },
                 { path: '/fmcg', label: 'FMCG' },
-                { path: '/contact', label: 'Contact Us' },
+                { path: '/contact-us', label: 'Contact Us' },
               ].map((item, index) => (
                 <li key={index}>
                   <button
@@ -129,7 +129,7 @@ const Footer = () => {
           <div className="flex gap-4 md:order-2">
             {[
               { path: '/privacy-policy', label: 'Privacy Policy' },
-              { path: '/terms-conditions', label: 'Terms' },
+              { path: '/terms&conditions', label: 'Terms And Conditions' },
             ].map((item, index) => (
               <button
                 key={index}

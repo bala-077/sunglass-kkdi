@@ -190,7 +190,7 @@ const ContactUs = () => {
       );
 
       if (response.status === 200) {
-        toast.success('Message sent successfully! We will contact you soon.');
+        // toast.success('Message sent successfully! We will contact you soon.');
         setFormData(initialFormData);
         setIsSuccess(true);
       } else {
@@ -202,6 +202,9 @@ const ContactUs = () => {
       setIsSuccess(false);
     } finally {
       setIsSubmitting(false);
+      setTimeout(() => {
+        setIsSuccess(false);
+      }, 3000);
     }
   };
 
@@ -276,7 +279,7 @@ const ContactUs = () => {
                     ))}
                   </select>
                   {errors[field.name] && (
-                    <p className="mt-1 text-sm text-red-600">{errors[field.name]}</p>
+                    <p className="mt-1 text-sm text-end text-red-600">{errors[field.name]}</p>
                   )}
                 </div>
               ) : field.type === 'textarea' ? (
@@ -297,7 +300,7 @@ const ContactUs = () => {
                   </div>
                   <div className="flex justify-between">
                     {errors[field.name] ? (
-                      <p className="text-sm text-red-600">{errors[field.name]}</p>
+                      <p className="text-sm text-end text-red-600">{errors[field.name]}</p>
                     ) : (
                       <div className="text-sm text-gray-500">
                         {field.required ? '' : 'Optional field'}
@@ -322,7 +325,7 @@ const ContactUs = () => {
                     } focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none`}
                   />
                   {errors[field.name] && (
-                    <p className="mt-1 text-sm text-red-600">{errors[field.name]}</p>
+                    <p className="mt-1 text-end text-sm text-red-600">{errors[field.name]}</p>
                   )}
                 </div>
               ) : (
@@ -341,7 +344,7 @@ const ContactUs = () => {
                     placeholder={field.required ? '' : 'Optional'}
                   />
                   {errors[field.name] && (
-                    <p className="mt-1 text-sm text-red-600">{errors[field.name]}</p>
+                    <p className="mt-1 text-sm text-end text-red-600">{errors[field.name]}</p>
                   )}
                   {field.maxLength && (
                     <div className="text-xs text-gray-500 mt-1">
