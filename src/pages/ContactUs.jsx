@@ -270,8 +270,7 @@ const ContactUs = () => {
                     name={field.name}
                     value={formData[field.name]}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 rounded-lg border ${errors[field.name] ? 'border-red-500' : 'border-gray-200'
-                      } focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none`}
+                    className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none`}
                   >
                     <option value="">Select {field.label.replace('*', '')}</option>
                     {(field.options || COUNTRIES).map(option => (
@@ -294,8 +293,7 @@ const ContactUs = () => {
                       onChange={handleChange}
                       rows={4}
                       maxLength={250}
-                      className={`w-full px-4 py-3 rounded-lg border ${errors[field.name] ? 'border-red-500' : 'border-gray-200'
-                        } focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none`}
+                      className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none`}
                       placeholder={field.required ? '' : 'Optional'}
                     />
                   </div>
@@ -321,8 +319,7 @@ const ContactUs = () => {
                     value={formData[field.name]}
                     onChange={handleChange}
                     min={field.min || new Date().toISOString().split('T')[0]}
-                    className={`w-full px-4 py-3 rounded-lg border ${errors[field.name] ? 'border-red-500' : 'border-gray-200'
-                      } focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none`}
+                    className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none`}
                   />
                   {errors[field.name] && (
                     <p className="mt-1 text-end text-sm text-red-600">{errors[field.name]}</p>
@@ -338,8 +335,7 @@ const ContactUs = () => {
                     onChange={handleChange}
                     min={field.min}
                     maxLength={field.maxLength}
-                    className={`w-full px-4 py-3 rounded-lg border ${errors[field.name] ? 'border-red-500' : 'border-gray-200'
-                      } focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none`}
+                    className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none`}
                     placeholder={field.required ? '' : 'Optional'}
                   />
                   {errors[field.name] && (
