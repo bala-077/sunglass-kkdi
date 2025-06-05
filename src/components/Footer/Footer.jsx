@@ -124,7 +124,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="border-t border-gray-200 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 text-xs order-2 mt-3 md:mt-0">
-            &copy; {new Date().getFullYear()} Sunglass. All rights reserved.
+            &copy; {new Date().getFullYear()} Sunglass chettinad. All rights reserved.
           </p>
           <div className="flex gap-4 md:order-2">
             {[
