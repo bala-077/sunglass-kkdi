@@ -276,7 +276,7 @@ const EventManagement = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               className="cursor-pointer bg-gradient-to-r w-48 from-blue-600 to-indigo-500 hover:from-blue-700
-               hover:to-indigo-600 text-white font-semibold py-4 px-10 rounded-full shadow-lg transition-all flex items-center md:w-full"
+               hover:to-indigo-600 text-center text-white font-semibold py-4 px-10 rounded-full shadow-lg transition-all flex items-center md:w-full"
               onClick={() => navigate('/contact-us',  { state:  { slug: 'event-management' } })}
             >
               Get Started <FiArrowRight className="ml-2" />
