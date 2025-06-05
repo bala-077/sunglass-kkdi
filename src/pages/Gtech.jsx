@@ -169,7 +169,7 @@ const Gtech = () => {
           <motion.button
             whileHover={{ y: -3, boxShadow: '0 10px 25px -5px rgba(37, 99, 235, 0.4)' }}
             whileTap={{ scale: 0.98 }}
-            onClick={() => navigate('/contact', { state: { slug: 'gtech' }} )}
+            onClick={() => navigate('/contact-us', { state: { slug: 'gtech' }} )}
             className="bg-gradient-to-r from-blue-600 to-indigo-500 text-white px-5 py-3 rounded-lg hover:shadow-lg transition-all font-medium cursor-pointer"
           >
             Enroll Now
@@ -326,7 +326,7 @@ const Gtech = () => {
                 </div>
                 <div className={`bg-${program.color}-50 px-4 sm:px-5 py-2 border-t border-${program.color}-100`}>
                   <button 
-                    onClick={() => navigate('/contact', { state: { details: { slug: 'gtech', program: program.title } } })}
+                    onClick={() => navigate('/contact-us', { state: { details: { slug: 'gtech', program: program.title } } })}
                     className={`w-full text-center cursor-pointer text-${program.color}-600 font-medium hover:text-${program.color}-700 text-xs sm:text-sm`}
                   >
                     Get connect with team →
@@ -468,7 +468,7 @@ const Gtech = () => {
             className="inline-flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center"
           >
             <button 
-              onClick={() => navigate('/contact', { state: { details: { slug: 'gtech' } } })}
+              onClick={() => navigate('/contact-us', { state: { details: { slug: 'gtech' } } })}
               className="px-5 sm:px-6 py-2 sm:py-3 bg-white text-blue-600 font-bold rounded-lg shadow-md hover:bg-gray-100 transition-colors text-sm sm:text-base cursor-pointer"
             >
               Enroll Now

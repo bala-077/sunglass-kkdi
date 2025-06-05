@@ -6,10 +6,10 @@ import { useNavigate } from 'react-router-dom';
 import { FiArrowRight, FiCheck, FiChevronRight, FiAward, FiUsers, FiCode, FiLayers } from 'react-icons/fi';
 import { FaRobot, FaBrain, FaEye, FaComments } from 'react-icons/fa';
 import { TbRibbonHealth } from "react-icons/tb";
-import { FaIndustry } from 'react-icons/fa'; 
+import { FaIndustry } from 'react-icons/fa';
 import { SiWebmoney } from "react-icons/si";
 import { MdInsights, MdOutlineInsights } from 'react-icons/md';
-import { BsGraphUpArrow, BsBarChartLine } from 'react-icons/bs'; 
+import { BsGraphUpArrow, BsBarChartLine } from 'react-icons/bs';
 
 import user from '/user.png'
 const stats = [
@@ -62,7 +62,7 @@ const testimonials = [
     avatar: user
   },
   {
-    quote: "Exceptional team that delivered beyond our expectations. The predictive maintenance system has saved us millions in downtime costs.",
+    quote: "Exceptional team that delivered beyond our expectations. The predictive system has saved us millions in downtime costs.",
     author: "Shaji",
     avatar: user
   },
@@ -113,7 +113,7 @@ const Home = () => {
             >
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-indigo-200">
                 AI-Powered
-              </span>{' '} 
+              </span>{' '}
               <span className="text-white">Business Transformation</span>
             </motion.h1>
 
@@ -303,7 +303,7 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-xl p-8 shadow-lg border border-gray-100"
+                className="bg-white rounded-xl p-4 shadow-lg border border-gray-100"
               >
                 <div className="text-yellow-400 text-xl mb-4 flex">
                   {[...Array(5)].map((_, i) => (
@@ -346,7 +346,7 @@ const Home = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-white text-blue-600 font-semibold px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
-                onClick={() => navigate('/contact', { state: { slug: '/' } })}
+                onClick={() => navigate('/contact-us', { state: { slug: '/' } })}
               >
                 Get Free Consultation <FiArrowRight className="ml-1" />
               </motion.button>

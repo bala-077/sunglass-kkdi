@@ -132,7 +132,7 @@ const Digitaly = () => {
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <button
                                     className="bg-gradient-to-r from-blue-600 to-indigo-500 text-white px-5 py-3 rounded-lg hover:shadow-lg transition-all font-medium cursor-pointer"
-                                    onClick={() => navigate('/contact')}
+                                    onClick={() => navigate('/contact-us')}
                                 >
                                     Connect with us <FiArrowRight className="inline ml-2" />
                                 </button>
@@ -322,7 +322,7 @@ const Digitaly = () => {
                     <div className="flex flex-col sm:flex-row justify-center gap-4">
                         <button
                             className="bg-white text-blue-600 px-8 py-3 rounded-lg hover:shadow-lg transition-all font-medium cursor-pointer"
-                            onClick={() => navigate('/contact', { state:  { slug: 'digitaly-ai-solutions' } })}
+                            onClick={() => navigate('/contact-us', { state:  { slug: 'digitaly-ai-solutions' } })}
                         >
                             Get a Free Consultation
                         </button>

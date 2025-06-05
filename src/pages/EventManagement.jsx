@@ -56,7 +56,7 @@ const EventManagement = () => {
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
                   className="bg-gradient-to-r from-blue-600 to-indigo-500 text-white px-6 py-3 rounded-lg hover:shadow-lg transition-all font-medium cursor-pointer"
-                  onClick={() => navigate('/contact', { state:  { slug: 'event-management' } })}
+                  onClick={() => navigate('/contact-us', { state:  { slug: 'event-management' } })}
                 >
                   Plan Your Event <FiArrowRight className="inline ml-2" />
                 </button>
@@ -277,7 +277,7 @@ const EventManagement = () => {
             <button
               className="cursor-pointer bg-gradient-to-r w-48 from-blue-600 to-indigo-500 hover:from-blue-700
                hover:to-indigo-600 text-white font-semibold py-4 px-10 rounded-full shadow-lg transition-all flex items-center md:w-full"
-              onClick={() => navigate('/contact',  { state:  { slug: 'event-management' } })}
+              onClick={() => navigate('/contact-us',  { state:  { slug: 'event-management' } })}
             >
               Get Started <FiArrowRight className="ml-2" />
             </button>

@@ -58,7 +58,7 @@ const Fmcg = () => {
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <motion.button
                                     className="bg-gradient-to-r from-blue-600 to-indigo-500 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-lg hover:shadow-lg transition-all font-medium cursor-pointer text-sm sm:text-base"
-                                    onClick={() => navigate('/contact', { state: { slug: 'fmcg' } })}
+                                    onClick={() => navigate('/contact-us', { state: { slug: 'fmcg' } })}
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
                                 >
@@ -343,7 +343,7 @@ const Fmcg = () => {
                     <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
                         <button
                             className="cursor-pointer bg-gradient-to-r from-blue-600 to-indigo-500 hover:from-blue-700 hover:to-indigo-600 text-white font-semibold py-3 px-8 sm:py-4 sm:px-12 rounded-full shadow-lg transition-all flex items-center justify-center text-sm sm:text-base"
-                            onClick={() => navigate('/contact', { state: { slug: 'efmcg' } })}
+                            onClick={() => navigate('/contact-us', { state: { slug: 'efmcg' } })}
                         >
                             Get Started <FiArrowRight className="ml-2 sm:ml-3 text-lg sm:text-xl" />
                         </button>

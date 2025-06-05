@@ -100,7 +100,7 @@ const About = () => {
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
                   className="bg-gradient-to-r from-blue-600 to-indigo-500 text-white px-6 py-3 rounded-lg hover:shadow-lg transition-all font-medium cursor-pointer"
-                  onClick={() => navigate('/contact', { state:  { slug: 'aboutus' } })}
+                  onClick={() => navigate('/contact-us', { state:  { slug: 'aboutus' } })}
                 >
                   Connect with us <FiArrowRight className="inline ml-2" />
                 </button>
@@ -241,7 +241,7 @@ const About = () => {
             >
               <button
                 className="bg-white text-blue-600 px-8 py-3 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all cursor-pointer"
-                onClick={() => navigate('/contact')}
+                onClick={() => navigate('/contact-us')}
               >
                 Get Started Today
               </button>
