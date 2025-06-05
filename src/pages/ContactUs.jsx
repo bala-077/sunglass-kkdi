@@ -20,7 +20,7 @@ const FORM_FIELDS = {
   ],
   'fmcg': [
     { name: 'companyName', label: 'Company Name*', type: 'text', required: true, maxLength: 100 },
-    { name: 'contactPerson', label: 'Contact Person*', type: 'text', required: true, maxLength: 50 },
+    { name: 'contactPerson', label: 'Name*', type: 'text', required: true, maxLength: 50 },
     { name: 'email', label: 'Email*', type: 'email', required: true },
     { name: 'phone', label: 'Phone*', type: 'text', required: true, maxLength: 15 },
     { name: 'productInterest', label: 'Product Interest*', type: 'text', required: true, maxLength: 100 },
