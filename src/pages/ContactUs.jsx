@@ -183,7 +183,7 @@ const ContactUs = () => {
     e.preventDefault();
 
     if (!validateForm()) {
-      setError('Please fill all required fields correctly');
+      // setError('Please fill all required fields correctly');
       return;
     }
 
@@ -201,17 +201,22 @@ const ContactUs = () => {
       if (response.status === 200) {
         setFormData(initialFormData);
         setIsSuccess(true);
+        setTimeout(() => {
+          setIsSuccess(false);
+        }, 2000);
       } else {
         throw new Error('Failed to send message');
       }
     } catch (error) {
       console.error('EmailJS Error:', error);
       setError('Failed to send message. Please try again later or contact us directly.');
+      setTimeout(() => {
+        setError(null);
+      }, 2000);
     } finally {
       setIsSubmitting(false);
       setTimeout(() => {
-        setIsSuccess(false);
-      }, 3000);
+      }, 2000);
     }
   };
 
@@ -340,11 +345,11 @@ const ContactUs = () => {
                   {errors[field.name] && (
                     <p className="mt-1 text-sm text-end text-red-600">{errors[field.name]}</p>
                   )}
-                  {field.maxLength && (
+                  {/* {field.maxLength && (
                     <div className="text-xs text-gray-500 mt-1">
                       {formData[field.name]?.length || 0}/{field.maxLength} characters
                     </div>
-                  )}
+                  )} */}
                 </div>
               )}
             </motion.div>
