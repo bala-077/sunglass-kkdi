@@ -294,7 +294,6 @@ const ContactUs = () => {
                       rows={4}
                       maxLength={250}
                       className={`w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none`}
-                      placeholder={field.required ? '' : 'Optional'}
                     />
                   </div>
                   <div className="flex justify-between">
@@ -302,7 +301,6 @@ const ContactUs = () => {
                       <p className="text-sm text-end text-red-600">{errors[field.name]}</p>
                     ) : (
                       <div className="text-sm text-gray-500">
-                        {field.required ? '' : 'Optional field'}
                       </div>
                     )}
                     <div className="text-sm text-gray-500">
@@ -336,7 +334,6 @@ const ContactUs = () => {
                     min={field.min}
                     maxLength={field.maxLength}
                     className={`w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none`}
-                    placeholder={field.required ? '' : 'Optional'}
                   />
                   {errors[field.name] && (
                     <p className="mt-1 text-sm text-end text-red-600">{errors[field.name]}</p>
