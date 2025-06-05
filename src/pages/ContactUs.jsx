@@ -11,10 +11,10 @@ const FORM_FIELDS = {
     { name: 'studentName', label: 'Student Name*', type: 'text', required: true, maxLength: 50 },
     { name: 'email', label: 'Email*', type: 'email', required: true },
     { name: 'phone', label: 'Phone*', type: 'text', required: true, maxLength: 14 },
-    { 
-      name: 'grade', 
-      label: 'Education Level*', 
-      type: 'select', 
+    {
+      name: 'grade',
+      label: 'Education Level*',
+      type: 'select',
       options: ['School', 'UG (Undergraduate)', 'PG (Postgraduate)']
     },
     { name: 'school', label: 'School/College Name', type: 'text', required: false, maxLength: 100 },
@@ -29,9 +29,10 @@ const FORM_FIELDS = {
     { name: 'comments', label: 'Comments', type: 'textarea', required: false },
   ],
   'event-management': [
-    { name: 'eventType', label: 'Event Type*', type: 'select', 
-      options: ['Corporate Event', 'Wedding', 'Cultural Program', 'Promotional Event'], 
-      required: true 
+    {
+      name: 'eventType', label: 'Event Type*', type: 'select',
+      options: ['Corporate Event', 'Wedding', 'Cultural Program', 'Promotional Event'],
+      required: true
     },
     { name: 'eventDate', label: 'Event Date*', type: 'date', required: true, min: new Date().toISOString().split('T')[0] },
     { name: 'contactPerson', label: 'Contact Person*', type: 'text', required: true, maxLength: 50 },
@@ -59,6 +60,11 @@ const COUNTRIES = [
 ];
 
 const ContactUs = () => {
+  const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
+  const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
+  const PUBLIC_KEY = import.meta.env.VITE_PUBLIC_KEY;
+
+  // console.log(serviceID, "jherkjerjkerkjb")
   const location = useLocation();
   const slug = location?.state?.slug || 'default';
   // Pick the correct fields for the slug
@@ -81,8 +87,8 @@ const ContactUs = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    emailjs.init('_xS_bQ1zhNcYZ3um6');
-  }, []);
+    emailjs.init(PUBLIC_KEY);
+  }, [PUBLIC_KEY]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -106,10 +112,10 @@ const ContactUs = () => {
     const nameRegex = /^[a-zA-Z\s'-]+$/;
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-    
+
     fields.forEach(field => {
       const value = formData[field.name]?.trim();
-      
+
       if (field.required && !value) {
         newErrors[field.name] = `${field.label.replace('*', '')} is required`;
         return;
@@ -124,10 +130,10 @@ const ContactUs = () => {
             newErrors[field.name] = 'Enter a valid email (e.g., name@domain.com)';
           }
           break;
-          
+
         case 'text':
-          if (field.name.includes('Name') || field.name.includes('Person') || 
-              field.name === 'firstName' || field.name === 'lastName') {
+          if (field.name.includes('Name') || field.name.includes('Person') ||
+            field.name === 'firstName' || field.name === 'lastName') {
             if (!nameRegex.test(value)) {
               newErrors[field.name] = "Only letters, spaces, - or ' allowed";
             }
@@ -139,19 +145,19 @@ const ContactUs = () => {
             newErrors[field.name] = 'Invalid phone number format';
           }
           break;
-          
+
         case 'select':
           if (field.required && !value) {
             newErrors[field.name] = `Please select a ${field.label.replace('*', '')}`;
           }
           break;
-          
+
         case 'textarea':
           if (value && value.length < 10) {
             newErrors[field.name] = 'Please provide more details (minimum 10 characters)';
           }
           break;
-          
+
         case 'date':
           if (field.required && !value) {
             newErrors[field.name] = `Please select a ${field.label.replace('*', '')}`;
@@ -166,7 +172,7 @@ const ContactUs = () => {
           break;
       }
     });
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -184,8 +190,8 @@ const ContactUs = () => {
 
     try {
       const response = await emailjs.send(
-        'service_l8r7vo7',
-        'template_9qe2ykk',
+        SERVICE_ID,
+        TEMPLATE_ID,
         { ...formData, slug }
       );
 
@@ -267,9 +273,8 @@ const ContactUs = () => {
                     name={field.name}
                     value={formData[field.name]}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 rounded-lg border ${
-                      errors[field.name] ? 'border-red-500' : 'border-gray-200'
-                    } focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none`}
+                    className={`w-full px-4 py-3 rounded-lg border ${errors[field.name] ? 'border-red-500' : 'border-gray-200'
+                      } focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none`}
                   >
                     <option value="">Select {field.label.replace('*', '')}</option>
                     {(field.options || COUNTRIES).map(option => (
@@ -292,9 +297,8 @@ const ContactUs = () => {
                       onChange={handleChange}
                       rows={4}
                       maxLength={250}
-                      className={`w-full px-4 py-3 rounded-lg border ${
-                        errors[field.name] ? 'border-red-500' : 'border-gray-200'
-                      } focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none`}
+                      className={`w-full px-4 py-3 rounded-lg border ${errors[field.name] ? 'border-red-500' : 'border-gray-200'
+                        } focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none`}
                       placeholder={field.required ? '' : 'Optional'}
                     />
                   </div>
@@ -320,9 +324,8 @@ const ContactUs = () => {
                     value={formData[field.name]}
                     onChange={handleChange}
                     min={field.min || new Date().toISOString().split('T')[0]}
-                    className={`w-full px-4 py-3 rounded-lg border ${
-                      errors[field.name] ? 'border-red-500' : 'border-gray-200'
-                    } focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none`}
+                    className={`w-full px-4 py-3 rounded-lg border ${errors[field.name] ? 'border-red-500' : 'border-gray-200'
+                      } focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none`}
                   />
                   {errors[field.name] && (
                     <p className="mt-1 text-end text-sm text-red-600">{errors[field.name]}</p>
@@ -338,9 +341,8 @@ const ContactUs = () => {
                     onChange={handleChange}
                     min={field.min}
                     maxLength={field.maxLength}
-                    className={`w-full px-4 py-3 rounded-lg border ${
-                      errors[field.name] ? 'border-red-500' : 'border-gray-200'
-                    } focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none`}
+                    className={`w-full px-4 py-3 rounded-lg border ${errors[field.name] ? 'border-red-500' : 'border-gray-200'
+                      } focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none`}
                     placeholder={field.required ? '' : 'Optional'}
                   />
                   {errors[field.name] && (
@@ -367,7 +369,7 @@ const ContactUs = () => {
           </motion.button>
 
           {isSuccess && (
-            <motion.p 
+            <motion.p
               className="md:col-span-2 text-center text-green-600 font-medium mt-2"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}

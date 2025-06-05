@@ -83,7 +83,7 @@ const Footer = () => {
             </h4>
             <div className="space-y-4">
               <div>
-                <h5 className="font-bold underline text-sm text-gray-700 mb-1">Corporate Office</h5>
+                <h5 className="font-bold text-sm text-gray-700 mb-1">Corporate Office</h5>
                 <div className="flex items-start">
                   <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-2 rounded-lg mr-2 text-white shadow-md">
                     <FaMapMarkerAlt size={14} />
@@ -95,7 +95,7 @@ const Footer = () => {
               </div>
               
               <div>
-                <h5 className="font-bold underline text-sm text-gray-700 mb-1">Marketing Office</h5>
+                <h5 className="font-bold text-sm text-gray-700 mb-1">Marketing Office</h5>
                 <div className="flex items-start">
                   <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-2 rounded-lg mr-2 text-white shadow-md">
                     <FaMapMarkerAlt size={14} />
@@ -107,7 +107,7 @@ const Footer = () => {
               </div>
               
               <div>
-                <h5 className="font-bold underline text-sm text-gray-700 mb-1">Development Centre</h5>
+                <h5 className="font-bold text-sm text-gray-700 mb-1">Development Centre</h5>
                 <div className="flex items-start">
                   <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-2 rounded-lg mr-2 text-white shadow-md">
                     <FaMapMarkerAlt size={14} />

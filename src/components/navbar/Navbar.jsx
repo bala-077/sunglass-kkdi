@@ -36,9 +36,9 @@ const Navbar = () => {
             }}
           >
             <img 
-              src={logo} 
+              src='/header-logo.png' 
               alt="Logo" 
-              className="h-12 w-20 object-contain rounded-full transition-all duration-500" 
+              className="h-12 w-40 object-contain transition-all duration-500" 
             />
           </div>
 
