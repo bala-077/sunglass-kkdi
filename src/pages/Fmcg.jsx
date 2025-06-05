@@ -236,7 +236,7 @@ const Fmcg = () => {
                                     "Direct-to-retailer distribution",
                                     "Competitive margins",
                                     "Regular promotional support",
-                                    "Shelf-life management",
+                                    "Self-life management",
                                     "Market intelligence reports",
                                     "Dedicated account managers"
                                 ].map((item, index) => (
@@ -304,12 +304,12 @@ const Fmcg = () => {
                             {
                                 title: "Growth Partners",
                                 icon: <FaChartLine className="text-indigo-600 text-2xl sm:text-3xl" />,
-                                features: ["Shelf share expansion", "Visibility programs", "Sales analytics", "Retailer training"]
+                                features: ["Self share expansion", "Visibility programs", "Sales analytics", "Retailer training"]
                             },
                             {
                                 title: "Premium Services",
                                 icon: <FaPercentage className="text-amber-600 text-2xl sm:text-3xl" />,
-                                features: ["Cold chain distribution", "Premium positioning", "Experiential marketing", "Digital integrations"]
+                                features: ["Gold chain distribution", "Premium positioning", "Experiential marketing", "Digital integrations"]
                             }
                         ].map((service, index) => (
                             <div key={index} className="bg-gray-50 p-4 sm:p-6 rounded-xl border border-gray-200 hover:border-blue-300 transition-colors">

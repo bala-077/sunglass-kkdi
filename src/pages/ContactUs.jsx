@@ -234,7 +234,7 @@ const ContactUs = () => {
         variants={fadeIn}
       >
         <div className="text-center">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
+          <h2 className="text-[24px] sm:text-[24px] md:text-[32px] font-extrabold text-gray-900 mb-4">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500">
               Contact Us
             </span>
